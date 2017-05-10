@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="urgent">
+      <item>一般</item>
+      <item>紧急</item>
+      <item>特急</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>顺丰</item>
+        <item>圆通</item>
+        <item>韵达</item>
+        <item>中通</item>
+        <item>百世汇通</item>
+        <item>EMS</item>
+    </string-array>
+
+    <string-array name="specifications">
+          <item>小件</item>
+          <item>大件</item>
+    </string-array>
+
+    <string-array name="type2">
+        <item>单面</item>
+        <item>双面</item>
+    </string-array>
+
+    <string-array name="color">
+        <item>黑白</item>
+        <item>彩色</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:orientation="vertical">
+
+    <include layout="@layout/topbar" />
+
+    <ui.test.cn.xiaoyitong.customControls.MainScrollView
+        android:id="@+id/swipe_ly"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+        android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_nickname_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="昵称:"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/layout_release_customer_nickname"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_nickname_title"
+
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_type_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="请选择快递类型:"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/linerlayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/layout_release_customer_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="选择"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/buttom" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_specifications_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="请选择快递规格:"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/linerlayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/layout_release_customer_specifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="选择"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/buttom" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_picknumber_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="取货码:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/layout_release_customer_picknumber"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_picknumber_title"
+                    android:background="@drawable/editsharp"
+                    android:text="9527"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_phonenumber_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="联系电话:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/layout_release_customer_phonenumber"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_phonenumber_title"
+                    android:background="@drawable/editsharp"
+                    android:text="13558550380"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_name_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="真实姓名:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/layout_release_customer_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_name_title"
+                    android:background="@drawable/editsharp"
+                    android:text="陈飞"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_address_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="送达地址:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/layout_release_customer_address"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_address_title"
+                    android:background="@drawable/editsharp"
+                    android:text="交院二栋313"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_urgent_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="紧急情况:"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/linerlayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/layout_release_customer_urgent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="选择"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/buttom" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/layout_release_customer_price_title"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="价格:"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/layout_release_customer_price"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_release_customer_price_title"
+                    android:background="@drawable/editsharp"
+                    android:text="5.00"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ui.test.cn.xiaoyitong.customControls.MainScrollView>
+
+    <Button
+        android:id="@+id/layout_release_customer_confirmreleasebtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/themecolor"
+        android:text="确认发布"
+        android:textColor="@color/colorWhite" />
+</LinearLayout>

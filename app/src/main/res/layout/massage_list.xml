@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">>
+
+            <ImageView
+                android:id="@+id/locationImg"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:background="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/locationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="4dp"
+                    android:text="提刀上马在沉浮"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:text="3-15 17:34"
+                    android:textSize="9dp" />
+            </LinearLayout>
+
+
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="10dp"
+                    android:background="@mipmap/ic_launcher" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <EditText
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:textSize="12dp"
+        android:inputType="none"
+        android:background="@null"
+        android:textIsSelectable="true"
+        android:text="曾经我以为浪漫就是，
+和你一起去旅行，
+去游乐场，坐摩天轮，玩过山车；
+去日本看樱花，泡温泉；
+去马尔代夫，看日出，看日落；
+在没人认识的地方，手拉着手，看很多风景。" />
+</LinearLayout>

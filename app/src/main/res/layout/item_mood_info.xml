@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mood_body"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="12dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/user_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/userimg"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/user_img"
+            android:text="普通的APP"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/lc_chat"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_alignParentRight="true"
+            android:padding="8dp"
+            android:src="@drawable/icon_chat"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <ui.test.cn.xiaoyitong.emo.EmojiconTextView
+        android:id="@+id/mood_info"
+        app:emojiconAlignment="baseline"
+        app:emojiconSize="28sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="3dp"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="2dp"
+        android:text="普通的APP"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/mood_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/user_img"
+        android:text="普通的APP"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_marginTop="10dp"
+        android:background="#ededed"
+        android:visibility="gone"/>
+
+</LinearLayout>

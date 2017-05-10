@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="学生认证"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="学号:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="身份证号:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="真实姓名:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="密码:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text="确认密码:"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/user_upgrade_id"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+            <EditText
+                android:id="@+id/user_upgrade_idcard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+
+            <EditText
+                android:id="@+id/user_upgrade_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+
+            <EditText
+                android:id="@+id/user_upgrade_password"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:password="true"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+            <EditText
+                android:id="@+id/user_upgrade_confpassword"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:password="true"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/user_upgrade_authentication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="认证"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"/>
+</LinearLayout>

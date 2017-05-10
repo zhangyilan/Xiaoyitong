@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mood_action"
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:baselineAligned="false"
+    android:gravity="right"
+    android:layout_marginRight="20dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/mf_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="我的"
+            android:focusable="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_comment"/>
+
+        <TextView
+            android:id="@+id/mf_comment_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mf_like"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="false"
+        android:gravity="center"
+        android:layout_marginLeft="40dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mf_like_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="我的"
+            android:focusable="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_like"/>
+
+        <TextView
+            android:id="@+id/mf_like_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="0"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+</LinearLayout>

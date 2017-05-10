@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ui.test.cn.xiaoyitong">
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="8"
+        tools:ignore="OldTargetApi" />
+
+    <!-- 这个权限用于允许程序在手机屏幕关闭后后台进程仍然运行 -->
+    <user-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 地图SDK（包含其搜索功能）需要的基础权限 -->
+
+
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name=".GetContext.MyApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".LyoutHandle.PayDemoActivity" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58feda36b27b0a58360008b4"></meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="2bd6718fcfba4c952b6560cdbc921b1d"></meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID"></meta-data>
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="3ANBZ-FDQRW-U5ZRN-RGLXO-CRSVO-MNFCN" />
+
+        <receiver android:name=".backgroundlbs.recevier.BootCompletReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7834d3c44f1fb2a842c3777f3aee8488" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity android:name=".ui.GuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.BeasActivity" />
+        <activity android:name=".ui.FirstActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.MoodActivity" />
+        <activity
+            android:name=".ui.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity android:name=".ui.TouristActivity" />
+        <activity
+            android:name=".ui.ChatActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.AddContactActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".ui.NewFriendsMsgActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide" />
+        <activity
+            android:name=".ui.ForwardMessageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/horizontal_slide"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.ContextMenu"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".ui.AlertDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyle" />
+        <activity android:name=".MassOrganization.DetailsActivity" />
+        <activity
+            android:name=".MassOrganization.SpaceImageDetailActivity"
+            android:theme="@style/AppTheme1" />
+        <activity android:name=".ui.sonfragmeng.Courses" />
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Navi.LocationActivity" />
+        <activity android:name=".Navi.LocationaActivity" />
+        <activity android:name=".Navi.LocationbActivity" />
+        <activity android:name=".Navi.WalkActivity" />
+        <activity android:name=".Navi.DriveActivity" />
+        <activity android:name=".ui.sonfragmeng.PersonalActiity" />
+        <activity android:name=".ui.sonfragmeng.MenuGrandFind" />
+        <activity android:name=".ui.sonfragmeng.MenuGandFind_detail" />
+        <activity android:name=".LyoutHandle.ReceiveExpressHandle" />
+        <activity android:name=".LyoutHandle.ExpressDetailedHandle" />
+        <activity android:name=".LyoutHandle.ExpressListHandle" />
+        <activity android:name=".LyoutHandle.CloudDetailedHandle" />
+        <activity android:name=".LyoutHandle.CloudReleaseHandle" />
+        <activity android:name=".LyoutHandle.CloudRecyclerViewHandle" />
+        <activity android:name=".ui.sonfragmeng.ShetuanActivity" />
+        <activity android:name=".ui.sonfragmeng.newsMainActivity" />
+        <activity android:name=".ui.sonfragmeng.Content_Activity" />
+        <!-- 开机自启动服务 -->
+        <receiver android:name="com.easemob.chat.StartServiceReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+        <!-- 设置环信应用的appkey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1146170325115028#schoolmessage" />
+        <!-- 声明sdk所需的service -->
+        <service android:name="com.easemob.chat.EMChatService" />
+
+        <activity android:name=".ui.sonfragmeng.EatActivity" />
+        <activity android:name=".ui.sonfragmeng.BaodaoActivity" />
+        <activity android:name=".ui.sonfragmeng.Courses_login" />
+        <activity android:name=".ui.sonfragmeng.SchoolHistoryMainActivity" />
+        <activity android:name=".ui.sonfragmeng.School_history_image" />
+        <activity android:name=".ui.UserUpgradehandle"></activity>
+    </application>
+
+</manifest>

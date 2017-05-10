@@ -1,0 +1,439 @@
+package ui.test.cn.xiaoyitong.ui;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
+
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ui.test.cn.xiaoyitong.LyoutHandle.ExpressListHandle;
+import ui.test.cn.xiaoyitong.Navi.LocationActivity;
+import ui.test.cn.xiaoyitong.Navi.LocationbActivity;
+import ui.test.cn.xiaoyitong.R;
+import ui.test.cn.xiaoyitong.adapter.GridviewAdapter;
+import ui.test.cn.xiaoyitong.adviewpagermanger.ADBean;
+import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
+import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
+import ui.test.cn.xiaoyitong.httpHelper.Httphalper;
+import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.MenuGrandFind;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.SchoolHistoryMainActivity;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.ShetuanActivity;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.newsMainActivity;
+import ui.test.cn.xiaoyitong.utils.HttpUtil;
+
+/**
+ * Created by asus on 2017/4/2.
+ */
+
+public class FirstFragment extends Fragment {
+    private Button img;
+    private PopupWindow mPopupWindow;
+    private Button mButton;
+    private View view, view1, view2;
+    private int screenwidth;
+    private GridView gridview;
+    private LinearLayout newsLinearLayout;
+    /**
+     * 轮播图对象列表
+     */
+    private List<ADBean> listADbeans;
+
+    private ViewFlipper mFlipper;//新闻头条
+
+    private String[] ad_imgurls = {
+            "http://www.zhangyilan.me/img/adimg/img1.jpg",
+            "http://www.zhangyilan.me/img/adimg/img2.jpg",
+            "http://www.zhangyilan.me/img/adimg/img3.png",
+            "http://www.zhangyilan.me/img/adimg/img4.jpg",
+            "http://www.zhangyilan.me/img/adimg/img5.jpg"};
+    //新闻轮播
+    private String newsurl = "http://www.zhangyilan.me/news/test.html";
+
+    private TuTu tu;
+    private Context mContext;
+    private ViewPager ad_viewpager;
+    private LinearLayout ll_dian;
+    private TextView newstxt1, newstxt2, newstxt3, newstxt4, newstxt5;
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.tab01, container, false);
+
+//        view1 = getActivity().getLayoutInflater().inflate(R.layout.popwindow_item, null);
+        mContext = getContext();
+        intview();
+        topbar();
+        gridview = (GridView) view.findViewById(R.id.gridview);
+        gridview.setAdapter(new GridviewAdapter(getContext()));
+        WindowManager windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics out = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(out);
+        screenwidth = out.widthPixels;
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(getActivity(), ExpressListHandle.class);
+                    startActivity(intent);
+                }
+
+                if (position == 1) {
+//                    Intent intent = new Intent(getActivity(),CloudRecyclerViewHandle.class);
+//                    startActivity(intent);
+                    //成绩查询跳转
+                    SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
+                    String user_name = share.getString("user_name", "没有登陆");
+                    Log.d("user_name", user_name);
+                    if (user_name.equals("没有登陆")) {
+                        Toast.makeText(getContext(), "您还未登陆,请登陆", Toast.LENGTH_SHORT).show();
+                        getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+                    } else {
+                        String url = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=get_formal&user=" + user_name + "";
+                        HttpUtil httpUtil = new HttpUtil();
+                        if (httpUtil.isNetworkAvailable(getActivity())) {
+                            httpUtil.getData(url, new HttpCallback() {
+                                @Override
+                                public void onFinish(String respose) {
+                                    Message message = new Message();
+                                    message.what = 1;
+                                    message.obj = respose;
+                                    handler.sendMessage(message);
+                                }
+
+                                @Override
+                                public void onerror(Exception e) {
+                                }
+                            });
+                        }
+                    }
+                }
+                if (position == 2) {
+                    SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
+                    String user_name = share.getString("user_name", "没有登陆");
+                    Log.d("user_name", user_name);
+                    if (user_name.equals("没有登陆")) {
+                        Toast.makeText(getActivity(), "您还未登陆,请登陆", Toast.LENGTH_SHORT).show();
+                        getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+                    } else {
+                        String url = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=get_formal&user=" + user_name + "";
+                        HttpUtil httpUtil = new HttpUtil();
+                        if (httpUtil.isNetworkAvailable(getActivity())) {
+                            httpUtil.getData(url, new HttpCallback() {
+                                @Override
+                                public void onFinish(String respose) {
+                                    Message message = new Message();
+                                    message.what = 2;
+                                    message.obj = respose;
+                                    handler.sendMessage(message);
+
+                                }
+
+                                @Override
+                                public void onerror(Exception e) {
+                                }
+                            });
+                        }
+                    }
+                }
+
+                if (position == 3) {
+                    Intent intent = new Intent(getActivity(), LocationActivity.class);
+                    startActivity(intent);
+                }
+                if (position == 4) {
+                    Intent intent = new Intent(getActivity(), LocationbActivity.class);
+                    startActivity(intent);
+
+                }
+                if (position == 5) {
+                    Intent intent = new Intent(getActivity(), BaodaoActivity.class);
+                    startActivity(intent);
+                }
+                if (position == 6) {
+                    Intent intent = new Intent(getActivity(), SchoolHistoryMainActivity.class);
+                    startActivity(intent);
+                }
+                if (position == 7) {
+                    Intent intent = new Intent(getActivity(), ShetuanActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+        initAD();
+        initNews();
+
+        Log.d("aaa", "即将执行了发送请求");
+        Httphalper.sendHttpRespose(newsurl, new HttpCallback() {
+            @Override
+            public void onFinish(String respose) {
+                Log.d("aaa", "即将执行了发送请求");
+                Message message = new Message();
+                message.what = 0;
+                message.obj = respose;
+                handler.sendMessage(message);
+            }
+
+            @Override
+            public void onerror(Exception e) {
+                Toast.makeText(getContext(), "服务器故障!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
+    }
+
+    /**
+     * 初始化轮播图
+     */
+    private void initAD() {
+        listADbeans = new ArrayList<ADBean>();
+        for (int i = 0; i < 5; i++) {
+            ADBean bean = new ADBean();
+            bean.setId(i + "");
+            bean.setImgUrl(ad_imgurls[i]);
+            listADbeans.add(bean);
+        }
+        tu = new TuTu(ad_viewpager, ll_dian, mContext, listADbeans);
+        tu.startViewPager(4000);//动态设置滑动间隔，并且开启轮播图
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void intview() {
+
+//        img = (Button) view1.findViewById(R.id.button);
+        ad_viewpager = (ViewPager) view.findViewById(R.id.ad_viewpage);
+        ll_dian = (LinearLayout) view.findViewById(R.id.ll_dian);
+        newsLinearLayout = (LinearLayout) view.findViewById(R.id.news_linearlayout);
+        newstxt1 = (TextView) view.findViewById(R.id.news_txt1);
+        newstxt2 = (TextView) view.findViewById(R.id.news_txt2);
+        newstxt3 = (TextView) view.findViewById(R.id.news_txt3);
+        newstxt4 = (TextView) view.findViewById(R.id.news_txt4);
+        newstxt5 = (TextView) view.findViewById(R.id.news_txt5);
+
+        mPopupWindow = new PopupWindow(view1, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setWidth(400);
+        mPopupWindow.setHeight(700);
+        mPopupWindow.setBackgroundDrawable(new ColorDrawable());
+        mPopupWindow.setFocusable(true);
+        //背景图
+        Drawable statusQuestionDrawable = getActivity().getResources().getDrawable(R.drawable.popup_bg);
+        mPopupWindow.setBackgroundDrawable(statusQuestionDrawable);
+        newsLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), newsMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                // popupWindow隐藏时恢复屏幕正常透明度
+                WindowManager.LayoutParams lp = ((Activity) getContext()).getWindow()
+                        .getAttributes();
+                lp.alpha = 1.0f;
+                ((Activity) getContext()).getWindow().setAttributes(lp);
+
+            }
+        });
+
+    }
+
+
+    /**
+     * 初始化新闻头条
+     */
+    private void initNews() {
+        newstxt1 = (TextView) view.findViewById(R.id.news_txt1);
+        newstxt2 = (TextView) view.findViewById(R.id.news_txt2);
+        newstxt3 = (TextView) view.findViewById(R.id.news_txt3);
+        newstxt4 = (TextView) view.findViewById(R.id.news_txt4);
+        newstxt5 = (TextView) view.findViewById(R.id.news_txt5);
+
+        mFlipper = (ViewFlipper) view.findViewById(R.id.flipper);
+        mFlipper.setInAnimation(AnimationUtils.loadAnimation(getContext(),
+                R.anim.push_up_in));
+        mFlipper.setOutAnimation(AnimationUtils.loadAnimation(getContext(),
+                R.anim.push_up_out));
+        mFlipper.startFlipping();
+    }
+
+    public Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    String data = (String) msg.obj;
+                    List<String> newstitle = new ArrayList<>();
+                    newstitle = JsonHelper.jsonjiesi(data);
+                    newstxt1.setText(newstitle.get(0));
+                    newstxt2.setText(newstitle.get(1));
+                    newstxt3.setText(newstitle.get(2));
+                    newstxt4.setText(newstitle.get(3));
+                    newstxt5.setText(newstitle.get(5));
+                    break;
+                case 1:
+                    if (msg.obj.equals("true")) {
+                        startActivity(new Intent(getActivity(), MenuGrandFind.class));
+                    } else {
+                        new android.app.AlertDialog.Builder(getActivity()).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(getActivity(), "跳转中", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getActivity(), UserUpgradehandle.class);
+                                        startActivity(intent);
+                                    }
+                                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).show();
+                    }
+                    break;
+                case 2:
+                    if (msg.obj.equals("true")) {
+                        startActivity(new Intent(getActivity(), Courses_login.class));
+                    } else {
+                        new android.app.AlertDialog.Builder(getActivity()).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast.makeText(getActivity(), "跳转中", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getActivity(), UserUpgradehandle.class);
+                                        startActivity(intent);
+                                    }
+                                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).show();
+                    }
+                    break;
+                default:
+                    Toast.makeText(getContext(), "没有访问到数据", Toast.LENGTH_LONG).show();
+                    break;
+
+            }
+
+        }
+    };
+
+    private void topbar() {
+        final PopupWindow mPopupWindow = new PopupWindow(LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null), android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setWidth(400);
+        mPopupWindow.setHeight(600);
+        mPopupWindow.setBackgroundDrawable(new ColorDrawable());
+        mPopupWindow.setFocusable(true);
+        mPopupWindow.setOnDismissListener(new poponDismissListener());
+        //背景图
+        Drawable statusQuestionDrawable = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            statusQuestionDrawable = getActivity().getDrawable(R.drawable.popup_bg);
+        }
+        mPopupWindow.setBackgroundDrawable(statusQuestionDrawable);
+        Button btn_add = (Button) view.findViewById(R.id.button);
+        // 进入添加好友页
+        btn_add.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddContactActivity.class));
+            }
+        });
+        Button btn_popup = (Button) view.findViewById(R.id.button_pop);
+        btn_popup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation scaleAnimation =
+                        new ScaleAnimation(0f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 0.5f,
+                                Animation.RELATIVE_TO_SELF, 0.5f);
+                // 设置动画执行的时间（单位：毫秒）
+                scaleAnimation.setDuration(3000);
+                //Interpolator类主要是用来控制android动画的执行速率
+                scaleAnimation.setInterpolator(new BounceInterpolator());
+                scaleAnimation.setFillEnabled(true);
+                scaleAnimation.setFillAfter(true);
+
+                scaleAnimation.start();
+                setBackgroundAlpha(0.5f);
+                mPopupWindow.showAsDropDown(v);
+            }
+
+            /**
+             * 设置添加屏幕的背景透明度
+             * 屏幕透明度0.0-1.0 1表示完全不透明
+             */
+            public void setBackgroundAlpha(float bgAlpha) {
+
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                    WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+                lp.alpha = bgAlpha;
+                getActivity().getWindow().setAttributes(lp);
+            }
+        });
+    }
+
+    class poponDismissListener implements PopupWindow.OnDismissListener {
+
+        @Override
+        public void onDismiss() {
+
+            WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+//                    WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+            lp.alpha = 1f;
+            getActivity().getWindow().setAttributes(lp);
+        }
+
+    }
+
+
+}

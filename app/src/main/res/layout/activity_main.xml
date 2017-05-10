@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hyman="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <ui.test.cn.xiaoyitong.uiManger.SlidingMenu
+        android:id="@+id/qqq"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        hyman:rightPadding="80dp"
+        android:background="@drawable/menu_backround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <include layout="@layout/left_menu"/>
+
+            <include layout="@layout/fragmenttab"/>
+        </LinearLayout>
+
+    </ui.test.cn.xiaoyitong.uiManger.SlidingMenu>
+
+</RelativeLayout>

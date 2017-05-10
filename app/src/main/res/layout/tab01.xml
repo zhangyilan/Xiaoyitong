@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:orientation="vertical">
+
+    <include layout="@layout/top" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbarThumbVertical="@drawable/scrollstylea">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/ad_viewpage"
+                android:layout_width="match_parent"
+                android:layout_height="190dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_dian"
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="-15dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="3dp" />
+
+            <LinearLayout
+                android:id="@+id/news_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="#fff"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/news" />
+                </LinearLayout>
+
+                <ViewFlipper
+                    android:id="@+id/flipper"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:flipInterval="3000">
+
+                    <TextView
+                        android:id="@+id/news_txt1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:text="惊人！四川发生XXX杀人事件"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/news_txt2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:text="夏天，你认为四川可以放高温假吗？"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/news_txt3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:text="我这么美，不能死在课堂上"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/news_txt4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:text="为什么大学身喜欢打LOL？"
+                        android:textSize="15sp" />
+
+
+                    <TextView
+                        android:id="@+id/news_txt5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_horizontal"
+                        android:text="第六届创业大赛即将开始"
+                        android:textSize="15sp" />
+                </ViewFlipper>
+
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="236dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:horizontalSpacing="3dp"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="3dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

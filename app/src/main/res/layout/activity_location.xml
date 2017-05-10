@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="ui.test.cn.xiaoyitong.Navi.LocationActivity">
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/luxian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button"
+            android:paddingBottom="8dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="8dp"
+            android:text="路线"
+            android:textColor="#ffffff" />
+
+
+    </com.amap.api.maps.MapView>
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+     android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/weixing"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:padding="0dp"
+            android:text="卫星" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/lukuang"
+            android:layout_width="40dp"
+            android:padding="0dp"
+            android:layout_height="30dp"
+            android:text="路况" />
+
+
+    </LinearLayout>
+</RelativeLayout>

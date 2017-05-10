@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\view_actionsheet.xml",
+        "source": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\bundles\\debug\\res\\layout\\view_actionsheet.xml"
+    },
+    {
+        "merged": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\view_alertdialog.xml",
+        "source": "C:\\Users\\renba\\Desktop\\xiaoyitong\\iOS_Dialog_Library\\build\\intermediates\\bundles\\debug\\res\\layout\\view_alertdialog.xml"
+    }
+]
