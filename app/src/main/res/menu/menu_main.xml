@@ -8,15 +8,13 @@
         android:id="@+id/webview"
         android:icon="@drawable/icon_blog"
         android:orderInCategory="80"
-        android:title="web"
-        app:showAsAction="ifRoom" />
+        android:title="web" />
 
     <item
         android:id="@+id/weibo"
         android:icon="@drawable/icon_weibo"
         android:orderInCategory="90"
-        android:title="weibo"
-        app:showAsAction="ifRoom" />
+        android:title="weibo" />
 
     <item
         android:id="@+id/action_settings"
