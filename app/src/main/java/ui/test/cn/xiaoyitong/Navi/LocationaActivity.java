@@ -80,7 +80,6 @@ public class  LocationaActivity extends SwipeBackActivity {
                 intent.putExtra("x", listaddress.get(position).getX());
                 intent.putExtra("y", listaddress.get(position).getY());
                 startActivity(intent);
-
             }
         });
         biaoti = (TextView) findViewById(R.id.biaoti);
@@ -93,7 +92,6 @@ public class  LocationaActivity extends SwipeBackActivity {
         });
         biaoti.setText("步行路线");
     }
-
     private void creatdb() {
         MyDatabaseHelper my = new MyDatabaseHelper(this, "location.db", null, 1);
         my.getWritableDatabase();
@@ -104,7 +102,6 @@ public class  LocationaActivity extends SwipeBackActivity {
             Toast.makeText(this, "没网络", Toast.LENGTH_SHORT).show();
         }
     }
-
     private void startService() {
         boolean aa = Utils.isServiceWork(this, "com.renbaojia.newcomers.background.LocationService");
         if (aa) {
