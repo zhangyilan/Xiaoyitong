@@ -28,12 +28,12 @@
         "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",

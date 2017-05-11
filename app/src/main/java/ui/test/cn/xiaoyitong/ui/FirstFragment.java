@@ -34,8 +34,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.readystatesoftware.systembartint.SystemBarTintManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -366,7 +364,36 @@ public class FirstFragment extends Fragment {
     };
 
     private void topbar() {
-        final PopupWindow mPopupWindow = new PopupWindow(LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null), android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        View mPopupWindowview = LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null);
+        LinearLayout ll_item1 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item1);
+        ll_item1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "点击1", Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayout ll_item2 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item2);
+        ll_item2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "点击2", Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayout ll_item3 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item3);
+        ll_item3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "点击3", Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayout ll_item4 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item4);
+        ll_item4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "点击4", Toast.LENGTH_SHORT).show();
+            }
+        });
+        final PopupWindow mPopupWindow = new PopupWindow(mPopupWindowview, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setWidth(400);

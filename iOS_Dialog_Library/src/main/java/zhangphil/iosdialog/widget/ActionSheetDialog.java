@@ -39,14 +39,14 @@ public class ActionSheetDialog {
 	}
 
 	public ActionSheetDialog builder() {
-		// »ñÈ¡Dialog²¼¾Ö
+		// ï¿½ï¿½È¡Dialogï¿½ï¿½ï¿½ï¿½
 		View view = LayoutInflater.from(context).inflate(
 				R.layout.view_actionsheet, null);
 
-		// ÉèÖÃDialog×îÐ¡¿í¶ÈÎªÆÁÄ»¿í¶È
+		// ï¿½ï¿½ï¿½ï¿½Dialogï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Îªï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 		view.setMinimumWidth(display.getWidth());
 
-		// »ñÈ¡×Ô¶¨ÒåDialog²¼¾ÖÖÐµÄ¿Ø¼þ
+		// ï¿½ï¿½È¡ï¿½Ô¶ï¿½ï¿½ï¿½Dialogï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¿Ø¼ï¿½
 		sLayout_content = (ScrollView) view.findViewById(R.id.sLayout_content);
 		lLayout_content = (LinearLayout) view
 				.findViewById(R.id.lLayout_content);
@@ -59,7 +59,7 @@ public class ActionSheetDialog {
 			}
 		});
 
-		// ¶¨ÒåDialog²¼¾ÖºÍ²ÎÊý
+		// ï¿½ï¿½ï¿½ï¿½Dialogï¿½ï¿½ï¿½ÖºÍ²ï¿½ï¿½ï¿½
 		dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
 		dialog.setContentView(view);
 		Window dialogWindow = dialog.getWindow();
@@ -92,9 +92,9 @@ public class ActionSheetDialog {
 	/**
 	 * 
 	 * @param strItem
-	 *            ÌõÄ¿Ãû³Æ
+	 *            ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
 	 * @param color
-	 *            ÌõÄ¿×ÖÌåÑÕÉ«£¬ÉèÖÃnullÔòÄ¬ÈÏÀ¶É«
+	 *            ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nullï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½É«
 	 * @param listener
 	 * @return
 	 */
@@ -107,16 +107,13 @@ public class ActionSheetDialog {
 		return this;
 	}
 
-	/** ÉèÖÃÌõÄ¿²¼¾Ö */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ */
 	private void setSheetItems() {
 		if (sheetItemList == null || sheetItemList.size() <= 0) {
 			return;
 		}
 
 		int size = sheetItemList.size();
-
-		// TODO ¸ß¶È¿ØÖÆ£¬·Ç×î¼Ñ½â¾ö°ì·¨
-		// Ìí¼ÓÌõÄ¿¹ý¶àµÄÊ±ºò¿ØÖÆ¸ß¶È
 		if (size >= 7) {
 			LinearLayout.LayoutParams params = (LayoutParams) sLayout_content
 					.getLayoutParams();
@@ -124,7 +121,6 @@ public class ActionSheetDialog {
 			sLayout_content.setLayoutParams(params);
 		}
 
-		// Ñ­»·Ìí¼ÓÌõÄ¿
 		for (int i = 1; i <= size; i++) {
 			final int index = i;
 			SheetItem sheetItem = sheetItemList.get(i - 1);
@@ -137,7 +133,7 @@ public class ActionSheetDialog {
 			textView.setTextSize(18);
 			textView.setGravity(Gravity.CENTER);
 
-			// ±³¾°Í¼Æ¬
+			// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
 			if (size == 1) {
 				if (showTitle) {
 					textView.setBackgroundResource(R.drawable.actionsheet_bottom_selector);
@@ -162,7 +158,7 @@ public class ActionSheetDialog {
 				}
 			}
 
-			// ×ÖÌåÑÕÉ«
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 			if (color == null) {
 				textView.setTextColor(Color.parseColor(SheetItemColor.Blue
 						.getName()));
@@ -170,13 +166,13 @@ public class ActionSheetDialog {
 				textView.setTextColor(Color.parseColor(color.getName()));
 			}
 
-			// ¸ß¶È
+			// ï¿½ß¶ï¿½
 			float scale = context.getResources().getDisplayMetrics().density;
 			int height = (int) (45 * scale + 0.5f);
 			textView.setLayoutParams(new LinearLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, height));
 
-			// µã»÷ÊÂ¼þ
+			// ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 			textView.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {

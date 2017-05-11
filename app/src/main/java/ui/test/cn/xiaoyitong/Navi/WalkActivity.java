@@ -41,7 +41,6 @@ public class WalkActivity extends BaseActivity {
         tintManager.setStatusBarTintResource(R.color.blacka);
         setContentView(R.layout.activity_way);
         Intent intent = getIntent();
-        String a = intent.getStringExtra("data_return");
         X = intent.getStringExtra("x");
         Y = intent.getStringExtra("y");
         mEndLatlng=new NaviLatLng(Double.valueOf(X),Double.valueOf(Y));

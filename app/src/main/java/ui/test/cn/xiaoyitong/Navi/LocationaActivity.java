@@ -76,9 +76,7 @@ public class  LocationaActivity extends SwipeBackActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String location = listaddress.get(position).getAddress();
                 Intent intent = new Intent(LocationaActivity.this, WalkActivity.class);
-                intent.putExtra("data_return", location);
                 intent.putExtra("x", listaddress.get(position).getX());
                 intent.putExtra("y", listaddress.get(position).getY());
                 startActivity(intent);
