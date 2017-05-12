@@ -21,6 +21,10 @@ import ui.test.cn.xiaoyitong.utils.DemoHXSDKHelper;
  */
 
 public class MyApplication extends Application {
+
+    // 用于存放倒计时时间
+    public static Map<String, Long> map;
+
     private static Context context;
 
     public static Context applicationContext;

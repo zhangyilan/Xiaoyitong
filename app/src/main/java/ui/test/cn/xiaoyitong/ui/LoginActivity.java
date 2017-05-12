@@ -10,12 +10,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
+import android.text.Selection;
+import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,8 +55,10 @@ public class LoginActivity extends Activity {
     public static final int REQUEST_CODE_SETNICK = 1;
     private EditText usernameEditText;
     private EditText passwordEditText;
-//    private TextView btn_tourist;
     private TextView btn_register;
+    private ImageView mImg_Background;
+    private ImageView iv_hide;
+    private ImageView iv_show;
 
     private boolean progressShow;
     private boolean autoLogin = false;
@@ -104,6 +113,48 @@ public class LoginActivity extends Activity {
         if (MyApplication.getInstance().getUserName() != null) {
             usernameEditText.setText(MyApplication.getInstance().getUserName());
         }
+        iv_hide = (ImageView) findViewById(R.id.iv_hide);
+        iv_show = (ImageView) findViewById(R.id.iv_show);
+        iv_hide.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                iv_hide.setVisibility(View.GONE);
+                iv_show.setVisibility(View.VISIBLE);
+                passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                // 切换后将EditText光标置于末尾
+                CharSequence charSequence = passwordEditText.getText();
+                if (charSequence instanceof Spannable) {
+                    Spannable spanText = (Spannable) charSequence;
+                    Selection.setSelection(spanText, charSequence.length());
+                }
+            }
+
+        });
+        iv_show.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                iv_show.setVisibility(View.GONE);
+                iv_hide.setVisibility(View.VISIBLE);
+                passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                // 切换后将EditText光标置于末尾
+                CharSequence charSequence = passwordEditText.getText();
+                if (charSequence instanceof Spannable) {
+                    Spannable spanText = (Spannable) charSequence;
+                    Selection.setSelection(spanText, charSequence.length());
+                }
+            }
+
+        });
+        mImg_Background = (ImageView) findViewById(R.id.de_img_backgroud);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.translate_anim);
+                mImg_Background.startAnimation(animation);
+            }
+        }, 200);
     }
 
     /**
@@ -264,7 +315,7 @@ public class LoginActivity extends Activity {
                         SharedPreferences.Editor editor2=getSharedPreferences("user",MODE_PRIVATE).edit();
                         editor2.putString("user_name",currentUsername);
                         editor2.commit();
-                        Toast.makeText(LoginActivity.this,"密码正确",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"登陆成功！",Toast.LENGTH_SHORT).show();
                         // 进入主页面
                         Intent intent = new Intent(LoginActivity.this, BeasActivity.class);
                         startActivity(intent);

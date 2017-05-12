@@ -33,12 +33,13 @@ public class AddContactActivity extends TestActivity{
     private String toAddUsername;
     private ProgressDialog progressDialog;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
         mTextView = (TextView) findViewById(R.id.add_list_friends);
-
 
         editText = (EditText) findViewById(R.id.edit_note);
         String strAdd = "添加好友";
@@ -78,62 +79,15 @@ public class AddContactActivity extends TestActivity{
         }
     }
 
-    /**
-     *  添加contact
-     * @param view
-     */
-    public void addContact(View view){
-        if(MyApplication.getInstance().getUserName().equals(nameText.getText().toString())){
-            String str = getString(R.string.not_add_myself);
-            startActivity(new Intent(this, AlertDialog.class).putExtra("msg", str));
-            return;
-        }
 
-        if(MyApplication.getInstance().getContactList().containsKey(nameText.getText().toString())){
-            //提示已在好友列表中，无需添加
-            if(EMContactManager.getInstance().getBlackListUsernames().contains(nameText.getText().toString())){
-                startActivity(new Intent(this, AlertDialog.class).putExtra("msg", "此用户已是你好友(被拉黑状态)，从黑名单列表中移出即可"));
-                return;
-            }
-            String strin = getString(R.string.This_user_is_already_your_friend);
-            startActivity(new Intent(this, AlertDialog.class).putExtra("msg", strin));
-            return;
-        }
-
-        progressDialog = new ProgressDialog(this);
-        String stri = getResources().getString(R.string.Is_sending_a_request);
-        progressDialog.setMessage(stri);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
-
-        new Thread(new Runnable() {
-            public void run() {
-
-                try {
-                    //demo写死了个reason，实际应该让用户手动填入
-                    String s = getResources().getString(R.string.Add_a_friend);
-                    EMContactManager.getInstance().addContact(toAddUsername, s);
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            progressDialog.dismiss();
-                            String s1 = getResources().getString(R.string.send_successful);
-                            Toast.makeText(getApplicationContext(), s1, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } catch (final Exception e) {
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            progressDialog.dismiss();
-                            String s2 = getResources().getString(R.string.Request_add_buddy_failure);
-                            Toast.makeText(getApplicationContext(), s2 + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-            }
-        }).start();
-    }
 
     public void back(View v) {
         finish();
+    }
+
+    public void chat(View view) {
+        Intent intent = new Intent(AddContactActivity.this,DetailActivity.class);
+        intent.putExtra("name",editText.getText().toString());
+        startActivity(intent);
     }
 }

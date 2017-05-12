@@ -58,8 +58,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:onClick="chat"
             android:background="@drawable/mm_listitem"
-            android:duplicateParentState="true" >
+            android:duplicateParentState="true">
 
             <ImageView
                 android:id="@+id/avatar"
@@ -89,10 +90,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="11dp"
                 android:background="@drawable/button_bg"
-                android:onClick="addContact"
+                android:onClick="chat"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
-                android:text="@string/button_add"
+                android:text="查看"
                 android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>

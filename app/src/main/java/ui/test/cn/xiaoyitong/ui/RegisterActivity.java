@@ -4,11 +4,19 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Selection;
+import android.text.Spannable;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.easemob.EMError;
@@ -20,6 +28,7 @@ import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.utils.HttpUtil;
 import ui.test.cn.xiaoyitong.utils.StatusBarUtil;
+import ui.test.cn.xiaoyitong.utils.TimeButton;
 
 
 /**
@@ -30,10 +39,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
     private String resp="123";
     private EditText phone;
     private EditText auth_code;
-    private Button btn_code;
+    private TimeButton btn_code;
     private EditText password;
-    private EditText pwd_code;
     private Button register;
+
+    private ImageView iv_hide;
+    private ImageView iv_show;
+    private ImageView mImg_Background;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +60,57 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         //验证码
         auth_code= (EditText) findViewById(R.id.auth_code);
         //获取验证码
-        btn_code= (Button) findViewById(R.id.btn_code);
+        btn_code= (TimeButton) findViewById(R.id.btn_code);
         //密码
         password= (EditText) findViewById(R.id.password);
-        //确认密码
-        pwd_code= (EditText) findViewById(R.id.pwd_code);
         //注册
         register= (Button) findViewById(R.id.register);
+
+        iv_hide = (ImageView) findViewById(R.id.iv_hide);
+        iv_show = (ImageView) findViewById(R.id.iv_show);
+        iv_hide.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                iv_hide.setVisibility(View.GONE);
+                iv_show.setVisibility(View.VISIBLE);
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                // 切换后将EditText光标置于末尾
+                CharSequence charSequence = password.getText();
+                if (charSequence instanceof Spannable) {
+                    Spannable spanText = (Spannable) charSequence;
+                    Selection.setSelection(spanText, charSequence.length());
+                }
+            }
+
+        });
+        iv_show.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                iv_show.setVisibility(View.GONE);
+                iv_hide.setVisibility(View.VISIBLE);
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                // 切换后将EditText光标置于末尾
+                CharSequence charSequence = password.getText();
+                if (charSequence instanceof Spannable) {
+                    Spannable spanText = (Spannable) charSequence;
+                    Selection.setSelection(spanText, charSequence.length());
+                }
+            }
+
+        });
+        btn_code.onCreate(savedInstanceState);
+        btn_code.setTextAfter("秒后重新获取").setTextBefore("获取验证码").setLenght(60 * 1000);
+
+        mImg_Background = (ImageView) findViewById(R.id.de_img_backgroud);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.translate_anim);
+                mImg_Background.startAnimation(animation);
+            }
+        }, 200);
     }
 
     /**
@@ -66,7 +122,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         final String user_phone = phone.getText().toString().trim();
         final String user_auth_code=auth_code.getText().toString().trim();
         final String pwd = password.getText().toString().trim();
-        final String re_pwd = pwd_code.getText().toString().trim();
         if (TextUtils.isEmpty(user_phone)) {
             Toast.makeText(this, getResources().getString(R.string.User_name_cannot_be_empty), Toast.LENGTH_SHORT).show();
             phone.requestFocus();
@@ -79,14 +134,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
             Toast.makeText(this, getResources().getString(R.string.Password_cannot_be_empty), Toast.LENGTH_SHORT).show();
             password.requestFocus();
             return;
-        } else if (TextUtils.isEmpty(re_pwd)) {
-            Toast.makeText(this, getResources().getString(R.string.Confirm_password_cannot_be_empty), Toast.LENGTH_SHORT).show();
-            pwd_code.requestFocus();
+        } else if (pwd.length()<=6 && pwd.length()>=20) {
+            Toast.makeText(this, "密码格式不正确！", Toast.LENGTH_SHORT).show();
+            password.requestFocus();
             return;
-        } else if (!pwd.equals(re_pwd)) {
-            Toast.makeText(this, getResources().getString(R.string.Two_input_password), Toast.LENGTH_SHORT).show();
-            return;
-        }else if (!auth_code.getText().toString().equals(resp)){
+        } else if (!auth_code.getText().toString().equals(resp)){
             Toast.makeText(this, getResources().getString(R.string.Two_input_phone_code), Toast.LENGTH_SHORT).show();
             auth_code.requestFocus();
             return;

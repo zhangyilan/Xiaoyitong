@@ -109,6 +109,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".ui.DetailActivity"/>
         <activity android:name=".ui.BeasActivity" />
         <activity android:name=".ui.FirstActivity" />
         <activity android:name=".ui.LoginActivity" />
