@@ -397,7 +397,6 @@ public class FirstFragment extends Fragment {
                 scaleAnimation.setInterpolator(new BounceInterpolator());
                 scaleAnimation.setFillEnabled(true);
                 scaleAnimation.setFillAfter(true);
-
                 scaleAnimation.start();
                 setBackgroundAlpha(0.5f);
                 mPopupWindow.showAsDropDown(v);
