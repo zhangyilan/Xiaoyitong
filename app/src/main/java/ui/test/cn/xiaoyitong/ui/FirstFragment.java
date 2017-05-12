@@ -16,7 +16,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +33,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import ui.test.cn.xiaoyitong.LyoutHandle.ExpressListHandle;
 import ui.test.cn.xiaoyitong.Navi.LocationActivity;
 import ui.test.cn.xiaoyitong.Navi.LocationbActivity;
@@ -45,7 +50,6 @@ import ui.test.cn.xiaoyitong.adapter.GridviewAdapter;
 import ui.test.cn.xiaoyitong.adviewpagermanger.ADBean;
 import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
-import ui.test.cn.xiaoyitong.httpHelper.Httphalper;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
@@ -60,10 +64,8 @@ import ui.test.cn.xiaoyitong.utils.HttpUtil;
  */
 
 public class FirstFragment extends Fragment {
-    private Button img;
     private PopupWindow mPopupWindow;
-    private Button mButton;
-    private View view, view1, view2;
+    private View view;
     private int screenwidth;
     private GridView gridview;
     private LinearLayout newsLinearLayout;
@@ -81,7 +83,7 @@ public class FirstFragment extends Fragment {
             "http://www.zhangyilan.me/img/adimg/img4.jpg",
             "http://www.zhangyilan.me/img/adimg/img5.jpg"};
     //新闻轮播
-    private String newsurl = "http://www.zhangyilan.me/news/test.html";
+    private String newsurl = "http://123.206.92.38:80/SimpleSchool/AppServlet?opt=gettitle";
 
     private TuTu tu;
     private Context mContext;
@@ -122,7 +124,7 @@ public class FirstFragment extends Fragment {
                     //成绩查询跳转
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
-                    Log.d("user_name", user_name);
+
                     if (user_name.equals("没有登陆")) {
                         Toast.makeText(getContext(), "您还未登陆,请登陆", Toast.LENGTH_SHORT).show();
                         getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
@@ -149,7 +151,7 @@ public class FirstFragment extends Fragment {
                 if (position == 2) {
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
-                    Log.d("user_name", user_name);
+
                     if (user_name.equals("没有登陆")) {
                         Toast.makeText(getActivity(), "您还未登陆,请登陆", Toast.LENGTH_SHORT).show();
                         getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
@@ -202,23 +204,25 @@ public class FirstFragment extends Fragment {
         initAD();
         initNews();
 
-        Log.d("aaa", "即将执行了发送请求");
-        Httphalper.sendHttpRespose(newsurl, new HttpCallback() {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(newsurl)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
             @Override
-            public void onFinish(String respose) {
-                Log.d("aaa", "即将执行了发送请求");
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
                 Message message = new Message();
                 message.what = 0;
-                message.obj = respose;
+                message.obj = response.body().string();
                 handler.sendMessage(message);
             }
-
-            @Override
-            public void onerror(Exception e) {
-                Toast.makeText(getContext(), "服务器故障!", Toast.LENGTH_SHORT).show();
-            }
         });
-
         return view;
     }
 
@@ -240,17 +244,11 @@ public class FirstFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void intview() {
 
-//        img = (Button) view1.findViewById(R.id.button);
         ad_viewpager = (ViewPager) view.findViewById(R.id.ad_viewpage);
         ll_dian = (LinearLayout) view.findViewById(R.id.ll_dian);
         newsLinearLayout = (LinearLayout) view.findViewById(R.id.news_linearlayout);
-        newstxt1 = (TextView) view.findViewById(R.id.news_txt1);
-        newstxt2 = (TextView) view.findViewById(R.id.news_txt2);
-        newstxt3 = (TextView) view.findViewById(R.id.news_txt3);
-        newstxt4 = (TextView) view.findViewById(R.id.news_txt4);
-        newstxt5 = (TextView) view.findViewById(R.id.news_txt5);
 
-        mPopupWindow = new PopupWindow(view1, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        mPopupWindow = new PopupWindow(view, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setWidth(400);
@@ -306,13 +304,12 @@ public class FirstFragment extends Fragment {
             switch (msg.what) {
                 case 0:
                     String data = (String) msg.obj;
-                    List<String> newstitle = new ArrayList<>();
-                    newstitle = JsonHelper.jsonjiesi(data);
-                    newstxt1.setText(newstitle.get(0));
-                    newstxt2.setText(newstitle.get(1));
-                    newstxt3.setText(newstitle.get(2));
-                    newstxt4.setText(newstitle.get(3));
-                    newstxt5.setText(newstitle.get(5));
+                    List<String> newstitle = JsonHelper.jsonjiesi(data);
+                    newstxt1.setText(newstitle.get(0).toString());
+                    newstxt2.setText(newstitle.get(1).toString());
+                    newstxt3.setText(newstitle.get(2).toString());
+                    newstxt4.setText(newstitle.get(3).toString());
+                    newstxt5.setText(newstitle.get(4).toString());
                     break;
                 case 1:
                     if (msg.obj.equals("true")) {
@@ -364,36 +361,7 @@ public class FirstFragment extends Fragment {
     };
 
     private void topbar() {
-        View mPopupWindowview = LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null);
-        LinearLayout ll_item1 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item1);
-        ll_item1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "点击1", Toast.LENGTH_SHORT).show();
-            }
-        });
-        LinearLayout ll_item2 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item2);
-        ll_item2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "点击2", Toast.LENGTH_SHORT).show();
-            }
-        });
-        LinearLayout ll_item3 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item3);
-        ll_item3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "点击3", Toast.LENGTH_SHORT).show();
-            }
-        });
-        LinearLayout ll_item4 = (LinearLayout) mPopupWindowview.findViewById(R.id.ll_item4);
-        ll_item4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "点击4", Toast.LENGTH_SHORT).show();
-            }
-        });
-        final PopupWindow mPopupWindow = new PopupWindow(mPopupWindowview, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        final PopupWindow mPopupWindow = new PopupWindow(LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null), android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setWidth(400);
@@ -403,7 +371,7 @@ public class FirstFragment extends Fragment {
         mPopupWindow.setOnDismissListener(new poponDismissListener());
         //背景图
         Drawable statusQuestionDrawable = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             statusQuestionDrawable = getActivity().getDrawable(R.drawable.popup_bg);
         }
         mPopupWindow.setBackgroundDrawable(statusQuestionDrawable);

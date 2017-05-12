@@ -4,6 +4,10 @@
         "source": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_right.png"
     },
     {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_bottom.png",
+        "source": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_bottom.png"
+    },
+    {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_right.png",
         "source": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_right.png"
     },
@@ -22,5 +26,13 @@
     {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_left.png",
         "source": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_left.png"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_left.png",
+        "source": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_left.png"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_right.png",
+        "source": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_right.png"
     }
 ]
