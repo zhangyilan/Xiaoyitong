@@ -1,1 +1,1 @@
-include ':app', ':SwipeBackLayout', ':app1', ':PushSDK'
+include ':app', ':SwipeBackLayout', ':PushSDK'

@@ -73,9 +73,7 @@ public class FirstFragment extends Fragment {
      * 轮播图对象列表
      */
     private List<ADBean> listADbeans;
-
     private ViewFlipper mFlipper;//新闻头条
-
     private String[] ad_imgurls = {
             "http://www.zhangyilan.me/img/adimg/img1.jpg",
             "http://www.zhangyilan.me/img/adimg/img2.jpg",
@@ -84,7 +82,6 @@ public class FirstFragment extends Fragment {
             "http://www.zhangyilan.me/img/adimg/img5.jpg"};
     //新闻轮播
     private String newsurl = "http://123.206.92.38:80/SimpleSchool/AppServlet?opt=gettitle";
-
     private TuTu tu;
     private Context mContext;
     private ViewPager ad_viewpager;
@@ -217,9 +214,10 @@ public class FirstFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                String resp = response.body().string();
                 Message message = new Message();
                 message.what = 0;
-                message.obj = response.body().string();
+                message.obj = resp;
                 handler.sendMessage(message);
             }
         });
@@ -230,7 +228,7 @@ public class FirstFragment extends Fragment {
      * 初始化轮播图
      */
     private void initAD() {
-        listADbeans = new ArrayList<ADBean>();
+        listADbeans = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             ADBean bean = new ADBean();
             bean.setId(i + "");
@@ -289,7 +287,6 @@ public class FirstFragment extends Fragment {
         newstxt3 = (TextView) view.findViewById(R.id.news_txt3);
         newstxt4 = (TextView) view.findViewById(R.id.news_txt4);
         newstxt5 = (TextView) view.findViewById(R.id.news_txt5);
-
         mFlipper = (ViewFlipper) view.findViewById(R.id.flipper);
         mFlipper.setInAnimation(AnimationUtils.loadAnimation(getContext(),
                 R.anim.push_up_in));
@@ -305,11 +302,14 @@ public class FirstFragment extends Fragment {
                 case 0:
                     String data = (String) msg.obj;
                     List<String> newstitle = JsonHelper.jsonjiesi(data);
-                    newstxt1.setText(newstitle.get(0).toString());
-                    newstxt2.setText(newstitle.get(1).toString());
-                    newstxt3.setText(newstitle.get(2).toString());
-                    newstxt4.setText(newstitle.get(3).toString());
-                    newstxt5.setText(newstitle.get(4).toString());
+                    if (newstitle.size() != 0) {
+                        newstxt1.setText(newstitle.get(0).toString());
+                        newstxt2.setText(newstitle.get(1).toString());
+                        newstxt3.setText(newstitle.get(2).toString());
+                        newstxt4.setText(newstitle.get(3).toString());
+                        newstxt5.setText(newstitle.get(4).toString());
+                    }
+
                     break;
                 case 1:
                     if (msg.obj.equals("true")) {
@@ -409,7 +409,6 @@ public class FirstFragment extends Fragment {
             public void setBackgroundAlpha(float bgAlpha) {
 
                 WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-//                    WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
                 lp.alpha = bgAlpha;
                 getActivity().getWindow().setAttributes(lp);
             }
@@ -422,7 +421,7 @@ public class FirstFragment extends Fragment {
         public void onDismiss() {
 
             WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-//                    WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+//
             lp.alpha = 1f;
             getActivity().getWindow().setAttributes(lp);
         }

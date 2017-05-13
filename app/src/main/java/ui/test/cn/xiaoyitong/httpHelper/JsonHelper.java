@@ -22,7 +22,7 @@ public class JsonHelper {
             JSONArray jsonArray=new JSONArray(data);
             for (int a=0;a<jsonArray.length();a++){
                 JSONObject jsonObject=jsonArray.getJSONObject(a);
-                s=jsonObject.getString("newstitle");
+                s=jsonObject.getString("title");
                 strings.add(s);
             }
         } catch (JSONException e) {

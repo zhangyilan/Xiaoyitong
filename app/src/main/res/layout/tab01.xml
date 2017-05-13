@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text="惊人！四川发生XXX杀人事件"
+                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text="夏天，你认为四川可以放高温假吗？"
+                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text="我这么美，不能死在课堂上"
+                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -97,9 +97,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text="为什么大学身喜欢打LOL？"
+                        android:text=""
                         android:textSize="15sp" />
-
 
                     <TextView
                         android:id="@+id/news_txt5"
@@ -107,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text="第六届创业大赛即将开始"
+                        android:text=""
                         android:textSize="15sp" />
                 </ViewFlipper>
 

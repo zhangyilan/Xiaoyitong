@@ -24,12 +24,12 @@
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
     {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
