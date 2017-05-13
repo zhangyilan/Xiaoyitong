@@ -43,7 +43,6 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     //------****** 缓存相关****----------
     private final int CLEAN_SUC = 1001;
     private final int CLEAN_FAIL = 1002;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -176,7 +175,6 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
 
         }
     }
-
     /**
      * 弹出更新提示对话框
      */
@@ -192,7 +190,6 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

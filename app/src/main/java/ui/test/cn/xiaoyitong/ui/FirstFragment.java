@@ -111,13 +111,13 @@ public class FirstFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=4");
                     Intent intent = new Intent(getActivity(), ExpressListHandle.class);
                     startActivity(intent);
                 }
 
                 if (position == 1) {
-//                    Intent intent = new Intent(getActivity(),CloudRecyclerViewHandle.class);
-//                    startActivity(intent);
+
                     //成绩查询跳转
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
@@ -175,10 +175,12 @@ public class FirstFragment extends Fragment {
                 }
 
                 if (position == 3) {
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=5");
                     Intent intent = new Intent(getActivity(), LocationActivity.class);
                     startActivity(intent);
                 }
                 if (position == 4) {
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=6");
                     Intent intent = new Intent(getActivity(), LocationbActivity.class);
                     startActivity(intent);
 
@@ -188,10 +190,12 @@ public class FirstFragment extends Fragment {
                     startActivity(intent);
                 }
                 if (position == 6) {
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=7");
                     Intent intent = new Intent(getActivity(), SchoolHistoryMainActivity.class);
                     startActivity(intent);
                 }
                 if (position == 7) {
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
                     Intent intent = new Intent(getActivity(), ShetuanActivity.class);
                     startActivity(intent);
                 }
@@ -259,6 +263,7 @@ public class FirstFragment extends Fragment {
         newsLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=1");
                 Intent intent = new Intent(getActivity(), newsMainActivity.class);
                 startActivity(intent);
             }
@@ -313,6 +318,7 @@ public class FirstFragment extends Fragment {
                     break;
                 case 1:
                     if (msg.obj.equals("true")) {
+                        HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=3");
                         startActivity(new Intent(getActivity(), MenuGrandFind.class));
                     } else {
                         new android.app.AlertDialog.Builder(getActivity()).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
@@ -333,6 +339,7 @@ public class FirstFragment extends Fragment {
                     break;
                 case 2:
                     if (msg.obj.equals("true")) {
+                        HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=2");
                         startActivity(new Intent(getActivity(), Courses_login.class));
                     } else {
                         new android.app.AlertDialog.Builder(getActivity()).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
