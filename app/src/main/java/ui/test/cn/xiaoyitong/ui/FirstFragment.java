@@ -361,7 +361,37 @@ public class FirstFragment extends Fragment {
     };
 
     private void topbar() {
-        final PopupWindow mPopupWindow = new PopupWindow(LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null), android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
+        View PopupWindowview = LayoutInflater.from(getActivity()).inflate(R.layout.popwindow_item, null);
+        LinearLayout linearLayout1 = (LinearLayout) PopupWindowview.findViewById(R.id.ll_item1);
+        LinearLayout linearLayout2 = (LinearLayout) PopupWindowview.findViewById(R.id.ll_item2);
+        LinearLayout linearLayout3 = (LinearLayout) PopupWindowview.findViewById(R.id.ll_item3);
+        LinearLayout linearLayout4 = (LinearLayout) PopupWindowview.findViewById(R.id.ll_item4);
+        linearLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"发起聊天",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"添加朋友",Toast.LENGTH_SHORT).show();
+            }
+        });
+        linearLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"扫一扫",Toast.LENGTH_SHORT).show();
+            }
+        });
+        linearLayout4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"收款付款",Toast.LENGTH_SHORT).show();
+            }
+        });
+        final PopupWindow mPopupWindow = new PopupWindow(PopupWindowview, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, android.widget.Toolbar.LayoutParams.WRAP_CONTENT, true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setWidth(400);

@@ -9,90 +9,80 @@
         android:id="@+id/ll_item1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/popup_char"
-            />
+            android:src="@drawable/popup_char" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="发起聊天"
-            android:textSize="15sp"
-            android:layout_gravity="center"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_item2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/popup_fri_add"
-            />
+            android:src="@drawable/popup_fri_add" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="添加朋友"
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_item3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/popup_saoyisao"
-           />
+            android:src="@drawable/popup_saoyisao" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="扫一扫  "
-            android:textSize="15sp"
-            android:layout_gravity="center"
-            />
+            android:textSize="15sp" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ll_item4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/popup_fukuan"
-            />
+            android:src="@drawable/popup_fukuan" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="首付付款"
-            android:textSize="15sp"
             android:layout_gravity="center"
-            />
+            android:layout_marginLeft="10dp"
+            android:text="收款付款"
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>
