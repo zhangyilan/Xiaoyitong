@@ -2,20 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
     tools:context=".MainActivity">
-
     <item
         android:id="@+id/webview"
         android:icon="@drawable/icon_blog"
         android:orderInCategory="80"
         android:title="web" />
-
     <item
         android:id="@+id/weibo"
         android:icon="@drawable/icon_weibo"
         android:orderInCategory="90"
         android:title="weibo" />
-
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
