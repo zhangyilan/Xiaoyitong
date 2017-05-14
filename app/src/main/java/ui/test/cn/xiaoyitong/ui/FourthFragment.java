@@ -68,7 +68,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         list4 = (LinearLayout) view.findViewById(R.id.lin_list4);
         list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
         list6 = (LinearLayout) view.findViewById(R.id.lin_list6);
-        File file=new File("/data/data/ui.test.cn.xiaoyitong/cache");
+        File file = new File("/data/data/ui.test.cn.xiaoyitong/cache");
         try {
             chache_size.setText(DataCleanManager.getCacheSize(file));
         } catch (Exception e) {
@@ -171,7 +171,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                 showUpdateDialog();
                 break;
             case R.id.lin_list5:
-
+                startActivity(new Intent(getActivity(), FeedBackActivity.class));
                 break;
             case R.id.lin_list6:
 
@@ -196,7 +196,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 DataCleanManager.cleanInternalCache(getActivity());
-                    chache_size.setText("0KB");
+                chache_size.setText("0KB");
 
             }
         });

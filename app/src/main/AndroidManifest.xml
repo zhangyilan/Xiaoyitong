@@ -46,6 +46,7 @@
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -76,13 +77,13 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="58feda36b27b0a58360008b4"></meta-data>
+            android:value="58feda36b27b0a58360008b4" />
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="2bd6718fcfba4c952b6560cdbc921b1d"></meta-data>
+            android:value="2bd6718fcfba4c952b6560cdbc921b1d" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Channel ID"></meta-data>
+            android:value="Channel ID" />
         <meta-data
             android:name="TencentMapSDK"
             android:value="3ANBZ-FDQRW-U5ZRN-RGLXO-CRSVO-MNFCN" />
@@ -108,7 +109,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.DetailActivity"/>
+        <activity android:name=".ui.DetailActivity" />
         <activity android:name=".ui.BeasActivity" />
         <activity android:name=".ui.FirstActivity" />
         <activity android:name=".ui.LoginActivity" />
@@ -198,7 +199,8 @@
         <activity android:name=".ui.sonfragmeng.Courses_login" />
         <activity android:name=".ui.sonfragmeng.SchoolHistoryMainActivity" />
         <activity android:name=".ui.sonfragmeng.School_history_image" />
-        <activity android:name=".ui.UserUpgradehandle"></activity>
+        <activity android:name=".ui.UserUpgradehandle" />
+        <activity android:name=".ui.FeedBackActivity"></activity>
     </application>
 
 </manifest>
