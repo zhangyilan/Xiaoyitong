@@ -15,8 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.PersonalActiity;
+import ui.test.cn.xiaoyitong.utils.DataCleanManager;
 import ui.test.cn.xiaoyitong.utils.Myutils;
 import ui.test.cn.xiaoyitong.utils.VersionUpdateUtils;
 
@@ -31,28 +34,23 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     private boolean mIsTheTitleVisible = false;
     private boolean mIsTheTitleContainerVisible = true;
     private LinearLayout mTitleContainer;
-    private TextView mTitle;
+    private TextView mTitle, chache_size;
     private AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
     private LinearLayout list1, list2, list3, list4, list5, list6;
     View view;
-    /*应用版本号*/
-    private TextView mversionTV;
     //本地版本号
     private String mversion;
     //------****** 缓存相关****----------
     private final int CLEAN_SUC = 1001;
     private final int CLEAN_FAIL = 1002;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         view = inflater.inflate(R.layout.tab04, container, false);
-
         bindActivity();
-
         mAppBarLayout.addOnOffsetChangedListener(this);
-
         mToolbar.inflateMenu(R.menu.menu_main);
         startAlphaAnimation(mTitle, 0, View.INVISIBLE);
         return view;
@@ -63,13 +61,19 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         mTitle = (TextView) view.findViewById(R.id.main_textview_title);
         mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);
         mAppBarLayout = (AppBarLayout) view.findViewById(R.id.main_appbar);
-
+        chache_size = (TextView) view.findViewById(R.id.chache_size);
         list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
         list2 = (LinearLayout) view.findViewById(R.id.lin_list2);
         list3 = (LinearLayout) view.findViewById(R.id.lin_list3);
         list4 = (LinearLayout) view.findViewById(R.id.lin_list4);
         list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
         list6 = (LinearLayout) view.findViewById(R.id.lin_list6);
+        File file=new File("/data/data/ui.test.cn.xiaoyitong/cache");
+        try {
+            chache_size.setText(DataCleanManager.getCacheSize(file));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         list1.setOnClickListener(this);
         list2.setOnClickListener(this);
@@ -175,6 +179,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
 
         }
     }
+
     /**
      * 弹出更新提示对话框
      */
@@ -185,11 +190,14 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         builder.setIcon(R.mipmap.ic_launcher);
         builder.setMessage("确认清理缓存？");
         builder.setCancelable(false);// 设置不能点击手机返回按钮隐藏对话框
-        builder.setIcon(R.drawable.ic_launcher);
+        builder.setIcon(R.mipmap.ic_launcher);
         // 设置立即升级按钮点击事件
         builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                DataCleanManager.cleanInternalCache(getActivity());
+                    chache_size.setText("0KB");
+
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

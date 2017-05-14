@@ -166,7 +166,7 @@ public class VersionUpdateUtils {
         builder.setTitle("检查到新版本：" + versionEntity.versioncode);
         builder.setMessage(versionEntity.description);
         builder.setCancelable(false);// 设置不能点击手机返回按钮隐藏对话框
-        builder.setIcon(R.drawable.ic_launcher);
+        builder.setIcon(R.mipmap.ic_launcher);
         // 设置立即升级按钮点击事件
         builder.setPositiveButton("立即升级", new DialogInterface.OnClickListener() {
             @Override
