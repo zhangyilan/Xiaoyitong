@@ -314,7 +314,6 @@ public class FirstFragment extends Fragment {
                         newstxt4.setText(newstitle.get(3).toString());
                         newstxt5.setText(newstitle.get(4).toString());
                     }
-
                     break;
                 case 1:
                     if (msg.obj.equals("true")) {

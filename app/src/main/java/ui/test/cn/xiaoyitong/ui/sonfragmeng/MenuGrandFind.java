@@ -29,6 +29,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.entity.Grade;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
+import ui.test.cn.xiaoyitong.uiManger.CustomProgressDialog;
 import ui.test.cn.xiaoyitong.utils.HttpUtil;
 
 /**
@@ -103,25 +104,26 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                 final String URL = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_self&student_id=" + get_student_id.getText().toString() + "&identity_card=" + getpwd.getText().toString();
                 //查询请求
                 final String url1 = "http://123.206.92.38:80/SimpleSchool/studentgradeservlet?opt=get_grade&school_year=" +
-                        str1 +"&school_term=" +str2+"&student_id=" +get_student_id.getText().toString();
+                        str1 + "&school_term=" + str2 + "&student_id=" + get_student_id.getText().toString();
 
-                Log.d("aaaaaa",URL);
-                Log.d("aaaaaa",url1);
                 final HttpUtil httpUtil = new HttpUtil();
-                Log.d("aaaaaa","执行了111");
+                final CustomProgressDialog dialog = new CustomProgressDialog(MenuGrandFind.this, "正在加载中", R.anim.frame);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
                 if (httpUtil.isNetworkAvailable(MenuGrandFind.this)) {
                     httpUtil.getData(URL, new HttpCallback() {
                         @Override
                         public void onFinish(String respose) {
-                            Log.d("aaaaaa",respose);
+                            Log.d("aaaaaa", respose);
                             if (respose.equals("true")) {
                                 httpUtil.getData(url1, new HttpCallback() {
                                     @Override
                                     public void onFinish(String res) {
-                                        Log.d("aaaaaa",res);
+                                        Log.d("aaaaaa", res);
                                         json(res);
                                         Message message = new Message();
                                         message.what = 0;
+                                        dialog.dismiss();
                                         handler.sendMessage(message);
                                     }
 
@@ -138,24 +140,6 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
 
                         }
                     });
-
-
-                    /*httpUtil.getData(url1, new HttpCallback() {
-                        @Override
-                        public void onFinish(String response) {
-                            json(response);
-                            Message message = new Message();
-                            message.what = 0;
-                            handler.sendMessage(message);
-                        }
-
-                        @Override
-                        public void onerror(Exception e) {
-
-                        }
-
-
-                    });*/
                 }
             }
         });

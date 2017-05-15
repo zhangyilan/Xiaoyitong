@@ -27,7 +27,7 @@
             android:text="XiaoYiTong"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:textColor="#FF5677FC"
+            android:textColor="#00BADc"
             android:layout_centerInParent="true" />
     </RelativeLayout>
 

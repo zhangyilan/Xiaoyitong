@@ -57,8 +57,6 @@ import ui.test.cn.xiaoyitong.dao.UserDao;
 import ui.test.cn.xiaoyitong.entity.Constant;
 import ui.test.cn.xiaoyitong.entity.InviteMessage;
 import ui.test.cn.xiaoyitong.entity.User;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.Tab02_FirstFragment;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.Tab02_SecondFragment;
 import ui.test.cn.xiaoyitong.utils.DemoHXSDKHelper;
 
 /**

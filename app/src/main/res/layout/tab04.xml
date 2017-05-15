@@ -59,8 +59,6 @@
             </FrameLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -347,7 +345,6 @@
 
 
     </android.support.v4.widget.NestedScrollView>
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/main.toolbar"
         android:layout_width="match_parent"
@@ -378,7 +375,6 @@
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_width"
