@@ -47,6 +47,7 @@ public class ShetuanActivity extends SwipeBackActivity {
     public static final int SHOW_IMAGE = 1;
     View view;
 
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
