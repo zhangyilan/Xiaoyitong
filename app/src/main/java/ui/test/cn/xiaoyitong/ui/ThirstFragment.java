@@ -78,7 +78,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
 
     private ContactlistFragment contactListFragment;
     private ChatAllHistoryFragment chatHistoryFragment;
-    private SettingsFragment settingFragment;
     // 账号在别处登录
     public boolean isConflict = false;
     // 账号被移除
@@ -88,7 +87,7 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
     private MyGroupChangeListener groupChangeListener = null;
     private Button btn_conversation;
     private Button btn_address_list;
-    private Button btn_setting;
+    private Button button_pop;
 
     /**
      * 检查当前用户是否被删除
@@ -127,6 +126,14 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
         inviteMessgeDao = new InviteMessgeDao(getActivity());
         userDao = new UserDao(getActivity());
         init();
+        button_pop = (Button) getView().findViewById(R.id.button_pop);
+        button_pop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),AddContactActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void hideFragment(FragmentTransaction transaction) {
@@ -135,9 +142,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
         }
         if (contactListFragment != null) {
             transaction.hide(contactListFragment);
-        }
-        if (settingFragment != null) {
-            transaction.hide(settingFragment);
         }
     }
 
@@ -165,14 +169,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
                     transaction.show(contactListFragment);
                 }
                 contactListFragment.refresh();
-                break;
-            case 2:
-                if (settingFragment == null) {
-                    settingFragment = new SettingsFragment();
-                    transaction.add(R.id.chat_fragment, settingFragment);
-                } else {
-                    transaction.show(settingFragment);
-                }
                 break;
         }
         transaction.commit();
@@ -310,10 +306,8 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
         unreadAddressLable = (TextView) getActivity().findViewById(R.id.unread_address_number);
         btn_conversation = (Button) getView().findViewById(R.id.btn_conversation);
         btn_address_list = (Button) getView().findViewById(R.id.btn_address_list);
-        btn_setting = (Button) getView().findViewById(R.id.btn_setting);
         btn_conversation.setOnClickListener(this);
         btn_address_list.setOnClickListener(this);
-        btn_setting.setOnClickListener(this);
     }
 
 
@@ -456,9 +450,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
                 break;
             case R.id.btn_address_list:
                 setSelect(1);
-                break;
-            case R.id.btn_setting:
-                setSelect(2);
                 break;
         }
     }

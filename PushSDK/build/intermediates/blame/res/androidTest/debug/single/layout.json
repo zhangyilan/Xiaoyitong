@@ -8,11 +8,7 @@
         "source": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
     },
     {
-        "merged": "H:\\ASandroid\\xiaoyitong\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
-        "source": "H:\\ASandroid\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
-    },
-    {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
-        "source": "F:\\CloudMusic\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
+        "merged": "D:\\Users\\GitHub\\xiaoyitong\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
+        "source": "D:\\Users\\GitHub\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
     }
 ]
