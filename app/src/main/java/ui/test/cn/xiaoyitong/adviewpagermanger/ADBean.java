@@ -3,15 +3,11 @@ package ui.test.cn.xiaoyitong.adviewpagermanger;
 import android.widget.ImageView;
 
 public class ADBean {
-	
 	private String id;
 	private String adName;//广告词
 	private String imgUrl;//网络图片资源
 	private int imgPath=-1;//本地图片资源
 	private ImageView mImageView;
-	
-	
-	
 	public ImageView getmImageView() {
 		return mImageView;
 	}
