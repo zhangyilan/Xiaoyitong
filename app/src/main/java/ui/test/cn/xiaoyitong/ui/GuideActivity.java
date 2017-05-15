@@ -31,6 +31,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
     private LinearLayout mTipsGroupView;
     private boolean isFirst;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
