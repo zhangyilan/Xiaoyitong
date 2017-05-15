@@ -70,7 +70,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -79,7 +78,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -88,7 +86,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text=""
                         android:textSize="15sp" />
 
                     <TextView
@@ -97,8 +94,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text=""
                         android:textSize="15sp" />
+
 
                     <TextView
                         android:id="@+id/news_txt5"
@@ -106,7 +103,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center_horizontal"
-                        android:text=""
                         android:textSize="15sp" />
                 </ViewFlipper>
 

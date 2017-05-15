@@ -1,19 +1,67 @@
 [
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
         "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_slide_in_bottom.xml"
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
         "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_out.xml"
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
@@ -32,8 +80,8 @@
         "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
@@ -42,6 +90,10 @@
     {
         "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
@@ -56,14 +108,6 @@
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
-        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_fade_in.xml"
-    },
-    {
         "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
         "source": "C:\\Users\\renba\\.android\\build-cache\\a7f66ce5fa5cf9f3f0e374d8285493588a2005bb\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
@@ -72,11 +116,7 @@
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "F:\\CloudMusic\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_fade_in.xml"
+        "merged": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     }
 ]
