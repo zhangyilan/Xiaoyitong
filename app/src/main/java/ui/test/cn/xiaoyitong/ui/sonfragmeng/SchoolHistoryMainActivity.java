@@ -78,7 +78,7 @@ public class SchoolHistoryMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String t=monthedit.getText().toString();
 
-                Intent intent=new Intent(SchoolHistoryMainActivity.this,School_history_image.class);
+                Intent intent=new Intent(SchoolHistoryMainActivity.this,SchoolHistory_Activity.class);
                 intent.putExtra("month",t);
                 startActivity(intent);
             }

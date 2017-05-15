@@ -201,6 +201,7 @@
         <activity android:name=".ui.sonfragmeng.School_history_image" />
         <activity android:name=".ui.UserUpgradehandle" />
         <activity android:name=".ui.FeedBackActivity"></activity>
+        <activity android:name=".ui.sonfragmeng.SchoolHistory_Activity"/>
     </application>
 
 </manifest>
