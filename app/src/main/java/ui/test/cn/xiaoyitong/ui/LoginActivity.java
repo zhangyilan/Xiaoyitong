@@ -60,6 +60,7 @@ public class LoginActivity extends Activity {
     private boolean progressShow;
     private boolean autoLogin = false;
     private String uuid;
+    private ProgressDialog pd;
     private String currentUsername;
     private String currentPassword;
 
@@ -178,7 +179,7 @@ public class LoginActivity extends Activity {
         }
 
         progressShow = true;
-        final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+          pd = new ProgressDialog(LoginActivity.this);
         pd.setCanceledOnTouchOutside(false);
         pd.setOnCancelListener(new DialogInterface.OnCancelListener() {
 
@@ -247,21 +248,18 @@ public class LoginActivity extends Activity {
 
                             @Override
                             public void onError(final int code, final String message) {
-                                if (!progressShow) {
-                                    return;
-                                }
-                                runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        pd.dismiss();
-                                        Toast.makeText(getApplicationContext(), getString(R.string.Login_failed) + message, Toast.LENGTH_SHORT).show();
-                                    }
-                                });
                             }
                         });
                         Message message=new Message();
                         message.obj=response;
                         message.what=0;
                         handler.sendMessage(message);
+                    }
+                    else{
+                        Message message=new Message();
+                        message.what=1;
+                        handler.sendMessage(message);
+
                     }
 
                 }
@@ -321,7 +319,9 @@ public class LoginActivity extends Activity {
                         Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_SHORT).show();
                     }
                     break;
-                default:
+                case 1:
+                    pd.dismiss();
+                    Toast.makeText(getApplicationContext(), "密码错误，请重新登录", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
