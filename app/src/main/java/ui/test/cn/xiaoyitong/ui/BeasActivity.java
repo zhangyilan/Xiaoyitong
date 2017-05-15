@@ -8,13 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.easemob.chat.EMChatManager;
@@ -191,7 +189,6 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
         txt_luntuan = (TextView) findViewById(R.id.txt_luntuan);
         txt_fri = (TextView) findViewById(R.id.txt_fri);
         txt_shetuan = (TextView) findViewById(R.id.txt_shetuan);
-        Log.d("aaa", "即将执行按钮事件");
 
 
     }

@@ -192,9 +192,6 @@ public class LoginActivity extends Activity {
         pd.show();
         //uuid= DeviceInfoUtil.getUniqueNumber(this);
         String url="http://123.206.92.38:80/SimpleSchool/userservlet?opt=login&name="+currentUsername+"&password="+currentPassword+"&uuid="+"";
-        Log.d("url",url);
-        Log.d("用户名:",currentUsername);
-        Log.d("密码:",currentPassword);
         NetUtil netUtil=new NetUtil();
         if(netUtil.isNetworkAvailable(LoginActivity.this)){
             netUtil.sendData(url,"POST",new HttpCallback() {

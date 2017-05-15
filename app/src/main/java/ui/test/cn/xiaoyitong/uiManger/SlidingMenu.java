@@ -1,12 +1,9 @@
 package ui.test.cn.xiaoyitong.uiManger;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -14,12 +11,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 
 import com.nineoldandroids.view.ViewHelper;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
-
-import java.lang.reflect.GenericArrayType;
 
 import ui.test.cn.xiaoyitong.R;
 
@@ -222,18 +215,15 @@ public class SlidingMenu extends HorizontalScrollView {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             // 当手指快速滑动时候回调的方法
-            Log.d("TAG", velocityX + "");
             // 如果菜单打开 并且是向左快速滑动 切换菜单的状态
             if (mMenuIsOpen) {
                 if (velocityX < -500) {
-                    Log.d("TAG", velocityX + "");
                     toggleMenu();
                     return true;
                 }
             } else {
                 // 如果菜单关闭 并且是向右快速滑动 切换菜单的状态
                 if (velocityX > 500) {
-                    Log.d("TAG", velocityX + "");
                     toggleMenu();
                     return true;
                 }

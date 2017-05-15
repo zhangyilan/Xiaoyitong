@@ -5,8 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,9 +12,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,15 +37,12 @@ import com.easemob.chat.TextMessageBody;
 import com.easemob.util.EMLog;
 import com.easemob.util.HanziToPinyin;
 import com.easemob.util.NetUtils;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
 
 import ui.test.cn.xiaoyitong.GetContext.MyApplication;
@@ -57,8 +53,6 @@ import ui.test.cn.xiaoyitong.dao.UserDao;
 import ui.test.cn.xiaoyitong.entity.Constant;
 import ui.test.cn.xiaoyitong.entity.InviteMessage;
 import ui.test.cn.xiaoyitong.entity.User;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.Tab02_FirstFragment;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.Tab02_SecondFragment;
 import ui.test.cn.xiaoyitong.utils.DemoHXSDKHelper;
 
 /**
@@ -226,9 +220,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
             @Override
             public void onSuccess(List<String> usernames) {
                 Context context = HXSDKHelper.getInstance().getAppContext();
-
-                EMLog.i(TAG, "----------------" + usernames.toString());
-                EMLog.d("roster", "contacts size: " + usernames.size());
                 Map<String, User> userlist = new HashMap<String, User>();
                 for (String username : usernames) {
                     User user = new User();
@@ -540,7 +531,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
             msg.setFrom(username);
             msg.setTime(System.currentTimeMillis());
             msg.setReason(reason);
-            Log.d(TAG, username + "请求加你为好友,reason: " + reason);
             // 设置相应status
             msg.setStatus(InviteMessage.InviteMesageStatus.BEINVITEED);
             notifyNewIviteMessage(msg);
@@ -558,7 +548,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
             InviteMessage msg = new InviteMessage();
             msg.setFrom(username);
             msg.setTime(System.currentTimeMillis());
-            Log.d(TAG, username + "同意了你的好友请求");
             msg.setStatus(InviteMessage.InviteMesageStatus.BEAGREED);
             notifyNewIviteMessage(msg);
 
@@ -567,7 +556,7 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
         @Override
         public void onContactRefused(String username) {
             // 参考同意，被邀请实现此功能,demo未实现
-            Log.d(username, username + "拒绝了你的好友请求");
+
         }
 
     }
@@ -728,7 +717,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
             msg.setGroupId(groupId);
             msg.setGroupName(groupName);
             msg.setReason(reason);
-            Log.d(TAG, applyer + " 申请加入群聊：" + groupName);
             msg.setStatus(InviteMessage.InviteMesageStatus.BEAPPLYED);
             notifyNewIviteMessage(msg);
         }
@@ -918,7 +906,6 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
                 accountRemovedBuilder.create().show();
                 isCurrentAccountRemoved = true;
             } catch (Exception e) {
-                EMLog.e(TAG, "---------color userRemovedBuilder error" + e.getMessage());
             }
         }
     }

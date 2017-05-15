@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
@@ -105,20 +104,15 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                 final String url1 = "http://123.206.92.38:80/SimpleSchool/studentgradeservlet?opt=get_grade&school_year=" +
                         str1 +"&school_term=" +str2+"&student_id=" +get_student_id.getText().toString();
 
-                Log.d("aaaaaa",URL);
-                Log.d("aaaaaa",url1);
                 final HttpUtil httpUtil = new HttpUtil();
-                Log.d("aaaaaa","执行了111");
                 if (httpUtil.isNetworkAvailable(MenuGrandFind.this)) {
                     httpUtil.getData(URL, new HttpCallback() {
                         @Override
                         public void onFinish(String respose) {
-                            Log.d("aaaaaa",respose);
                             if (respose.equals("true")) {
                                 httpUtil.getData(url1, new HttpCallback() {
                                     @Override
                                     public void onFinish(String res) {
-                                        Log.d("aaaaaa",res);
                                         json(res);
                                         Message message = new Message();
                                         message.what = 0;
@@ -138,33 +132,14 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
 
                         }
                     });
-
-
-                    /*httpUtil.getData(url1, new HttpCallback() {
-                        @Override
-                        public void onFinish(String response) {
-                            json(response);
-                            Message message = new Message();
-                            message.what = 0;
-                            handler.sendMessage(message);
-                        }
-
-                        @Override
-                        public void onerror(Exception e) {
-
-                        }
-
-
-                    });*/
                 }
             }
         });
     }
 
     private void json(String response) {
-        grades = new ArrayList<Grade>();
+        grades = new ArrayList<>();
         try {
-            Log.d("解析数据中", "kkk");
             JSONArray jsonArray = new JSONArray(response);
             for (int a = 0; a < jsonArray.length(); a++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(a);
@@ -177,12 +152,10 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                     grade.setCourse_grade(jsonObject.optString("course_grade"));
                 }
                 if (!jsonObject.optString("course_name").equals("")) {
-                    Log.d("mmmmm", "lll");
                     grade.setCourse_name(jsonObject.optString("course_name"));
                 }
                 grade.setGrade_point("未知");
                 if (!jsonObject.optString("grade_point").equals("")) {
-                    Log.d("jjj", "lll");
                     grade.setGrade_point(jsonObject.optString("grade_point"));
                 }
                 grades.add(grade);

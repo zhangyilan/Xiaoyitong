@@ -73,7 +73,6 @@ public abstract class HXSDKHelper {
         int pid = android.os.Process.myPid();
         String processAppName = getAppName(pid);
 
-        Log.d(TAG, "process app name : " + processAppName);
 
         // 如果app启用了远程的service，此application:onCreate会被调用2次
         // 为了防止环信SDK被初始化2次，加此判断会保证SDK被初始化1次
@@ -98,14 +97,13 @@ public abstract class HXSDKHelper {
             EMChat.getInstance().setDebugMode(true);
         }
 
-        Log.d(TAG, "initialize EMChat SDK");
 
         initHXOptions();
         initListener();
 
-        syncGroupsListeners = new ArrayList<HXSyncListener>();
-        syncContactsListeners = new ArrayList<HXSyncListener>();
-        syncBlackListListeners = new ArrayList<HXSyncListener>();
+        syncGroupsListeners = new ArrayList<>();
+        syncContactsListeners = new ArrayList<>();
+        syncBlackListListeners = new ArrayList<>();
 
         isGroupsSyncedWithServer = hxModel.isGroupsSynced();
         isContactsSyncedWithServer = hxModel.isContactSynced();
