@@ -72,6 +72,7 @@ public class ExpressDetailedHandle extends SwipeBackActivity implements View.OnC
             @Override
             public void onClick(View v) {
 
+
                 data();
                 if ("".equals(nickName) || "".equals(type) || "".equals(specifications) || "".equals(pickNumber) || "".equals(phoneNumber)
                         || "".equals(name) || "".equals(address) || "".equals(urgent) || "".equals(price)) {
