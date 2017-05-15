@@ -1,5 +1,6 @@
 package ui.test.cn.xiaoyitong.ui;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,18 +15,12 @@ import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.File;
-
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.PersonalActiity;
 import ui.test.cn.xiaoyitong.utils.DataCleanManager;
 import ui.test.cn.xiaoyitong.utils.Myutils;
 import ui.test.cn.xiaoyitong.utils.VersionUpdateUtils;
-
-/**
- * Created by asus on 2017/4/2.
- */
 
 public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
     private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.9f;
@@ -37,13 +32,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     private TextView mTitle, chache_size;
     private AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
-    private LinearLayout list1, list2, list3, list4, list5, list6;
     View view;
-    //本地版本号
-    private String mversion;
-    //------****** 缓存相关****----------
-    private final int CLEAN_SUC = 1001;
-    private final int CLEAN_FAIL = 1002;
 
     @Nullable
     @Override
@@ -62,13 +51,13 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);
         mAppBarLayout = (AppBarLayout) view.findViewById(R.id.main_appbar);
         chache_size = (TextView) view.findViewById(R.id.chache_size);
-        list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
-        list2 = (LinearLayout) view.findViewById(R.id.lin_list2);
-        list3 = (LinearLayout) view.findViewById(R.id.lin_list3);
-        list4 = (LinearLayout) view.findViewById(R.id.lin_list4);
-        list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
-        list6 = (LinearLayout) view.findViewById(R.id.lin_list6);
-        File file = new File("/data/data/ui.test.cn.xiaoyitong/cache");
+        LinearLayout list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
+        LinearLayout list2 = (LinearLayout) view.findViewById(R.id.lin_list2);
+        LinearLayout list3 = (LinearLayout) view.findViewById(R.id.lin_list3);
+        LinearLayout list4 = (LinearLayout) view.findViewById(R.id.lin_list4);
+        LinearLayout list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
+        LinearLayout list6 = (LinearLayout) view.findViewById(R.id.lin_list6);
+        @SuppressLint("SdCardPath") File file = new File("/data/data/ui.test.cn.xiaoyitong/cache");
         try {
             chache_size.setText(DataCleanManager.getCacheSize(file));
         } catch (Exception e) {
@@ -149,7 +138,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
             case R.id.lin_list3:
                 Toast.makeText(getActivity(), "正在检查更新", Toast.LENGTH_SHORT).show();
                 //获取当前应用程序的版本号
-                mversion = Myutils.getVersion(getActivity());
+                String mversion = Myutils.getVersion(getActivity());
                 //实例化VersionUpdateUtils，传入参数
                 final VersionUpdateUtils updateUtils = new VersionUpdateUtils(mversion,
                         getActivity());

@@ -15,11 +15,11 @@ import ui.test.cn.xiaoyitong.R;
  */
 
 public class GridviewAdapter extends BaseAdapter {
-    Context context;
-    int[] imgs = {R.drawable.grid_kuaidi,R.drawable.grid_print,R.drawable.grid_eat,R.drawable.grid_gruid,R.drawable.grid_tingche
+    private Context context;
+    private int[] imgs = {R.drawable.grid_kuaidi,R.drawable.grid_print,R.drawable.grid_eat,R.drawable.grid_gruid,R.drawable.grid_tingche
             ,R.drawable.grid_baodao,R.drawable.grid_rili,R.drawable.grid_qita};
 
-    String grid_name[] = {"快递收发","成绩查询","课表查询","校内导航","停车导航","报道流程","校历","社团"};
+    private String grid_name[] = {"快递收发","成绩查询","课表查询","校内导航","停车导航","报道流程","校历","社团"};
 
     public GridviewAdapter(Context context) {
         this.context = context;

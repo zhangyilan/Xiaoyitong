@@ -1,6 +1,7 @@
 package ui.test.cn.xiaoyitong.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseIntArray;
@@ -43,7 +44,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         super(context, resource, objects);
         this.res = resource;
         this.userList = objects;
-        copyUserList = new ArrayList<User>();
+        copyUserList = new ArrayList<>();
         copyUserList.addAll(objects);
         layoutInflater = LayoutInflater.from(context);
     }
@@ -54,8 +55,9 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         TextView nameTextview;
         TextView tvHeader;
     }
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewHolder holder;
         if(convertView == null){
             holder = new ViewHolder();
@@ -73,7 +75,10 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         if(user == null)
             Log.d("ContactAdapter", position + "");
         //设置nick，demo里不涉及到完整user，用username代替nick显示
-        String username = user.getUsername();
+        String username = null;
+        if (user != null) {
+            username = user.getUsername();
+        }
         String header = user.getHeader();
         if (position == 0 || header != null && !header.equals(getItem(position - 1).getHeader())) {
             if (TextUtils.isEmpty(header)) {
@@ -148,6 +153,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         return list.toArray(new String[list.size()]);
     }
 
+    @NonNull
     @Override
     public Filter getFilter() {
         if(myFilter==null){
@@ -159,7 +165,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
     private class  MyFilter extends Filter{
         List<User> mOriginalList = null;
 
-        public MyFilter(List<User> myList) {
+        MyFilter(List<User> myList) {
             this.mOriginalList = myList;
         }
 
@@ -167,7 +173,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         protected synchronized FilterResults performFiltering(CharSequence prefix) {
             FilterResults results = new FilterResults();
             if(mOriginalList==null){
-                mOriginalList = new ArrayList<User>();
+                mOriginalList = new ArrayList<>();
             }
             EMLog.d(TAG, "contacts original size: " + mOriginalList.size());
             EMLog.d(TAG, "contacts copy size: " + copyUserList.size());
@@ -178,7 +184,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
             }else{
                 String prefixString = prefix.toString();
                 final int count = mOriginalList.size();
-                final ArrayList<User> newValues = new ArrayList<User>();
+                final ArrayList<User> newValues = new ArrayList<>();
                 for(int i=0;i<count;i++){
                     final User user = mOriginalList.get(i);
                     String username = user.getUsername();
@@ -188,11 +194,9 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
                     }
                     else{
                         final String[] words = username.split(" ");
-                        final int wordCount = words.length;
-
                         // Start at index 0, in case valueText starts with space(s)
-                        for (int k = 0; k < wordCount; k++) {
-                            if (words[k].startsWith(prefixString)) {
+                        for (String word : words) {
+                            if (word.startsWith(prefixString)) {
                                 newValues.add(user);
                                 break;
                             }
@@ -210,7 +214,7 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
         protected synchronized void publishResults(CharSequence constraint,
                                                    FilterResults results) {
             userList.clear();
-            userList.addAll((List<User>)results.values);
+            userList.addAll((List<User>) results.values);
             EMLog.d(TAG, "publish contacts filter results size: " + results.count);
             if (results.count > 0) {
                 notiyfyByFilter = true;
@@ -221,7 +225,6 @@ public class ContactAdapter extends ArrayAdapter<User>  implements SectionIndexe
             }
         }
     }
-
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();

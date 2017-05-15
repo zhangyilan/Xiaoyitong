@@ -21,19 +21,17 @@ import ui.test.cn.xiaoyitong.R;
 public class CloudListAdapter extends RecyclerView.Adapter<CloudListAdapter.ViewHolder>{
     private List<CloudList> mCloudList;
 
-    OnRecycleViewClickListener onRecycleViewClickListener;
+    private OnRecycleViewClickListener onRecycleViewClickListener;
 
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cloud, parent, false);
-        final ViewHolder holder = new ViewHolder(view);
-        holder.expressListView.setOnClickListener(new View.OnClickListener() {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cloud, parent, false);
+            final ViewHolder holder = new ViewHolder(view);
+            holder.expressListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                CloudList cloudList = mCloudList.get(position);
                 String id = holder.expressId.getText().toString();//用id查询点击的item详细信息
                 onRecycleViewClickListener.onRecycleViewClick(v,id);
             }

@@ -31,7 +31,7 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         final Mood mood = getItem(position);
         View view;
         ViewHolder viewHolder;

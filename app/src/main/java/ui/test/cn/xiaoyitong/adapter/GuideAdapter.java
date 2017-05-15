@@ -2,7 +2,6 @@ package ui.test.cn.xiaoyitong.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +19,10 @@ import ui.test.cn.xiaoyitong.entity.GuideBean;
 
 public class GuideAdapter extends PagerAdapter {
     private ArrayList<GuideBean> mList;
-    private Context context;
     private LayoutInflater mInflater;
     private View.OnClickListener mClickListener;
 
     public GuideAdapter(Context context, ArrayList<GuideBean> list) {
-        this.context=context;
         this.mList=list;
         mInflater=LayoutInflater.from(context);
     }
@@ -47,7 +44,7 @@ public class GuideAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView((View) object);
+        (container).removeView((View) object);
     }
 
     @Override
@@ -70,7 +67,7 @@ public class GuideAdapter extends PagerAdapter {
             startBtn.setVisibility(View.INVISIBLE);
         }
         //将图片view加载到容器中
-        ((ViewPager) container).addView(imageLayout, 0);
+        (container).addView(imageLayout, 0);
         return imageLayout;
     }
 }
