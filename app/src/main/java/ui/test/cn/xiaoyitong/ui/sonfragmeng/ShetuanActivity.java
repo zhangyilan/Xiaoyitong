@@ -46,6 +46,7 @@ public class ShetuanActivity extends SwipeBackActivity {
     OrganizationAdapter organizationAdapter;
     public static final int SHOW_IMAGE = 1;
     View view;
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
