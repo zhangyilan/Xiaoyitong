@@ -64,6 +64,7 @@ public class ShchoolhistoryAdapter extends PagerAdapter {
         startBtn.setVisibility(View.INVISIBLE);
         //将图片view加载到容器中
 
+
         (container).addView(imageLayout, 0);
         return imageLayout;
 
