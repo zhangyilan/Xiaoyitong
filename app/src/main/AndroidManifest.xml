@@ -100,7 +100,6 @@
             android:value="7f7e1029e02296022f9572f184d70fe3" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
-
         <activity android:name=".ui.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,9 +107,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".ui.DetailActivity" />
-        <activity android:name=".ui.BeasActivity" />
+        <activity android:name=".ui.BeasActivity" ></activity>
         <activity android:name=".ui.FirstActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.MoodActivity" />

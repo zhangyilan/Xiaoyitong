@@ -134,7 +134,7 @@ public class BaseActivity extends Activity implements AMapNaviListener, AMapNavi
         //路线计算失败
         Log.e("dm", "--------------------------------------------");
         Log.i("dm", "路线计算失败：错误码=" + errorInfo + ",Error Message= " + ErrorInfo.getError(errorInfo));
-        Log.i("dm", "错误码详细链接见：http://lbs.amap.com/api/android-navi-sdk/guide/tools/errorcode/");
+        Log.i("dm", "错误码详细链接见：http://lbs.amap.com/api/android-navi-sdk/guide_main/tools/errorcode/");
         Log.e("dm", "--------------------------------------------");
         Toast.makeText(this, "errorInfo：" + errorInfo + ",Message：" + ErrorInfo.getError(errorInfo), Toast.LENGTH_LONG).show();
     }

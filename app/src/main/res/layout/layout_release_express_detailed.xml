@@ -258,6 +258,7 @@
             android:layout_weight="1"
             android:background="@color/colorBackground"
             android:text="联系Ta"
+            android:onClick="lxchat"
             android:textColor="@color/colorWhite"
             android:textSize="14dp"
             android:textStyle="normal|bold" />

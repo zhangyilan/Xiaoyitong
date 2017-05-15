@@ -23,6 +23,8 @@ import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.ReleaseDetails;
+import ui.test.cn.xiaoyitong.ui.ChatActivity;
+import ui.test.cn.xiaoyitong.ui.DetailActivity;
 
 
 /**
@@ -152,5 +154,10 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
 
             }
         });
+    }
+
+    public void lxchat(View view) {
+        String phone = nickName.getText().toString();
+        startActivity(new Intent(ReceiveExpressHandle.this, DetailActivity.class).putExtra("name", phone));
     }
 }
