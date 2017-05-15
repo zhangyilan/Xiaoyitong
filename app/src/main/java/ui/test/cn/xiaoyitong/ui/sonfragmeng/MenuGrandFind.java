@@ -84,6 +84,7 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                 pvOptions.setNPicker(options1Items, options2Items, null);
                 pvOptions.show();
             }
+
         });
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
