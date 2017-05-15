@@ -1,6 +1,5 @@
 package ui.test.cn.xiaoyitong.ui;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.easemob.chat.EMContactManager;
-
-import ui.test.cn.xiaoyitong.GetContext.MyApplication;
 import ui.test.cn.xiaoyitong.R;
 
 /**
@@ -31,7 +26,6 @@ public class AddContactActivity extends TestActivity{
     private ImageView avatar;
     private InputMethodManager inputMethodManager;
     private String toAddUsername;
-    private ProgressDialog progressDialog;
 
 
 

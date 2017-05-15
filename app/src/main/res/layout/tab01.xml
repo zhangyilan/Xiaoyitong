@@ -58,7 +58,6 @@
                     android:id="@+id/flipper"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:layout_gravity="center"
                     android:layout_marginLeft="3dp"
                     android:layout_weight="1"
                     android:background="#fff"
@@ -66,19 +65,23 @@
 
                     <TextView
                         android:id="@+id/news_txt1"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/news_txt2"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
 
@@ -86,8 +89,10 @@
                         android:id="@+id/news_txt3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
 
@@ -95,8 +100,10 @@
                         android:id="@+id/news_txt4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
 
@@ -104,8 +111,10 @@
                         android:id="@+id/news_txt5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
                 </ViewFlipper>
