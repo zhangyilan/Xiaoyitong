@@ -316,12 +316,12 @@ public class LoginActivity extends Activity {
                         finish();
                     }else {
 
-                        Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 1:
                     pd.dismiss();
-                    Toast.makeText(getApplicationContext(), "密码错误，请重新登录", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
