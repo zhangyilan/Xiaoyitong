@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.tencent.map.geolocation.TencentLocationManager;
 
@@ -73,11 +72,11 @@ public class TabLayoutFragment extends Fragment {
         mRecyclerView.setLayoutManager(laoutManager);
         orderInformationAdapter = new OrderInformationAdapter(list);
         mRecyclerView.setAdapter(orderInformationAdapter);
-        initView(view);
+        initView();
         return view;
     }
 
-    protected void initView(View view) {
+    protected void initView() {
         switch (type) {
             case 0://所有订单信息
                 addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client=20150589","未完成");

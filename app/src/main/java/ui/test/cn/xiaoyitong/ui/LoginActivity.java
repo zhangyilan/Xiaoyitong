@@ -42,7 +42,6 @@ import ui.test.cn.xiaoyitong.entity.Constant;
 import ui.test.cn.xiaoyitong.entity.User;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.utils.CommonUtils;
-import ui.test.cn.xiaoyitong.utils.DeviceInfoUtil;
 import ui.test.cn.xiaoyitong.utils.NetUtil;
 import ui.test.cn.xiaoyitong.utils.StatusBarUtil;
 
@@ -51,8 +50,6 @@ import ui.test.cn.xiaoyitong.utils.StatusBarUtil;
  */
 
 public class LoginActivity extends Activity {
-    private static final String TAG = "LoginActivity";
-    public static final int REQUEST_CODE_SETNICK = 1;
     private EditText usernameEditText;
     private EditText passwordEditText;
     private TextView btn_register;
@@ -63,6 +60,7 @@ public class LoginActivity extends Activity {
     private boolean progressShow;
     private boolean autoLogin = false;
     private String uuid;
+    private ProgressDialog pd;
     private String currentUsername;
     private String currentPassword;
 
@@ -168,8 +166,8 @@ public class LoginActivity extends Activity {
             Toast.makeText(this, R.string.network_isnot_available, Toast.LENGTH_SHORT).show();
             return;
         }
-        currentUsername = usernameEditText.getText().toString().trim();
-        currentPassword = passwordEditText.getText().toString().trim();
+        currentUsername = usernameEditText.getText().toString();
+        currentPassword = passwordEditText.getText().toString();
 
         if (TextUtils.isEmpty(currentUsername)) {
             Toast.makeText(this, R.string.User_name_cannot_be_empty, Toast.LENGTH_SHORT).show();
@@ -181,7 +179,7 @@ public class LoginActivity extends Activity {
         }
 
         progressShow = true;
-        final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
+          pd = new ProgressDialog(LoginActivity.this);
         pd.setCanceledOnTouchOutside(false);
         pd.setOnCancelListener(new DialogInterface.OnCancelListener() {
 
@@ -192,13 +190,8 @@ public class LoginActivity extends Activity {
         });
         pd.setMessage(getString(R.string.Is_landing));
         pd.show();
-
-        final long start = System.currentTimeMillis();
-        uuid= DeviceInfoUtil.getUniqueNumber(this);
-        String url="http://123.206.92.38:80/SimpleSchool/userservlet?opt=login&name="+currentUsername+"&password="+currentPassword+"&uuid="+uuid+"";
-        Log.d("url",url);
-        Log.d("用户名:",currentUsername);
-        Log.d("密码:",currentPassword);
+        //uuid= DeviceInfoUtil.getUniqueNumber(this);
+        String url="http://123.206.92.38:80/SimpleSchool/userservlet?opt=login&name="+currentUsername+"&password="+currentPassword+"&uuid="+"";
         NetUtil netUtil=new NetUtil();
         if(netUtil.isNetworkAvailable(LoginActivity.this)){
             netUtil.sendData(url,"POST",new HttpCallback() {
@@ -252,22 +245,20 @@ public class LoginActivity extends Activity {
 
                             @Override
                             public void onError(final int code, final String message) {
-                                if (!progressShow) {
-                                    return;
-                                }
-                                runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        pd.dismiss();
-                                        Toast.makeText(getApplicationContext(), getString(R.string.Login_failed) + message, Toast.LENGTH_SHORT).show();
-                                    }
-                                });
                             }
                         });
+                        Message message=new Message();
+                        message.obj=response;
+                        message.what=0;
+                        handler.sendMessage(message);
                     }
-                    Message message=new Message();
-                    message.obj=response;
-                    message.what=0;
-                    handler.sendMessage(message);
+                    else{
+                        Message message=new Message();
+                        message.what=1;
+                        handler.sendMessage(message);
+
+                    }
+
                 }
 
                 @Override
@@ -292,7 +283,7 @@ public class LoginActivity extends Activity {
         MyApplication.getInstance().setContactList(userlist);
         // 存入db
         UserDao dao = new UserDao(LoginActivity.this);
-        List<User> users = new ArrayList<User>(userlist.values());
+        List<User> users = new ArrayList<>(userlist.values());
         dao.saveContactList(users);
     }
 
@@ -322,10 +313,12 @@ public class LoginActivity extends Activity {
                         finish();
                     }else {
 
-                        Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_SHORT).show();
                     }
                     break;
-                default:
+                case 1:
+                    pd.dismiss();
+                    Toast.makeText(getApplicationContext(), "用户名或密码错误", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

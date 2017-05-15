@@ -117,7 +117,6 @@ public class HXNotifier {
 
         // 判断app是否在后台
         if (!EasyUtils.isAppRunningForeground(appContext)) {
-            EMLog.d(TAG, "app is running in backgroud");
             sendNotification(message, false);
         } else {
             sendNotification(message, true);
@@ -131,7 +130,6 @@ public class HXNotifier {
         }
         // 判断app是否在后台
         if (!EasyUtils.isAppRunningForeground(appContext)) {
-            EMLog.d(TAG, "app is running in backgroud");
             sendNotification(messages, false);
         } else {
             sendNotification(messages, true);
@@ -309,7 +307,6 @@ public class HXNotifier {
 
                     ringtone = RingtoneManager.getRingtone(appContext, notificationUri);
                     if (ringtone == null) {
-                        EMLog.d(TAG, "找不到铃音cant find ringtone at:" + notificationUri.getPath());
                         return;
                     }
                 }

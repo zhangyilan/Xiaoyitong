@@ -2,7 +2,6 @@ package ui.test.cn.xiaoyitong.GetContext;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.easemob.EMCallBack;
@@ -47,7 +46,6 @@ public class MyApplication extends Application {
             @Override
             public void onSuccess(String deviceToken) {
                 //注册成功会返回device token
-                Log.d("mytoken", deviceToken);
             }
 
             @Override

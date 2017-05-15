@@ -49,7 +49,6 @@ import com.easemob.chat.EMGroupManager;
 import com.easemob.chat.EMMessage;
 import com.easemob.chat.EMMessage.ChatType;
 import com.easemob.chat.TextMessageBody;
-import com.easemob.util.EMLog;
 import com.easemob.util.VoiceRecorder;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -453,7 +452,6 @@ public class ChatActivity extends TestActivity implements OnClickListener, EMEve
 
             @Override
             public void onSuccess(EMChatRoom value) {
-                // TODO Auto-generated method stub
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -464,7 +462,6 @@ public class ChatActivity extends TestActivity implements OnClickListener, EMEve
                         } else {
                             ((TextView) findViewById(R.id.name)).setText(toChatUsername);
                         }
-                        EMLog.d(TAG, "join room success : " + room.getName());
 
                         onConversationInit();
 
@@ -475,8 +472,6 @@ public class ChatActivity extends TestActivity implements OnClickListener, EMEve
 
             @Override
             public void onError(final int error, String errorMsg) {
-                // TODO Auto-generated method stub
-                EMLog.d(TAG, "join room failure : " + error);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -759,7 +754,7 @@ public class ChatActivity extends TestActivity implements OnClickListener, EMEve
      */
     public void toggleMore(View view) {
         if (more.getVisibility() == View.GONE) {
-            EMLog.d(TAG, "more gone");
+
             hideKeyboard();
             more.setVisibility(View.VISIBLE);
             btnContainer.setVisibility(View.VISIBLE);

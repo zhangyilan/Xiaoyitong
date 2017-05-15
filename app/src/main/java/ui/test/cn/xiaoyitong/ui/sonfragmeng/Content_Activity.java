@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -40,19 +39,16 @@ public class Content_Activity extends SwipeBackActivity {
             sourse.setText(news.getSource());
             read.setText(String.valueOf(news.getRead()));
             content.setText(news.getContent());
-            // Log.d("ce",news.getContent());
 
             if (news.getSet() != null && !(news.getSet()).isEmpty()) {
                 Iterator j = news.getSet().iterator();
                 List<Bitmap> list = new ArrayList<>();
                 while (j.hasNext()) {//遍历
                     // System.out.println("图片名字"+j.next());
-//                    Log.d("ce","图片图"+list.get(1).toString());
                     list.add((Bitmap) j.next());
                 }
                 if (list != null && !list.isEmpty()) {
                     for (int i = 0; i < list.size(); i++) {
-                        Log.d("ce", "测试中");
 
 
                         if (i == 0 && list.get(i) != null) {
@@ -93,7 +89,6 @@ public class Content_Activity extends SwipeBackActivity {
         img3 = (ImageView) findViewById(R.id.news_content_img3);
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
-        Log.d("ce", "id为" + id);
         getcontent(id);
 
         ImageView back = (ImageView) findViewById(R.id.back);

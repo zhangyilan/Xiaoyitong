@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -165,7 +164,6 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
 
     private void okhttp(String a) {
         String url = "http://123.206.92.38:80/SimpleSchool/corporationservlet?opt=minutecorporation&corporation_id=" + (Integer.parseInt(a) + 1);
-        Log.d("aaaaa", url);
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
@@ -192,14 +190,12 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
                 try {
                     JSONObject mJSONObject = null;
                     JSONArray array = new JSONArray(string);
-                    Log.d("aaaaa", string);
                     for (int i = 0; i < array.length(); i++) {
                         mJSONObject = array.getJSONObject(i);
                         activity_name = mJSONObject.getString("activity_name");
                         activity_include = mJSONObject.getString("activity_include");
                         String activity_img = mJSONObject.getString("activity_img");
                         getImage(activity_img, i);
-                        Log.d("aaaa",activity_img);
                         getImage1(shetuan_img, i);
 
                         aa.add(i, new LocationEntity( null, activity_include, activity_name));
@@ -216,7 +212,6 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
             private void analysisJson1(String string) {
                 try {
                     JSONArray array = new JSONArray(string);
-                    Log.d("aaaaa", string);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject mJSONObject = array.getJSONObject(i);
                         if (i == array.length() - 1) {

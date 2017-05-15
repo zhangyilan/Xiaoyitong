@@ -73,7 +73,6 @@ public class ContactlistFragment extends Fragment {
     class HXContactSyncListener implements HXSDKHelper.HXSyncListener {
         @Override
         public void onSyncSucess(final boolean success) {
-            EMLog.d(TAG, "on contact list sync success:" + success);
             ContactlistFragment.this.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     getActivity().runOnUiThread(new Runnable(){

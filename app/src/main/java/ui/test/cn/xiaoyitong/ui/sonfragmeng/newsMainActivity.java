@@ -33,15 +33,10 @@ public class newsMainActivity extends SwipeBackActivity {
             switch (msg.what){
                 case 1:
                     newsList.addAll((List<news>) msg.obj);
-                    Log.d("ce","回调中"+newsList.toString());
-                    Log.d("ce","回调中");
-                    //rlist= (List<Msglist>) msg.obj;
                     newsAdapter .notifyDataSetChanged();
-                    Log.d("ce","回调11");
                     newsAdapter.myListViewClickListener(new NewsAdapter.ListViewClickListener() {
                         @Override
                         public void onRecycleViewClick(View view, int id) {
-                            Log.d("id",String.valueOf(id));
                             Intent intent=new Intent(newsMainActivity.this,Content_Activity.class);
                             intent.putExtra("id",id);
                             startActivity(intent);
@@ -75,11 +70,7 @@ public class newsMainActivity extends SwipeBackActivity {
     }
 
     private void sendRequest() {
-        //String url="http://10.126.3.159:8080/newsapp/AppServlet?opt=getdata";
-       // String url="http://192.168.1.100:8080/newsapp/AppServlet?opt=getdata";
         String url="http://123.206.92.38/SimpleSchool/AppServlet?opt=getdata";
-
-       //String url="http://192.168.1.101:8080/newsapp/AppServlet?opt=getdata";
         Httputil.sendRequest(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {

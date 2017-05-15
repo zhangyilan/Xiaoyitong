@@ -81,7 +81,6 @@ public class ShetuanActivity extends SwipeBackActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ShetuanActivity.this, DetailsActivity.class);
-                //Toast.makeText(ShetuanActivity.this, "发送" + organizationList.get(position).getName(), Toast.LENGTH_SHORT).show();
                 intent.putExtra("position", String.valueOf(position));
                 startActivity(intent);
             }
