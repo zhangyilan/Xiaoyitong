@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -23,7 +24,7 @@ import ui.test.cn.xiaoyitong.entity.GuideBean;
  * Created by YanChunlin on 2017/4/20.
  */
 
-public class GuideActivity extends Activity implements ViewPager.OnPageChangeListener{
+public class GuideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
     private ViewPager mViewPager;
     private ArrayList<GuideBean> mList;
     private GuideAdapter mAdapter;
@@ -31,10 +32,10 @@ public class GuideActivity extends Activity implements ViewPager.OnPageChangeLis
     private boolean isFirst;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 去掉
         }
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.guide_main);
         initView();
         upDataView();
