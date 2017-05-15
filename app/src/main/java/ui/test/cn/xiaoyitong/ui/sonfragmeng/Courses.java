@@ -3,6 +3,7 @@ package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.GridView;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
@@ -52,7 +53,9 @@ public class Courses extends SwipeBackActivity {
 
         String id = getIntent().getStringExtra("id");
         String year = getIntent().getStringExtra("year");
+        Log.d("ce","哈哈"+year);
         String term = getIntent().getStringExtra("term");
+        Log.d("ce","哈哈"+term);
         String URL1 = "http://123.206.92.38:80/SimpleSchool/schooltimetableservlet?opt=get_table&school_year="+year+"&school_term="+term+"&student_id="+id;
         http.sendRequest(URL1, new HttpCallBackListener() {
             @Override
