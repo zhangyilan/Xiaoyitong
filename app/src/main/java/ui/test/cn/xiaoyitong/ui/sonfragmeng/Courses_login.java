@@ -140,7 +140,7 @@ public class Courses_login extends SwipeBackActivity {
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
                 String tx = year.get(options1) + termdis.get(option2);
-                term.setText(year.get(options1) + "  第" + termdis.get(option2) + "学期");
+                term.setText(year.get(options1) + " 第" + termdis.get(option2) + "学期");
                 idd = year.get(options1).toString();
                 termm = termdis.get(option2).toString();
             }
