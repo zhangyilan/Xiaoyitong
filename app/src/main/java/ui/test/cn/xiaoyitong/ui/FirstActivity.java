@@ -38,6 +38,8 @@ public class FirstActivity extends TestActivity {
         btn_register = (Button) findViewById(R.id.btn_register);
         btn_login = (Button) findViewById(R.id.btn_login);
         initViews();
+
+
         startAnimation();
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
