@@ -82,10 +82,15 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#dddddd" />
+
                 <LinearLayout
                     android:id="@+id/lin_list1"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -118,7 +123,7 @@
                 <LinearLayout
                     android:id="@+id/lin_list2"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -148,10 +153,16 @@
                         android:src="@drawable/b" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#dddddd" />
+
                 <LinearLayout
                     android:id="@+id/lin_list3"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -184,7 +195,7 @@
                 <LinearLayout
                     android:id="@+id/lin_list4"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -215,6 +226,7 @@
                         android:text="缓存大小"
                         android:textColor="#333333"
                         android:textSize="12dp" />
+
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
@@ -227,7 +239,7 @@
                 <LinearLayout
                     android:id="@+id/lin_list5"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -260,7 +272,7 @@
                 <LinearLayout
                     android:id="@+id/lin_list6"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/divide"
                     android:orientation="horizontal">
 
@@ -290,6 +302,44 @@
                         android:src="@drawable/b" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/lin_list7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/divide"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/backlogin" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="退出登录"
+                        android:textColor="#333333"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/b" />
+                </LinearLayout>
             </LinearLayout>
 
 
