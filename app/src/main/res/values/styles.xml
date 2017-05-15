@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme.Base" parent="Theme.AppCompat">
         <!--将ActionBar隐藏,这里使用ToolBar-->
         <item name="windowActionBar">false</item>
@@ -30,6 +31,7 @@
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:windowContentOverlay">@null</item>
@@ -42,7 +44,7 @@
     </style>
 
     <style name="transparentText" parent="TextAppearance.AppCompat.Small">
-        <item name="android:textColor" >#00000000</item>
+        <item name="android:textColor">#00000000</item>
     </style>
 
     <style name="chat_content_date_style">
@@ -127,16 +129,12 @@
     -->
 
 
-
-    <style name="MyDialogStyle">
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="MyDialogStyle"  parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
     <style name="MyAlertDialog" parent="android:Theme.Dialog">

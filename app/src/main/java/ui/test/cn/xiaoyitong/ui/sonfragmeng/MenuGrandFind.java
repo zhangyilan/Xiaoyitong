@@ -108,7 +108,7 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                         str1 + "&school_term=" + str2 + "&student_id=" + get_student_id.getText().toString();
 
                 final HttpUtil httpUtil = new HttpUtil();
-                final CustomProgressDialog dialog = new CustomProgressDialog(MenuGrandFind.this, "正在加载中", R.anim.frame);
+                final CustomProgressDialog dialog = new CustomProgressDialog(MenuGrandFind.this, "正在加载中", R.anim.frame,R.style.MyDialogStyle);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
                 if (httpUtil.isNetworkAvailable(MenuGrandFind.this)) {
