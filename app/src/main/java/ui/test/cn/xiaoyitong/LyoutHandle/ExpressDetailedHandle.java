@@ -72,8 +72,8 @@ public class ExpressDetailedHandle extends SwipeBackActivity implements View.OnC
             @Override
             public void onClick(View v) {
                 data();
-                if ("".equals(nickName) || "".equals(type) || "".equals(specifications) || "".equals(pickNumber) || "".equals(phoneNumber)
-                        || "".equals(name) || "".equals(address) || "".equals(urgent) || "".equals(price)) {
+                if ("".equals(nickName) || "".equals(type) || "选择".equals(type) || "".equals(specifications) || "选择".equals(specifications) || "".equals(pickNumber) || "".equals(phoneNumber)
+                        || "".equals(name) || "".equals(address) || "".equals(urgent) || "选择".equals(urgent) || "".equals(price))  {
                     Toast.makeText(ExpressDetailedHandle.this, "所有信息都不能为空！", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(ExpressDetailedHandle.this,PayDemoActivity.class);
@@ -81,8 +81,7 @@ public class ExpressDetailedHandle extends SwipeBackActivity implements View.OnC
                     intent.putExtra("bewrite",nickName);
                     intent.putExtra("price",price);
                     startActivityForResult(intent,1);
-                    String info = MosaicExpressInformation(nickName, type, specifications, pickNumber, phoneNumber, name, address, urgent, price);
-                    sendRequestWithHttpClient(info);
+
                 }
             }
 
@@ -98,6 +97,8 @@ public class ExpressDetailedHandle extends SwipeBackActivity implements View.OnC
                     status = data.getStringExtra("status");
                 }
                 if ("1".equals(status)){
+                    String info = MosaicExpressInformation(nickName, type, specifications, pickNumber, phoneNumber, name, address, urgent, price);
+                    sendRequestWithHttpClient(info);
                     Toast.makeText(ExpressDetailedHandle.this,"发布成功",Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(ExpressDetailedHandle.this,"发布失败",Toast.LENGTH_SHORT).show();
