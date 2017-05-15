@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,8 +39,9 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
         messgeDao = new InviteMessgeDao(context);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         final ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -161,7 +163,7 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
                         @Override
                         public void run() {
                             pd.dismiss();
-                            Toast.makeText(context, str3 + e.getMessage(), 1).show();
+                            Toast.makeText(context, str3 + e.getMessage(),  Toast.LENGTH_SHORT).show();
                         }
                     });
 

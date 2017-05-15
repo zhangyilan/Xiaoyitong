@@ -26,6 +26,7 @@ SoreAdapter extends ArrayAdapter<Grade> {
         this.resourceId = resourceId;
     }
 
+    @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 

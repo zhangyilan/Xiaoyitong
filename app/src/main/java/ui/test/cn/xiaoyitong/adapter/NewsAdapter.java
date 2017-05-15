@@ -30,7 +30,7 @@ public class NewsAdapter extends ArrayAdapter<news> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         final news news=getItem(position);
 
         final View view;

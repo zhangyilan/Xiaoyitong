@@ -21,7 +21,7 @@ import ui.test.cn.xiaoyitong.R;
 public class OrderInformationAdapter extends RecyclerView.Adapter<OrderInformationAdapter.ViewHolder> {
     // 数据集
     private List<OrderList> mOrderList;
-    OnRecycleViewClickListener onRecycleViewClickListener;
+    private OnRecycleViewClickListener onRecycleViewClickListener;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,8 +30,6 @@ public class OrderInformationAdapter extends RecyclerView.Adapter<OrderInformati
         holder.expressListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                OrderList fuit = mOrderList.get(position);
                 String expressId=holder.id.getText().toString();
                 onRecycleViewClickListener.onRecycleViewClick(v,expressId);
             }

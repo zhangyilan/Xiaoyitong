@@ -1,6 +1,7 @@
 package ui.test.cn.xiaoyitong.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,13 +48,14 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
     public ChatAllHistoryAdapter(Context context, int textViewResourceId, List<EMConversation> objects) {
         super(context, textViewResourceId, objects);
         this.conversationList = objects;
-        copyConversationList = new ArrayList<EMConversation>();
+        copyConversationList = new ArrayList<>();
         copyConversationList.addAll(objects);
         inflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.row_chat_history, parent, false);
         }
@@ -78,6 +80,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
         // 获取与此用户/群组的会话
         EMConversation conversation = getItem(position);
         // 获取用户username或者群组groupid
+        assert conversation != null;
         String username = conversation.getUserName();
         if (conversation.getType() == EMConversation.EMConversationType.GroupChat) {
             // 群聊消息，显示群聊头像
@@ -132,7 +135,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
      * @return
      */
     private String getMessageDigest(EMMessage message, Context context) {
-        String digest = "";
+        String digest;
         switch (message.getType()) {
             case LOCATION: // 位置消息
                 if (message.direct == EMMessage.Direct.RECEIVE) {
@@ -191,12 +194,13 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
 
     }
 
-    String getStrng(Context context, int resId) {
+    private String getStrng(Context context, int resId) {
         return context.getResources().getString(resId);
     }
 
 
 
+    @NonNull
     @Override
     public Filter getFilter() {
         if (conversationFilter == null) {
@@ -208,7 +212,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
     private class ConversationFilter extends Filter {
         List<EMConversation> mOriginalValues = null;
 
-        public ConversationFilter(List<EMConversation> mList) {
+        ConversationFilter(List<EMConversation> mList) {
             mOriginalValues = mList;
         }
 
@@ -217,7 +221,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
             FilterResults results = new FilterResults();
 
             if (mOriginalValues == null) {
-                mOriginalValues = new ArrayList<EMConversation>();
+                mOriginalValues = new ArrayList<>();
             }
             if (prefix == null || prefix.length() == 0) {
                 results.values = copyConversationList;
@@ -225,7 +229,7 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
             } else {
                 String prefixString = prefix.toString();
                 final int count = mOriginalValues.size();
-                final ArrayList<EMConversation> newValues = new ArrayList<EMConversation>();
+                final ArrayList<EMConversation> newValues = new ArrayList<>();
 
                 for (int i = 0; i < count; i++) {
                     final EMConversation value = mOriginalValues.get(i);
@@ -239,9 +243,8 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
                         newValues.add(value);
                     } else{
                         final String[] words = username.split(" ");
-                        final int wordCount = words.length;
-                        for (int k = 0; k < wordCount; k++) {
-                            if (words[k].startsWith(prefixString)) {
+                        for (String word : words) {
+                            if (word.startsWith(prefixString)) {
                                 newValues.add(value);
                                 break;
                             }
