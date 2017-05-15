@@ -51,6 +51,8 @@ public class ExpressDetailedHandle extends SwipeBackActivity implements View.OnC
     private String urgent;
     private String price;
     private String status;
+
+
     ArrayList<String> expressage = new ArrayList<>();
     ArrayList<String> expressage1 = new ArrayList<>();
     ArrayList<String> expressage2 = new ArrayList<>();

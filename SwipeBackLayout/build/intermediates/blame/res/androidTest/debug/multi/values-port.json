@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "D:\\Users\\GitHub\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-port\\values-port.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 55,
+                    "endOffset": 106
+                },
+                "from": {
+                    "file": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\values-port\\values-port.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endColumn": 55,
+                        "endOffset": 342
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-port\\values-port.xml",
         "map": [
             {
