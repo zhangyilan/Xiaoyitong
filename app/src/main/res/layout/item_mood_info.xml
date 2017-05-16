@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mood_body"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -30,31 +28,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/user_img"
-            android:text="普通的APP"
+            android:text="姓名"
             android:textSize="16sp"/>
-
-        <ImageView
-            android:id="@+id/lc_chat"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_alignParentRight="true"
-            android:padding="8dp"
-            android:src="@drawable/icon_chat"
-            android:visibility="gone"/>
     </RelativeLayout>
 
-    <ui.test.cn.xiaoyitong.emo.EmojiconTextView
+    <TextView
         android:id="@+id/mood_info"
-        app:emojiconAlignment="baseline"
-        app:emojiconSize="28sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:lineSpacingExtra="3dp"
         android:lineSpacingMultiplier="1.2"
         android:padding="2dp"
-        android:text="普通的APP"
+        android:text="内容"
         android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/content_image"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallpaper0" />
 
     <TextView
         android:id="@+id/mood_time"
@@ -63,7 +59,7 @@
         android:layout_below="@id/user_name"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/user_img"
-        android:text="普通的APP"/>
+        android:text="时间"/>
 
     <TextView
         android:layout_width="match_parent"

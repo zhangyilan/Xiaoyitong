@@ -38,7 +38,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);// 去掉
         }
-        setContentView(R.layout.guide_main);
+        setContentView(R.layout.guidea_main);
         initView();
         upDataView();
     }

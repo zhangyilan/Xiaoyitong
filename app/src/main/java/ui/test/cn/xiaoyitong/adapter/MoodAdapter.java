@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         final Mood mood = getItem(position);
         View view;
         ViewHolder viewHolder;
@@ -40,7 +41,8 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
             viewHolder = new ViewHolder();
             viewHolder.username = (TextView) view.findViewById(R.id.user_name);
             viewHolder.moodtime = (TextView) view.findViewById(R.id.mood_time);
-            viewHolder.mood_info = (EmojiconTextView) view.findViewById(R.id.mood_info);
+            viewHolder.content_image = (ImageView) view.findViewById(R.id.content_image);
+            viewHolder.mood_info = (TextView) view.findViewById(R.id.mood_info);
             view.setTag(viewHolder);
         } else {
             view = convertView;
@@ -48,6 +50,7 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
         }
         viewHolder.username.setText(mood.getName());
         viewHolder.moodtime.setText(mood.getTime());
+        viewHolder.content_image.setImageResource(mood.getImg());
         viewHolder.mood_info.setText(mood.getContent());
         LinearLayout mf_comment = (LinearLayout) view.findViewById(R.id.mf_comment);
         mf_comment.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +59,7 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
                 Intent intent = new Intent(getContext(), MoodActivity.class);
                 intent.putExtra("username", mood.getName());
                 intent.putExtra("time", mood.getTime());
+                intent.putExtra("img", mood.getImg());
                 intent.putExtra("content", mood.getContent());
                 getContext().startActivity(intent);
             }
@@ -65,6 +69,7 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
     class ViewHolder {
         TextView username;
         TextView moodtime;
-        EmojiconTextView mood_info;
+        ImageView content_image;
+        TextView mood_info;
     }
 }

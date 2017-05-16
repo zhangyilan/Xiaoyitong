@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!-- ListView最左边的缩略图 -->
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="2dip" >
+
+        <ImageView
+            android:id="@+id/row_user_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/userimg" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/row_discuss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="查无此人咋办回复这个可以有:"
+        android:textColor="#040404"
+        android:textSize="12sp"
+        android:typeface="sans" />
+
+    <!-- 时间 -->
+    <TextView
+        android:id="@+id/row_discuss_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dip"
+        android:gravity="right"
+        android:text="09月12日 15:45"
+        android:textColor="#10bcc9"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/row_discuss_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/row_discuss"
+        android:layout_below="@+id/row_discuss"
+        android:layout_marginTop="10dp"
+        android:text="内容"
+        android:textColor="#343434"
+        android:textSize="12sp" />
+</RelativeLayout>

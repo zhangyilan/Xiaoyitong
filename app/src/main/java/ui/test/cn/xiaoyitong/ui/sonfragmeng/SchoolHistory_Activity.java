@@ -28,7 +28,7 @@ public class SchoolHistory_Activity extends Activity implements ViewPager.OnPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.guide_main);
+        setContentView(R.layout.guidea_main);
         initView();
         Intent intent=getIntent();
         String month=intent.getStringExtra("month");
