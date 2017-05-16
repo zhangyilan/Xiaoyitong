@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.wx.goodview.GoodView;
+
 import java.util.List;
 
 import ui.test.cn.xiaoyitong.emo.EmojiconTextView;
@@ -25,6 +27,7 @@ import ui.test.cn.xiaoyitong.R;
 
 public class MoodAdapter extends ArrayAdapter<Mood> {
     private int resourceId;
+    private GoodView mGoodView;
     public MoodAdapter(Context context, int textViewResourceId, List<Mood> objects) {
         super(context, textViewResourceId,objects);
         resourceId = textViewResourceId;
@@ -62,6 +65,16 @@ public class MoodAdapter extends ArrayAdapter<Mood> {
                 intent.putExtra("img", mood.getImg());
                 intent.putExtra("content", mood.getContent());
                 getContext().startActivity(intent);
+            }
+        });
+        ImageView mf_like_icon = (ImageView) view.findViewById(R.id.mf_like_icon);
+        mf_like_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGoodView = new GoodView(getContext());
+                ((ImageView) view).setImageResource(R.drawable.good_checked);
+                mGoodView.setText("+1");
+                mGoodView.show(view);
             }
         });
         return view;

@@ -50,7 +50,7 @@
             android:contentDescription="我的"
             android:focusable="false"
             android:scaleType="centerInside"
-            android:src="@drawable/selector_like"/>
+            android:src="@drawable/good"/>
 
         <TextView
             android:id="@+id/mf_like_num"

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ui.test.cn.xiaoyitong"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         multiDexEnabled true
@@ -51,4 +51,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/afinal_0.5.1_bin.jar')
     compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
+    compile project(':goodview')
 }

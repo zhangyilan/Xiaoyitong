@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.wx.goodview.GoodView;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -48,6 +50,7 @@ public class MoodActivity extends Activity {
     private String toname;
     private String tocontent;
     private String totime;
+    private GoodView mGoodView;
 
     //主题的uid和用户名
     private long puid = 123, uid = 456;
@@ -83,6 +86,17 @@ public class MoodActivity extends Activity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        mGoodView = new GoodView(this);
+        ImageView mf_like_icon = (ImageView) findViewById(R.id.mf_like_icon);
+        mf_like_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((ImageView) view).setImageResource(R.drawable.good_checked);
+                mGoodView.setText("+1");
+                mGoodView.show(view);
             }
         });
     }
