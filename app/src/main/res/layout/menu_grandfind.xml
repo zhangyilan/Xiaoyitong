@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#fff"
-android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/menu_toolbar"
@@ -36,7 +36,9 @@ android:orientation="vertical">
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#fff"
-        android:orientation="vertical"> <LinearLayout
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
 
@@ -74,6 +76,7 @@ android:orientation="vertical">
                 android:hint="请输入学号" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -100,10 +103,11 @@ android:orientation="vertical">
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:background="@null"
-                android:inputType="numberPassword"
-                android:hint="请输入身份证号码" />
+                android:hint="请输入身份证号码"
+                android:inputType="numberPassword" />
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/term"
             android:layout_width="match_parent"
@@ -139,9 +143,9 @@ android:orientation="vertical">
             android:id="@+id/get"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/buttonradius"
             android:text="一键查询"

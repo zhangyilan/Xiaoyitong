@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +38,7 @@ import ui.test.cn.xiaoyitong.adapter.ViewPagerAdapter;
  * Created by asus on 2017/4/19.
  */
 
-public class PersonalActiity extends AppCompatActivity{
+public class PersonalActiity extends AppCompatActivity {
     private String tabTitles[] = new String[]{"全部", "待支付", "待收货", "待评论", "已完成"};
     private LinearLayout head_layout;
     private TabLayout toolbar_tab;
@@ -47,6 +49,15 @@ public class PersonalActiity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(R.color.transparent);
+
         setContentView(R.layout.personal);
         AppBarLayout app_bar_layout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -91,7 +102,7 @@ public class PersonalActiity extends AppCompatActivity{
         for (int i = 0; i < tabTitles.length; i++) {
             fragments.add(TabLayoutFragment.newInstance(i));
         }
-        ViewPagerAdapter  vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
+        ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
         //给ViewPager设置适配器
         main_vp_container.setAdapter(vpAdapter);
         //将TabLayout和ViewPager关联起来。
@@ -111,7 +122,7 @@ public class PersonalActiity extends AppCompatActivity{
                     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
-                                                GlideDrawable> glideAnimation) {
+                            GlideDrawable> glideAnimation) {
                         head_layout.setBackground(resource);
                         root_layout.setBackground(resource);
                     }
@@ -125,6 +136,7 @@ public class PersonalActiity extends AppCompatActivity{
                     }
                 });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
