@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
         "source": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
+    },
+    {
+        "merged": "F:\\moive\\xiaoyitong\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
+        "source": "F:\\moive\\xiaoyitong\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
     }
 ]

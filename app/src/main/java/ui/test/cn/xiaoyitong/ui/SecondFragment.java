@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class SecondFragment extends Fragment {
     private List<Mood> mood = new ArrayList<Mood>();
     private FloatingActionButton mFab;
     private MoodAdapter adapter;
+    Button btn_pop;
 
 
     @Nullable
@@ -63,6 +65,8 @@ public class SecondFragment extends Fragment {
                 startActivityForResult(intent,1);
             }
         });
+        btn_pop= (Button) view.findViewById(R.id.button_pop);
+        btn_pop.setVisibility(View.INVISIBLE);
     }
 
     private void initMood() {
