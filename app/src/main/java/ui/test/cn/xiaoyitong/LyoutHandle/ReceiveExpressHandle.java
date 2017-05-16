@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +42,7 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
     private TextView urgent;
     private TextView expectationtime;
     private TextView type;
-
+    private Button confrim;
     private String expressId;
 
     private List<ReleaseDetails> list=new ArrayList<ReleaseDetails>();
@@ -74,6 +75,12 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
         System.out.println(expressId);
         init();
         sendRequestWithHttpClient();
+        confrim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void init() {
@@ -85,6 +92,7 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
         address = (TextView) findViewById(R.id.layout_release_express_detailed_address);
         urgent = (TextView) findViewById(R.id.layout_release_express_detailed_urgent);
         expectationtime = (TextView) findViewById(R.id.layout_release_express_detailed_expectationtime);
+        confrim = (Button) findViewById(R.id.layout_release_express_detailed_confirm);
         type = (TextView) findViewById(R.id.layout_release_express_detailed_type);
         TextView biaoti = (TextView) findViewById(R.id.biaoti);
         ImageView  back = (ImageView) findViewById(R.id.back);
@@ -96,13 +104,6 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
         });
         biaoti.setText("快递发布");
         sendRequestWithHttpClient();
-    }
-
-    public void addData(){
-        Message msg =new Message();
-        ReleaseDetails releaseDetails = new ReleaseDetails("imageUrl","lalla","先开机","13558550320","9527","交院2栋313","特急","05/12 13:30","顺丰快递");
-        msg.obj = releaseDetails;
-        handler.sendMessage(msg);
     }
 
     private void sendRequestWithHttpClient(){

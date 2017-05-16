@@ -269,6 +269,7 @@
             android:background="#FFFFFF" />
 
         <Button
+            android:id="@+id/layout_release_express_detailed_confirm"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

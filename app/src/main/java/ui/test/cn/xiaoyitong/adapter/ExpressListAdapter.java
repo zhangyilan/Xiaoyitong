@@ -31,7 +31,8 @@ public class ExpressListAdapter extends RecyclerView.Adapter<ExpressListAdapter.
             @Override
             public void onClick(View v) {
                 String expressId=holder.id.getText().toString();
-                onRecycleViewClickListener.onRecycleViewClick(v,expressId);
+                String userId = holder.id.getText().toString();
+                onRecycleViewClickListener.onRecycleViewClick(v,expressId,userId);
             }
         });
         return holder;
@@ -45,6 +46,7 @@ public class ExpressListAdapter extends RecyclerView.Adapter<ExpressListAdapter.
         holder.expectationTime.setText(expressList.getExpectationTime());
         holder.releaseTime.setText(expressList.getReleaseTime());
         holder.type.setText(expressList.getType());
+        holder.nicknumber.setText(expressList.getUserId());
     }
 
     @Override
@@ -60,6 +62,7 @@ public class ExpressListAdapter extends RecyclerView.Adapter<ExpressListAdapter.
         TextView expectationTime;
         TextView releaseTime;
         TextView type;
+        TextView nicknumber;
         public ViewHolder(View view) {
             super(view);
             expressListView = view;
@@ -68,11 +71,12 @@ public class ExpressListAdapter extends RecyclerView.Adapter<ExpressListAdapter.
             type = (TextView) view.findViewById(R.id.recycelrview_release_type);
             expectationTime = (TextView) view.findViewById(R.id.recyclerview_service_time);
             releaseTime = (TextView) view.findViewById(R.id.recyclerview_release_time);
+            nicknumber = (TextView) view.findViewById(R.id.recyclerview_release_userid);
         }
     }
 
     public interface OnRecycleViewClickListener{
-        void  onRecycleViewClick(View view, String expressId);
+        void  onRecycleViewClick(View view, String expressId, String userId);
     }
 
     public ExpressListAdapter (List<ExpressList> expressList) {

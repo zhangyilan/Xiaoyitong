@@ -22,6 +22,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,7 @@ public class ExpressListHandle extends SwipeBackActivity {
     private ExpressListAdapter expressListAdapter;
     private Button release;
     private SwipeRefreshLayout downrefresh;
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +118,8 @@ public class ExpressListHandle extends SwipeBackActivity {
         //界面跳转
         expressListAdapter.myRecycleViewClickListener(new ExpressListAdapter.OnRecycleViewClickListener() {
             @Override
-            public void onRecycleViewClick(View view, final String expressId) {
+            public void onRecycleViewClick(View view, final String expressId,final String nickNumber) {
+                userId = nickNumber;
                 new AlertDialog.Builder(ExpressListHandle.this).setTitle("是否接单！").setMessage("为保护用户隐私，接单后将无法放弃！")
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
@@ -191,6 +194,7 @@ public class ExpressListHandle extends SwipeBackActivity {
                             String  name = null;
                             String  sprice = null;
                             String  format = null;
+                            String nickNumber = null;
                             JSONArray jsonArray=new JSONArray(response.toString());
                             list.clear();
                             for (int  i=0;i<jsonArray.length();i++) {
@@ -200,9 +204,10 @@ public class ExpressListHandle extends SwipeBackActivity {
                                 sprice = jsonobject.getString("express_price");
                                 format = jsonobject.getString("express_format");
                                 imageurl = jsonobject.getString("img");
+                                nickNumber = jsonobject.getString("real_name");
                                 //String imgUrll="http://119.29.114.210:8080/mybookshop/"+imgurl;
                                 System.out.println("数据解析完成" + i + id + name + sprice + format + imageurl);
-                                ExpressList gooditem=new ExpressList(imageurl,id,name,sprice,format);
+                                ExpressList gooditem=new ExpressList(imageurl,id,name,sprice,format,nickNumber);
                                 list.add(gooditem);
                             }
                         }catch (Exception e){
@@ -221,13 +226,10 @@ public class ExpressListHandle extends SwipeBackActivity {
             switch (msg.what){
                 case 0:
                     if (msg.obj.equals("true")){
-                        submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business=20150664&price=5&client=20150589&publish_time=04/23:23:16&type=1");
-                        submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
-                        Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
-                        intent.putExtra("expressId", msg.obj.toString());
-                        startActivity(intent);
+                        validateBusiness();
+
                     }else {
-                        new android.app.AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
+                        new AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -247,7 +249,7 @@ public class ExpressListHandle extends SwipeBackActivity {
                     if (msg.obj.equals("true")){
                         startActivity(new Intent(ExpressListHandle.this, ExpressDetailedHandle.class));
                     }else {
-                        new android.app.AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
+                        new AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -263,9 +265,48 @@ public class ExpressListHandle extends SwipeBackActivity {
                         }).show();
                     }
                     break;
+                case 2:
+                    if (msg.obj.equals("true")){
+                        //获取商户名
+                        SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
+                        String user_name=share.getString("user_name","没有登陆");
+                        //获取系统时间
+
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
+                        String data = format.format(new java.util.Date());
+                        submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+userId+"&price=5&client="+user_name+"&publish_time="+data+"&type=1");
+                        submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
+                        Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
+                        intent.putExtra("expressId", msg.obj.toString());
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(ExpressListHandle.this,"您不是商户，无法接单！",Toast.LENGTH_SHORT).show();
+                    }
+
+                    break;
                 default:
                     break;
             }
         }
     };
+    public void validateBusiness(){
+        final String method = "GET";
+        SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
+        String user_name=share.getString("user_name","没有登陆");
+        String address = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_business&user="+user_name;
+        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Message message = new Message();
+                message.obj=response;
+                message.what=2;
+                handler.sendMessage(message);
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
 }
