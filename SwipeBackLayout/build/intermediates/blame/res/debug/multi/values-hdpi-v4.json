@@ -26,7 +26,11 @@
         ]
     },
     {
+<<<<<<< Updated upstream
         "outputFile": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+=======
+        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+>>>>>>> Stashed changes
         "map": [
             {
                 "to": {
@@ -38,7 +42,11 @@
                     "endOffset": 325
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-hdpi\\values-hdpi.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-hdpi\\values-hdpi.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
