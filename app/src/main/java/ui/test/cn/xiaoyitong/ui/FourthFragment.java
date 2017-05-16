@@ -199,7 +199,6 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                 }
 
                 break;
-
         }
     }
 
