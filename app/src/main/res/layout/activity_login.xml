@@ -50,7 +50,7 @@
             android:focusableInTouchMode="true"
             android:background="@drawable/edit_gray_selector"
             android:padding="5dp"
-            android:inputType="phone"
+            android:inputType="textCapCharacters"
             android:maxLines="1"
             android:maxLength="11"
             android:textColor="#FFFFFF"

@@ -51,5 +51,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/afinal_0.5.1_bin.jar')
     compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
+    compile project(':SwipeBackLayout')
     compile project(':goodview')
 }
