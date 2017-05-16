@@ -1,6 +1,34 @@
 [
     {
+<<<<<<< Updated upstream
         "outputFile": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+=======
+        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 48,
+                    "endOffset": 99
+                },
+                "from": {
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-v18\\values-v18.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endColumn": 48,
+                        "endOffset": 335
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\android\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+>>>>>>> Stashed changes
         "map": [
             {
                 "to": {

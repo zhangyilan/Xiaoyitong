@@ -5,8 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -19,6 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -38,7 +43,7 @@ import ui.test.cn.xiaoyitong.backgroundlbs.DatabaseHelpter.MyDatabaseHelper;
 import ui.test.cn.xiaoyitong.backgroundlbs.service.LocationService;
 import ui.test.cn.xiaoyitong.utils.Utils;
 
-public class  LocationaActivity extends SwipeBackActivity {
+public class LocationaActivity extends SwipeBackActivity {
     private ArrayList<Address> listaddress = new ArrayList<>();
     private int GET_MESSAGE = 1052;
     GridviewAdapter adapter;
@@ -52,6 +57,7 @@ public class  LocationaActivity extends SwipeBackActivity {
     };
     private ImageView back;
     private TextView biaoti;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +97,7 @@ public class  LocationaActivity extends SwipeBackActivity {
         });
         biaoti.setText("步行路线");
     }
+
     private void creatdb() {
         MyDatabaseHelper my = new MyDatabaseHelper(this, "location.db", null, 1);
         my.getWritableDatabase();
@@ -101,12 +108,13 @@ public class  LocationaActivity extends SwipeBackActivity {
             Toast.makeText(this, "没网络", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void startService() {
         boolean aa = Utils.isServiceWork(this, "com.renbaojia.newcomers.background.LocationService");
         if (aa) {
-           // Toast.makeText(this, "服务正在运行", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "服务正在运行", Toast.LENGTH_SHORT).show();
         } else {
-           // Toast.makeText(this, "启动服务", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "启动服务", Toast.LENGTH_SHORT).show();
             startService(new Intent(this, LocationService.class));
         }
     }
@@ -157,6 +165,7 @@ public class  LocationaActivity extends SwipeBackActivity {
             public void run() {
                 try {
                     URL url = new URL(wwwimage);
+                    String image_name = wwwimage.substring(45, wwwimage.length());
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.setDoInput(true);
@@ -165,6 +174,8 @@ public class  LocationaActivity extends SwipeBackActivity {
                     InputStream isp = httpURLConnection.getInputStream();
                     Bitmap bitmap = BitmapFactory.decodeStream(isp);
                     listaddress.get(i).setImg(bitmap);
+                    Log.d("图片名字", image_name);
+                    saveBitmap(bitmap, image_name);
                     isp.close();
                     Message msg = new Message();
                     msg.what = GET_MESSAGE;
@@ -174,5 +185,31 @@ public class  LocationaActivity extends SwipeBackActivity {
                 }
             }
         }).start();
+    }
+
+    /**
+     * 保存方法
+     */
+    public void saveBitmap(Bitmap bm, String image_name) {
+        FileOutputStream out = null;
+        File file = new File(Environment.getExternalStorageDirectory() + "/image/");
+        File fileimage = new File(Environment.getExternalStorageDirectory() + "/image/", image_name);
+        if (!file.exists()) { //如果该文件夹不存在，则进行创建
+            file.mkdirs();//创建文件夹
+        }
+        try {
+            Log.d("ah", Environment.getExternalStorageDirectory() + "/image/");
+            out = new FileOutputStream(fileimage);
+            bm.compress(Bitmap.CompressFormat.JPEG, 20, out);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

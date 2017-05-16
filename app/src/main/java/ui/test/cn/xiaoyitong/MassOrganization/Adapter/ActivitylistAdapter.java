@@ -28,8 +28,6 @@ public class ActivitylistAdapter extends ArrayAdapter<LocationEntity> {
         resourceId = resource;
         this.context = context;
     }
-
-
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {

@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,14 +62,15 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == GET_MESSAGE) {
+                aaaaa.notifyDataSetChanged();
                 textview.setText(aaaa);
             }
             if (msg.what == SHOW_IMAGE) {
+                aaaaa.notifyDataSetChanged();
                 textview.setText(aaaa);
                 biaoti.setText(organizationList.getName());
                 tmg.setImageBitmap(organizationList.getImg());
                 textView2.setText(organizationList.getName());
-                aaaaa.notifyDataSetChanged();
             }
         }
     };
@@ -86,7 +86,6 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
         setContentView(R.layout.activity_details);
         //获取控件
         initcontrols();
-        init();
         //接收参数
         getintent();
         initpopupView();
@@ -130,7 +129,6 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
     public void getintent() {
         Intent intent = getIntent();
         String a = intent.getStringExtra("position");
-        Toast.makeText(this, "接收" + a, Toast.LENGTH_SHORT).show();
         okhttp(a);
         okhttp1(a);
     }
@@ -197,7 +195,6 @@ public class DetailsActivity extends SwipeBackActivity implements View.OnClickLi
                         String activity_img = mJSONObject.getString("activity_img");
                         getImage(activity_img, i);
                         getImage1(shetuan_img, i);
-
                         aa.add(i, new LocationEntity( null, activity_include, activity_name));
 
                     }

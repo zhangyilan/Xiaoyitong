@@ -252,7 +252,11 @@
         ]
     },
     {
+<<<<<<< Updated upstream
         "outputFile": "F:\\new\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+=======
+        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
         "map": [
             {
                 "to": {
@@ -263,7 +267,11 @@
                     "endOffset": 145
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -282,7 +290,11 @@
                     "endOffset": 239
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -301,7 +313,11 @@
                     "endOffset": 341
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -320,7 +336,11 @@
                     "endOffset": 423
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -339,7 +359,11 @@
                     "endOffset": 521
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -358,7 +382,11 @@
                     "endOffset": 627
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -377,7 +405,11 @@
                     "endOffset": 725
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -396,7 +428,11 @@
                     "endOffset": 820
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -415,7 +451,11 @@
                     "endOffset": 915
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -434,7 +474,11 @@
                     "endOffset": 1015
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -453,7 +497,11 @@
                     "endOffset": 1111
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -472,7 +520,11 @@
                     "endOffset": 1210
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -491,7 +543,11 @@
                     "endOffset": 1325
                 },
                 "from": {
+<<<<<<< Updated upstream
                     "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-ko\\values-ko.xml",
+=======
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-ko\\values-ko.xml",
+>>>>>>> Stashed changes
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
