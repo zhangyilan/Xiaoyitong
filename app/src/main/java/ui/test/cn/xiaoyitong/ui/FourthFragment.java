@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -194,7 +193,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                     EMChatManager.getInstance().loadAllConversations();
                     logout();
                 } else {
-                    Toast.makeText(getActivity(),"你还没有登陆！亲登陆后在操作！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
 
