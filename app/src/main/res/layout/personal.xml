@@ -45,8 +45,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="佳佳"
-                            android:textColor="#ffffff"
+                            android:text="20151252"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -55,7 +54,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
                             android:text="信息系  软件15-1"
-                            android:textColor="#ffffff"
                             android:textSize="13sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -76,8 +74,7 @@
                     android:layout_marginRight="40dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="个性签名     我是就是风中一匹狼"
-                    android:textColor="#ffffff"
+                    android:text="个性签名     阳光下的泡沫"
                     android:textSize="12sp" />
 
                 <RelativeLayout
@@ -98,7 +95,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="发单数"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -106,7 +102,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="50篇"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -124,7 +119,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="获得喜欢"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -132,7 +126,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3000次"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -149,7 +142,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="被访问"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -157,7 +149,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="60000次"
-                            android:textColor="#ffffff"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -173,7 +164,6 @@
                         android:paddingRight="6dp"
                         android:paddingTop="3dp"
                         android:text="设置"
-                        android:textColor="#ffffff"
                         android:textSize="12sp" />
                 </RelativeLayout>
             </LinearLayout>
@@ -193,18 +183,18 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="bottom"
-            android:background="#ffffff"
+            android:background="#dcdcdc"
             android:fillViewport="false"
             app:layout_scrollFlags="scroll"
             app:tabIndicatorColor="#00BADC"
             app:tabIndicatorHeight="2.0dp"
             app:tabSelectedTextColor="#00BADC"
-            app:tabTextColor="#ced0d3">
+            app:tabTextColor="#000">
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:icon="@drawable/tab_selector" />
+                android:text="所有订单"  />
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
@@ -216,15 +206,6 @@
                 android:layout_height="match_parent"
                 android:text="待收货" />
 
-            <android.support.design.widget.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="待评论" />
-
-            <android.support.design.widget.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="已完成" />
 
 
         </android.support.design.widget.TabLayout>

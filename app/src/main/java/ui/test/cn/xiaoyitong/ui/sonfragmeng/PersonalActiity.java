@@ -39,7 +39,7 @@ import ui.test.cn.xiaoyitong.adapter.ViewPagerAdapter;
  */
 
 public class PersonalActiity extends AppCompatActivity {
-    private String tabTitles[] = new String[]{"全部", "待支付", "待收货", "待评论", "已完成"};
+    private String tabTitles[] = new String[]{"所有订单", "待支付", "待收货"};
     private LinearLayout head_layout;
     private TabLayout toolbar_tab;
     private ViewPager main_vp_container;
@@ -49,14 +49,6 @@ public class PersonalActiity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.color.transparent);
 
         setContentView(R.layout.personal);
         AppBarLayout app_bar_layout = (AppBarLayout) findViewById(R.id.app_bar_layout);
@@ -78,7 +70,7 @@ public class PersonalActiity extends AppCompatActivity {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -head_layout.getHeight() / 2) {
-                    mCollapsingToolbarLayout.setTitle("佳佳");
+                    mCollapsingToolbarLayout.setTitle("20151252");
                 } else {
                     mCollapsingToolbarLayout.setTitle(" ");
                 }
