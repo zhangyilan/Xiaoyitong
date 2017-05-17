@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\moive\xiaoyitong\PushSDK\src\main\shaders"/></dataSet><dataSet config="release"><source path="F:\moive\xiaoyitong\PushSDK\build-types\release\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\YanChunlin\Desktop\xiaoyitong\PushSDK\src\main\shaders"/></dataSet><dataSet config="release"><source path="C:\Users\YanChunlin\Desktop\xiaoyitong\PushSDK\build-types\release\shaders"/></dataSet></merger>

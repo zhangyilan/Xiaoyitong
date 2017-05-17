@@ -45,6 +45,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     View view;
     private TextView username;
     private TextView usertitle;
+    private String uname;
 
     @Nullable
     @Override
@@ -59,18 +60,19 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     }
 
     private void bindActivity() {
+        uname = getActivity().getIntent().getStringExtra("name");
         username = (TextView) view.findViewById(R.id.username);
         mTitle = (TextView) view.findViewById(R.id.main_textview_title);
-//        if(!TextUtils.isEmpty(EMChatManager.getInstance().getCurrentUser())){
-//            username.setText(EMChatManager.getInstance().getCurrentUser());
-//        }else{
-//            username.setText("登录");
-//        }
-//        if(!TextUtils.isEmpty(EMChatManager.getInstance().getCurrentUser())){
-//            mTitle.setText(EMChatManager.getInstance().getCurrentUser());
-//        }else{
-//            mTitle.setText("");
-//        }
+        if(!TextUtils.isEmpty(uname)){
+            username.setText(uname);
+        } else {
+            username.setText("登录");
+        }
+        if(!TextUtils.isEmpty(uname)){
+            mTitle.setText(uname);
+        } else {
+            mTitle.setText("登录");
+        }
         mToolbar = (Toolbar) view.findViewById(R.id.main_toolbar);
 
         mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);

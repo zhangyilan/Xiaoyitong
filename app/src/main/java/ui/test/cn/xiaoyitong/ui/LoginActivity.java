@@ -309,6 +309,7 @@ public class LoginActivity extends Activity {
                         Toast.makeText(LoginActivity.this,"登陆成功！",Toast.LENGTH_SHORT).show();
                         // 进入主页面
                         Intent intent = new Intent(LoginActivity.this, BeasActivity.class);
+                        intent.putExtra("name",usernameEditText.getText().toString());
                         startActivity(intent);
                         finish();
                     }else {

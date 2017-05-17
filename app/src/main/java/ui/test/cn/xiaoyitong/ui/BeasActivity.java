@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
@@ -21,6 +22,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.Thing;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import ui.test.cn.xiaoyitong.Navi.BaseActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.controller.HXSDKHelper;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
@@ -209,6 +211,7 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
                     EMChatManager.getInstance().loadAllConversations();
                     setSelect(2);
                 } else {
+                    Toast.makeText(BeasActivity.this, "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(BeasActivity.this, FirstActivity.class));
                 }
                 break;
