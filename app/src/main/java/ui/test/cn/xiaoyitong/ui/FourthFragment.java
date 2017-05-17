@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -222,6 +223,9 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                     public void run() {
                         pd.dismiss();
                         DataCleanManager.cleanInternalCache(getActivity());
+                        SharedPreferences.Editor editor = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE).edit();
+                        editor.clear();
+                        editor.commit();
                         // 重新显示登陆页面
                         getActivity().finish();
                         startActivity(new Intent(getActivity(), LoginActivity.class));
