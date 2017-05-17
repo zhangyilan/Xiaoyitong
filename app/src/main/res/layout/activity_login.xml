@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XiaoYiTong"
+            android:text=""
             android:textSize="40sp"
             android:textStyle="bold"
             android:textColor="#00BADc"
@@ -45,7 +45,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:hint="请输入手机号"
+            android:hint="请输入学号"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:background="@drawable/edit_gray_selector"

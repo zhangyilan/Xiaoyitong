@@ -52,7 +52,7 @@ public class SecondFragment extends Fragment {
 
     private void initview(View view) {
         initMood();
-        adapter = new MoodAdapter(getActivity(),R.layout.item_mood,mood);
+        adapter = new MoodAdapter(getActivity(), R.layout.item_mood, mood);
         listView = (PullToZoomListView) view.findViewById(R.id.listview);
         listView.setAdapter(adapter);
         listView.getHeaderView().setImageResource(R.drawable.splash01);
@@ -62,46 +62,39 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), PublishActivity.class);
-                startActivityForResult(intent,1);
+                startActivityForResult(intent, 1);
             }
         });
-        btn_pop= (Button) view.findViewById(R.id.button_pop);
+        btn_pop = (Button) view.findViewById(R.id.button_pop);
         btn_pop.setVisibility(View.INVISIBLE);
     }
 
     private void initMood() {
-        Mood m1 = new Mood("20150116","1小时前",R.drawable.wallpaper0,"外星人？秘鲁发现两具巨头干尸！");
+        Mood m1 = new Mood("20150116", "1小时前", R.drawable.wallpaper0, "外星人？秘鲁发现两具巨头干尸！");
         mood.add(m1);
-        Mood m2 = new Mood("20150594","9小时前",R.drawable.wallpaper0,"太空旅馆住5天700万台币");
+        Mood m2 = new Mood("20150594", "9小时前", R.drawable.wallpaper0, "太空旅馆住5天700万台币");
         mood.add(m2);
-        Mood m3 = new Mood("20150664","5小时前",R.drawable.wallpaper0,"发现新物种30年科学家至今无法归类");
+        Mood m3 = new Mood("20150664", "5小时前", R.drawable.wallpaper0, "发现新物种30年科学家至今无法归类");
         mood.add(m3);
-        Mood m4 = new Mood("20150393","昨天",R.drawable.wallpaper0,"外星人阻止了苏联核电站爆炸？");
+        Mood m4 = new Mood("20150393", "昨天", R.drawable.wallpaper0, "外星人阻止了苏联核电站爆炸？");
         mood.add(m4);
-        Mood m5 = new Mood("20150589","前天",R.drawable.wallpaper0,"十大在亚洲及澳洲最好玩的主题公园");
+        Mood m5 = new Mood("20150589", "前天", R.drawable.wallpaper0, "十大在亚洲及澳洲最好玩的主题公园");
         mood.add(m5);
-        Mood m6 = new Mood("20151252","刚刚",R.drawable.wallpaper0,"看了这些你就知道人类在宇宙中是多么渺小");
+        Mood m6 = new Mood("20151252", "刚刚", R.drawable.wallpaper0, "看了这些你就知道人类在宇宙中是多么渺小");
         mood.add(m6);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == 2) {
-            Mood m =new Mood();
+            Mood m = new Mood();
             m.setContent(data.getStringExtra("content"));
             m.setName(data.getStringExtra("username"));
             m.setTime(data.getStringExtra("time"));
             mood.add(m);
             listView.setAdapter(adapter);
-            listView.setSelection(mood.size()-1);
+            listView.setSelection(mood.size() - 1);
             adapter.notifyDataSetChanged();
         }
     }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }*/
-
 }
