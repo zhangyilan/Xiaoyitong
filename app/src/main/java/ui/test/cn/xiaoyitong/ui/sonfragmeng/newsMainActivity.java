@@ -21,6 +21,8 @@ import ui.test.cn.xiaoyitong.adapter.NewsAdapter;
 import ui.test.cn.xiaoyitong.entity.news;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallBackListener;
 import ui.test.cn.xiaoyitong.httpHelper.Httputil;
+import ui.test.cn.xiaoyitong.uiManger.CustomProgressDialog;
+import ui.test.cn.xiaoyitong.utils.HttpUtil;
 
 public class newsMainActivity extends SwipeBackActivity {
 
@@ -71,6 +73,11 @@ public class newsMainActivity extends SwipeBackActivity {
 
     private void sendRequest() {
         String url="http://123.206.92.38/SimpleSchool/AppServlet?opt=getdata";
+
+        final HttpUtil httpUtil = new HttpUtil();
+        final CustomProgressDialog dialog = new CustomProgressDialog(newsMainActivity.this, "正在加载中", R.anim.frame,R.style.MyDialogStyle);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
         Httputil.sendRequest(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {
@@ -78,7 +85,7 @@ public class newsMainActivity extends SwipeBackActivity {
                 mes.what=1;
                 mes.obj=respones;
                 handler.sendMessage(mes);
-                Log.d("ce","回调中");
+                dialog.dismiss();
             }
 
             @Override
