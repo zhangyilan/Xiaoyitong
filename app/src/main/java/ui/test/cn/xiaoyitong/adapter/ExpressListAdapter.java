@@ -31,7 +31,7 @@ public class ExpressListAdapter extends RecyclerView.Adapter<ExpressListAdapter.
             @Override
             public void onClick(View v) {
                 String expressId=holder.id.getText().toString();
-                String userId = holder.id.getText().toString();
+                String userId = holder.nicknumber.getText().toString();
                 onRecycleViewClickListener.onRecycleViewClick(v,expressId,userId);
             }
         });
