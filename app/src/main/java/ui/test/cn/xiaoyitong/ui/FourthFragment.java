@@ -197,6 +197,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                 if (HXSDKHelper.getInstance().isLogined()) {
                     EMGroupManager.getInstance().loadAllGroups();
                     EMChatManager.getInstance().loadAllConversations();
+
                     logout();
                 } else {
                     Toast.makeText(getActivity(), "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
@@ -220,6 +221,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
                         pd.dismiss();
+                        DataCleanManager.cleanInternalCache(getActivity());
                         // 重新显示登陆页面
                         getActivity().finish();
                         startActivity(new Intent(getActivity(), LoginActivity.class));
