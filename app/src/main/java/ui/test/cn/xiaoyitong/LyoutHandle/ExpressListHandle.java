@@ -55,6 +55,7 @@ public class ExpressListHandle extends SwipeBackActivity {
     private Button release;
     private SwipeRefreshLayout downrefresh;
     private String userId;
+    private String orderExpressId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +132,7 @@ public class ExpressListHandle extends SwipeBackActivity {
             @Override
             public void onRecycleViewClick(View view, final String expressId,final String nickNumber) {
                 userId = nickNumber;
+                orderExpressId =expressId;
                 new AlertDialog.Builder(ExpressListHandle.this).setTitle("是否接单！").setMessage("为保护用户隐私，接单后将无法放弃！")
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
@@ -291,7 +293,7 @@ public class ExpressListHandle extends SwipeBackActivity {
                         submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+userId+"&price=5&client="+user_name+"&publish_time="+data+"&type=1");
                         submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
                         Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
-                        intent.putExtra("expressId", msg.obj.toString());
+                        intent.putExtra("expressId", orderExpressId);//我草你妈
                         startActivity(intent);
                     } else {
                         Toast.makeText(ExpressListHandle.this,"您不是商户，无法接单！",Toast.LENGTH_SHORT).show();
