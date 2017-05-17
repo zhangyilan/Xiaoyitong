@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMGroupManager;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,7 +35,10 @@ import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.ExpressList;
 import ui.test.cn.xiaoyitong.adapter.ExpressListAdapter;
+import ui.test.cn.xiaoyitong.controller.HXSDKHelper;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
+import ui.test.cn.xiaoyitong.ui.BeasActivity;
+import ui.test.cn.xiaoyitong.ui.FirstActivity;
 import ui.test.cn.xiaoyitong.ui.LoginActivity;
 import ui.test.cn.xiaoyitong.ui.UserUpgradehandle;
 import ui.test.cn.xiaoyitong.utils.HttpUtil;
@@ -72,10 +78,14 @@ public class ExpressListHandle extends SwipeBackActivity {
                 SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
                 String user_name=share.getString("user_name","没有登陆");
                 Log.d("user_name",user_name);
-                if (user_name.equals("没有登陆")){
+//                if (user_name.equals("没有登陆")){
+//                    Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
+//                }
+                if (!HXSDKHelper.getInstance().isLogined()) {
                     Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
-                }else {
+                } else {
                     String url = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=get_formal&user=" + user_name + "";
                     HttpUtil httpUtil = new HttpUtil();
                     if (httpUtil.isNetworkAvailable(ExpressListHandle.this)) {
