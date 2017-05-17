@@ -75,6 +75,7 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
         System.out.println(expressId);
         init();
         sendRequestWithHttpClient();
+        orderCommit();
         confrim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,6 +149,21 @@ public class ReceiveExpressHandle extends SwipeBackActivity {
                 } catch (Exception e) {
 
                 }
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
+    public void orderCommit(){
+        String method = "GET";
+        String url = "http://123.206.92.38:80/SimpleSchool/expressservlet?opt=update_Express&id=" + expressId;
+        HttpUtilX.sendHttpRequest(url, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+
             }
 
             @Override

@@ -214,7 +214,7 @@ public class ExpressListHandle extends SwipeBackActivity {
                                 sprice = jsonobject.getString("express_price");
                                 format = jsonobject.getString("express_format");
                                 imageurl = jsonobject.getString("img");
-                                nickNumber = jsonobject.getString("real_name");
+                                nickNumber = jsonobject.getString("express_user");
                                 //String imgUrll="http://119.29.114.210:8080/mybookshop/"+imgurl;
                                 System.out.println("数据解析完成" + i + id + name + sprice + format + imageurl);
                                 ExpressList gooditem=new ExpressList(imageurl,id,name,sprice,format,nickNumber);
@@ -284,7 +284,7 @@ public class ExpressListHandle extends SwipeBackActivity {
 
                         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
                         String data = format.format(new java.util.Date());
-                        submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+userId+"&price=5&client="+user_name+"&publish_time="+data+"&type=1");
+                        submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+user_name+"&price=5&client="+userId+"&publish_time="+data+"&type=1");
                         submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
                         Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
                         intent.putExtra("expressId", msg.obj.toString());
