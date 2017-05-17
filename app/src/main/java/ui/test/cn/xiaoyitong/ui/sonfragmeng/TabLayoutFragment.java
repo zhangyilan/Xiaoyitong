@@ -85,7 +85,7 @@ public class TabLayoutFragment extends Fragment {
                 addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部");
                 break;
             case 1://待支付
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client="+user_name,"未完成");
+                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成");
                 break;
             case 2://待收货
                 //addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client="+user_name,"待收货");
