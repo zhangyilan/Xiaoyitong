@@ -2,6 +2,7 @@ package ui.test.cn.xiaoyitong.GetContext;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.easemob.EMCallBack;
@@ -25,6 +26,7 @@ public class MyApplication extends Application {
     public static Map<String, Long> map;
 
     private static Context context;
+    private static SharedPreferences share;
 
     public static Context applicationContext;
     private static MyApplication instance;
@@ -33,7 +35,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         context = getApplicationContext();
-
+        share = getSharedPreferences("user",MODE_PRIVATE);
         super.onCreate();
         applicationContext = this;
         instance = this;
@@ -65,6 +67,9 @@ public class MyApplication extends Application {
 
     public static Context getContext() {
         return context;
+    }
+    public static SharedPreferences getSsharedPreferences(){
+        return share;
     }
 
 

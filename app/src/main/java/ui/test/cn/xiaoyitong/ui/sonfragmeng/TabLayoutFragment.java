@@ -1,6 +1,7 @@
 package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ui.test.cn.xiaoyitong.GetContext.MyApplication;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
@@ -55,7 +57,6 @@ public class TabLayoutFragment extends Fragment {
         if (getArguments() != null) {
             type = (int) getArguments().getSerializable(TABLAYOUT_FRAGMENT);
         }
-
     }
 
 
@@ -77,26 +78,19 @@ public class TabLayoutFragment extends Fragment {
     }
 
     protected void initView() {
+        SharedPreferences share = MyApplication.getSsharedPreferences();
+        String user_name=share.getString("user_name","king");
         switch (type) {
             case 0://所有订单信息
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client=20150589","未完成");
+                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部");
                 break;
             case 1://待支付
-                list.clear();
-                OrderList gooditem = new OrderList("imageUrl","快递","05/12 13:30","待支付","15");
-                list.add(gooditem);
-                OrderList gooditem2 = new OrderList("imageUrl","云打印","05/13 15:00","待支付","16");
-                list.add(gooditem2);
-                orderInformationAdapter.notifyDataSetChanged();
+                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client="+user_name,"未完成");
                 break;
             case 2://待收货
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client=20150589","待收货");
+                //addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client="+user_name,"待收货");
                 break;
-            case 3://待评论
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_not_comment&client=20150589","待评论");
-                break;
-            case 4://已完成
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client=20150589","已完成");
+            default:
                 break;
         }
     }
