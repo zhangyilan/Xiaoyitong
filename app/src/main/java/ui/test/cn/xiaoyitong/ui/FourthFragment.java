@@ -44,7 +44,6 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
     private Toolbar mToolbar;
     View view;
     private TextView username;
-    private TextView usertitle;
     private String uname;
 
     @Nullable

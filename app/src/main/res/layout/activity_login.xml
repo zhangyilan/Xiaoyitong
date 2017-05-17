@@ -119,6 +119,4 @@
             android:background="@drawable/btn_login_selector" />
     </LinearLayout>
 
-
-
 </RelativeLayout>

@@ -66,7 +66,17 @@ public class SecondFragment extends Fragment {
             }
         });
         btn_pop = (Button) view.findViewById(R.id.button_pop);
-        btn_pop.setVisibility(View.INVISIBLE);
+        btn_pop.setVisibility(View.GONE);
+
+        Button btn_add = (Button) view.findViewById(R.id.button);
+        // 进入添加好友页
+        btn_add.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddContactActivity.class));
+            }
+        });
     }
 
     private void initMood() {
