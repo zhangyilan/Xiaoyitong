@@ -60,16 +60,6 @@ import ui.test.cn.xiaoyitong.utils.DemoHXSDKHelper;
  */
 
 public class ThirstFragment extends Fragment implements EMEventListener, View.OnClickListener {
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        setSelect(0);
-        return inflater.inflate(R.layout.tab03, container, false);
-
-    }
-
     protected static final String TAG = "MainActivity";
     // 未读消息textview
     private TextView unreadLabel;
@@ -88,6 +78,27 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
     private Button btn_conversation;
     private Button btn_address_list;
     private Button button_pop;
+    private View view;
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        setSelect(0);
+        view = inflater.inflate(R.layout.tab03, container, false);
+
+        Button btn_add = (Button) view.findViewById(R.id.button);
+        // 进入添加好友页
+        btn_add.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddContactActivity.class));
+            }
+        });
+        return view;
+    }
 
     /**
      * 检查当前用户是否被删除
@@ -130,7 +141,7 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
         button_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),AddContactActivity.class);
+                Intent intent = new Intent(getActivity(), AddContactActivity.class);
                 startActivity(intent);
             }
         });
