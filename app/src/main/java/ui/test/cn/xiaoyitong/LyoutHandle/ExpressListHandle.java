@@ -263,7 +263,24 @@ public class ExpressListHandle extends SwipeBackActivity {
                     break;
                 case 1:
                     if (msg.obj.equals("true")){
-                        startActivity(new Intent(ExpressListHandle.this, ExpressDetailedHandle.class));
+                        final String method = "GET";
+                        SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
+                        String user_name=share.getString("user_name","没有登陆");
+                        String address = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_business&user="+user_name;
+                        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+                            @Override
+                            public void onFinish(String response) {
+                                Message message = new Message();
+                                message.obj=response;
+                                message.what=3;
+                                handler.sendMessage(message);
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+                        });
                     }else {
                         new AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -298,8 +315,13 @@ public class ExpressListHandle extends SwipeBackActivity {
                     } else {
                         Toast.makeText(ExpressListHandle.this,"您不是商户，无法接单！",Toast.LENGTH_SHORT).show();
                     }
-
                     break;
+                case 3://发布快递的商户验证
+                    if (msg.obj.equals("true")){
+                        Toast.makeText(ExpressListHandle.this,"您是商户，无法发布订单！",Toast.LENGTH_SHORT).show();
+                    } else {
+                        startActivity(new Intent(ExpressListHandle.this, ExpressDetailedHandle.class));
+                    }
                 default:
                     break;
             }

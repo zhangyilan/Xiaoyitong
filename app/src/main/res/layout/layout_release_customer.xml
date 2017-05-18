@@ -136,7 +136,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/layout_release_customer_picknumber_title"
                     android:background="@drawable/editsharp"
-                    android:text="9527"
+                    android:text=""
                     android:textSize="16dp" />
             </LinearLayout>
 
@@ -160,7 +160,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/layout_release_customer_phonenumber_title"
                     android:background="@drawable/editsharp"
-                    android:text="13558550380"
+                    android:text=""
                     android:textSize="16dp" />
             </LinearLayout>
 
@@ -185,7 +185,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/layout_release_customer_name_title"
                     android:background="@drawable/editsharp"
-                    android:text="陈飞"
+                    android:text=""
                     android:textSize="16dp" />
             </LinearLayout>
 

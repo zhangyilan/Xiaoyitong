@@ -3,6 +3,8 @@ package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.tencent.map.geolocation.TencentLocationManager;
 
@@ -78,17 +81,17 @@ public class TabLayoutFragment extends Fragment {
     }
 
     protected void initView() {
-        SharedPreferences share = MyApplication.getSsharedPreferences();
-        String user_name=share.getString("user_name","king");
+        SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+        String user_name=share.getString("user_name","没有登陆");
         switch (type) {
             case 0://所有订单信息
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部");
+                validateBusiness();
                 break;
             case 1://待支付
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成");
+                validateBusiness();
                 break;
             case 2://待收货
-                //addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client="+user_name,"待收货");
+                validateBusiness();
                 break;
             default:
                 break;
@@ -152,4 +155,68 @@ public class TabLayoutFragment extends Fragment {
         orderInformationAdapter.notifyDataSetChanged();
     }
 
+    public void validateBusiness() {
+        final String method = "GET";
+        SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
+        String user_name = share.getString("user_name", "没有登陆");
+        String address = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_business&user=" + user_name;
+        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Message message = new Message();
+                message.obj = response;
+                message.what = 1;
+                handler.sendMessage(message);
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
+    public Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+            String user_name=share.getString("user_name","没有登陆");
+            switch (msg.what){
+                case 1:
+                    if (msg.obj.equals("true")){
+                        switch (type) {
+                            case 0:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部");
+                                break;
+                            case 1:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成");
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                break;
+                        }
+                    } else if (msg.obj.equals("false")) {
+                        switch (type) {
+                            case 0:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"全部");
+                                break;
+                            case 1:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"未完成");
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        Toast.makeText(MyApplication.getContext(),"出错啦！QAQ",Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+    };
 }
