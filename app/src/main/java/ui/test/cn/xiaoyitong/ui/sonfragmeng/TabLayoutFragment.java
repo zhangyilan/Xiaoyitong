@@ -98,13 +98,24 @@ public class TabLayoutFragment extends Fragment {
         }
     }
 
-    private void addData(final String address,final String status){
-        sendRequestWithHttpClient(address,status);
+    private void addData(final String address,final String status,final String type){
+        if (type.equals("business")){
+            sendRequestWithHttpClient(address,status);
+        } else if (type.equals("client")){
+            sendRequestWithHttpBusiness(address,status);
+        }
+
         downwardRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
                 initRecycerView();
-                sendRequestWithHttpClient(address,status);
+                if (type.equals("business")){
+                    sendRequestWithHttpClient(address,status);
+                } else if(type.equals("client")){
+                    sendRequestWithHttpBusiness(address,status);
+                }
+
                 downwardRefresh.setRefreshing(false);
             }
         });
@@ -120,6 +131,7 @@ public class TabLayoutFragment extends Fragment {
                     String type = null;
                     String time = null;
                     String id = null;
+                    String userStatus = null;
                     JSONArray jsonArray=new JSONArray(response.toString());
                     list.clear();
                     for (int  i=0;i<jsonArray.length();i++) {
@@ -127,6 +139,7 @@ public class TabLayoutFragment extends Fragment {
                         type=jsonobject.getString("type");
                         time = jsonobject.getString("publish_time");
                         id = jsonobject.getString("order_number");
+                        userStatus = jsonobject.getString("client");
                         if ("1".equals(type)){
                             type = "快递";
                         } else if ("2".equals(type)) {
@@ -134,7 +147,48 @@ public class TabLayoutFragment extends Fragment {
                         } else {
                             type = "其他";
                         }
-                        OrderList gooditem=new OrderList("imageUrl",type,time,status,id);
+                        OrderList gooditem=new OrderList("imageUrl",type,time,userStatus,id);
+                        list.add(gooditem);
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+
+    }
+    private void sendRequestWithHttpBusiness(String address,final String status) {
+        String method = "GET";
+        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                try {
+                    String imageUrl = null;
+                    String type = null;
+                    String time = null;
+                    String id = null;
+                    String userStatus = null;
+                    JSONArray jsonArray = new JSONArray(response.toString());
+                    list.clear();
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonobject = jsonArray.getJSONObject(i);
+                        type = jsonobject.getString("type");
+                        time = jsonobject.getString("publish_time");
+                        id = jsonobject.getString("order_number");
+                        userStatus = jsonobject.getString("business");
+                        if ("1".equals(type)) {
+                            type = "快递";
+                        } else if ("2".equals(type)) {
+                            type = "云打印";
+                        } else {
+                            type = "其他";
+                        }
+                        OrderList gooditem = new OrderList("imageUrl", type, time, userStatus, id);
                         list.add(gooditem);
                     }
                 } catch (Exception e) {
@@ -185,10 +239,10 @@ public class TabLayoutFragment extends Fragment {
                     if (msg.obj.equals("true")){
                         switch (type) {
                             case 0:
-                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部");
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部","business");
                                 break;
                             case 1:
-                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成");
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成","business");
                                 break;
                             case 2:
                                 break;
@@ -198,10 +252,10 @@ public class TabLayoutFragment extends Fragment {
                     } else if (msg.obj.equals("false")) {
                         switch (type) {
                             case 0:
-                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"全部");
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"全部","client");
                                 break;
                             case 1:
-                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"未完成");
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"未完成","client");
                                 break;
                             case 2:
                                 break;
@@ -215,7 +269,6 @@ public class TabLayoutFragment extends Fragment {
                 default:
                     break;
             }
-
         }
 
     };
