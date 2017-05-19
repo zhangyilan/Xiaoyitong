@@ -102,6 +102,8 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     private DrivingRouteOverlay drivingRouteOverlay;
     private MarkerOptions markerOptions;
     private int id;
+    private int BIANLIANG=0;
+    private int BIANLIANG1=0;
     List<Parks> parkslist = new ArrayList<>();
 
     @Override
@@ -341,18 +343,19 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onMapClick(LatLng arg0) {
         if (GONE_VISIBLE == 0) {
-            infolinearLayout.setVisibility(View.GONE);
             linearLayout111.setVisibility(View.GONE);
             search.setVisibility(View.GONE);
+            infolinearLayout.setVisibility(View.GONE);
             GONE_VISIBLE = 1;
         } else {
-            infolinearLayout.setVisibility(View.VISIBLE);
+            if (BIANLIANG == 1) {
+                infolinearLayout.setVisibility(View.VISIBLE);
+            }
             linearLayout111.setVisibility(View.VISIBLE);
             search.setVisibility(View.VISIBLE);
             GONE_VISIBLE = 0;
         }
     }
-
     /**
      * 开始搜索路径规划方案
      */
@@ -619,6 +622,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 jumpPoint(marker);
             }
             infolinearLayout.setVisibility(View.VISIBLE);
+            BIANLIANG=1;
         } else {
             Toast.makeText(this, "当前无法连接网络，请打开网络！", Toast.LENGTH_LONG).show();
         }
