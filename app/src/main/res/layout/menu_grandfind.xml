@@ -57,7 +57,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
@@ -87,11 +87,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:text="密码"
+                android:text="身份证号"
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
@@ -104,7 +104,7 @@
                 android:layout_marginLeft="30dp"
                 android:background="@null"
                 android:hint="请输入身份证号码"
-                android:inputType="numberPassword" />
+                android:inputType="number" />
 
         </LinearLayout>
 

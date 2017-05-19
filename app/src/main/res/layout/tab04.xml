@@ -170,7 +170,7 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/a" />
+                        android:src="@drawable/ab" />
 
                     <TextView
                         android:layout_width="0dp"
