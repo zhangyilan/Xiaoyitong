@@ -50,7 +50,7 @@ public class DriveActivity extends BaseActivity {
         mAMapNaviView.onCreate(savedInstanceState);
         mAMapNaviView.setAMapNaviViewListener(this);
         //设置模拟导航的行车速度
-        mAMapNavi.setEmulatorNaviSpeed(40);
+        mAMapNavi.setEmulatorNaviSpeed(20);
     }
 
     @Override
