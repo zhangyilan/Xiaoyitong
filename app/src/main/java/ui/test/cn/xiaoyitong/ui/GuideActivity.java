@@ -49,7 +49,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         mViewPager=(ViewPager) findViewById(R.id.guide_main_vp);
         mTipsGroupView = (LinearLayout)findViewById(R.id.viewGroup);
         mList=new ArrayList<>();
-        mList.add(new GuideBean(R.drawable.fy_first));
+        //mList.add(new GuideBean(R.drawable.fy_first));
         mList.add(new GuideBean(R.drawable.fy_first1));
         mList.add(new GuideBean(R.drawable.fy_first2));
         mList.add(new GuideBean(R.drawable.fy_first3));

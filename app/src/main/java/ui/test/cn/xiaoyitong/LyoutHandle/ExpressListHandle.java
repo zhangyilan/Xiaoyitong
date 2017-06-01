@@ -304,13 +304,12 @@ public class ExpressListHandle extends SwipeBackActivity {
                         SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
                         String user_name=share.getString("user_name","没有登陆");
                         //获取系统时间
-
                         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
                         String data = format.format(new java.util.Date());
                         submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+user_name+"&price=5&client="+userId+"&publish_time="+data+"&type=1");
                         submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
                         Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
-                        intent.putExtra("expressId", orderExpressId);//我草你妈
+                        intent.putExtra("expressId", orderExpressId);
                         startActivity(intent);
                     } else {
                         Toast.makeText(ExpressListHandle.this,"您不是商户，无法接单！",Toast.LENGTH_SHORT).show();

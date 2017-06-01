@@ -4,6 +4,7 @@
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
+<<<<<<< Updated upstream
         "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
@@ -14,6 +15,18 @@
     {
         "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+=======
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+>>>>>>> Stashed changes
     },
     {
         "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
