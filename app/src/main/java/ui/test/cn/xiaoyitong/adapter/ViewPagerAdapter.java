@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
-    private String tabTitles[] = new String[]{"所有订单", "待支付", "待收货"};
+    private String tabTitles[] = new String[]{"全部", "未完成", "已完成"};
 
     public ViewPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);

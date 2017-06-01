@@ -1,7 +1,10 @@
 package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.tencent.map.geolocation.TencentLocationManager;
 
@@ -20,6 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ui.test.cn.xiaoyitong.GetContext.MyApplication;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
@@ -55,7 +60,6 @@ public class TabLayoutFragment extends Fragment {
         if (getArguments() != null) {
             type = (int) getArguments().getSerializable(TABLAYOUT_FRAGMENT);
         }
-
     }
 
 
@@ -77,37 +81,41 @@ public class TabLayoutFragment extends Fragment {
     }
 
     protected void initView() {
+        SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+        String user_name=share.getString("user_name","没有登陆");
         switch (type) {
             case 0://所有订单信息
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client=20150589","未完成");
+                validateBusiness();
                 break;
             case 1://待支付
-                list.clear();
-                OrderList gooditem = new OrderList("imageUrl","快递","05/12 13:30","待支付","15");
-                list.add(gooditem);
-                OrderList gooditem2 = new OrderList("imageUrl","云打印","05/13 15:00","待支付","16");
-                list.add(gooditem2);
-                orderInformationAdapter.notifyDataSetChanged();
+                validateBusiness();
                 break;
             case 2://待收货
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=not_get_goods&client=20150589","待收货");
+                validateBusiness();
                 break;
-            case 3://待评论
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_not_comment&client=20150589","待评论");
-                break;
-            case 4://已完成
-                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client=20150589","已完成");
+            default:
                 break;
         }
     }
 
-    private void addData(final String address,final String status){
-        sendRequestWithHttpClient(address,status);
+    private void addData(final String address,final String status,final String type){
+        if (type.equals("business")){
+            sendRequestWithHttpClient(address,status);
+        } else if (type.equals("client")){
+            sendRequestWithHttpBusiness(address,status);
+        }
+
         downwardRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
                 initRecycerView();
-                sendRequestWithHttpClient(address,status);
+                if (type.equals("business")){
+                    sendRequestWithHttpClient(address,status);
+                } else if(type.equals("client")){
+                    sendRequestWithHttpBusiness(address,status);
+                }
+
                 downwardRefresh.setRefreshing(false);
             }
         });
@@ -123,6 +131,7 @@ public class TabLayoutFragment extends Fragment {
                     String type = null;
                     String time = null;
                     String id = null;
+                    String userStatus = null;
                     JSONArray jsonArray=new JSONArray(response.toString());
                     list.clear();
                     for (int  i=0;i<jsonArray.length();i++) {
@@ -130,6 +139,7 @@ public class TabLayoutFragment extends Fragment {
                         type=jsonobject.getString("type");
                         time = jsonobject.getString("publish_time");
                         id = jsonobject.getString("order_number");
+                        userStatus = jsonobject.getString("client");
                         if ("1".equals(type)){
                             type = "快递";
                         } else if ("2".equals(type)) {
@@ -137,7 +147,48 @@ public class TabLayoutFragment extends Fragment {
                         } else {
                             type = "其他";
                         }
-                        OrderList gooditem=new OrderList("imageUrl",type,time,status,id);
+                        OrderList gooditem=new OrderList("imageUrl",type,time,userStatus,id);
+                        list.add(gooditem);
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+
+    }
+    private void sendRequestWithHttpBusiness(String address,final String status) {
+        String method = "GET";
+        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                try {
+                    String imageUrl = null;
+                    String type = null;
+                    String time = null;
+                    String id = null;
+                    String userStatus = null;
+                    JSONArray jsonArray = new JSONArray(response.toString());
+                    list.clear();
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonobject = jsonArray.getJSONObject(i);
+                        type = jsonobject.getString("type");
+                        time = jsonobject.getString("publish_time");
+                        id = jsonobject.getString("order_number");
+                        userStatus = jsonobject.getString("business");
+                        if ("1".equals(type)) {
+                            type = "快递";
+                        } else if ("2".equals(type)) {
+                            type = "云打印";
+                        } else {
+                            type = "其他";
+                        }
+                        OrderList gooditem = new OrderList("imageUrl", type, time, userStatus, id);
                         list.add(gooditem);
                     }
                 } catch (Exception e) {
@@ -158,4 +209,67 @@ public class TabLayoutFragment extends Fragment {
         orderInformationAdapter.notifyDataSetChanged();
     }
 
+    public void validateBusiness() {
+        final String method = "GET";
+        SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
+        String user_name = share.getString("user_name", "没有登陆");
+        String address = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_business&user=" + user_name;
+        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Message message = new Message();
+                message.obj = response;
+                message.what = 1;
+                handler.sendMessage(message);
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
+    public Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+            String user_name=share.getString("user_name","没有登陆");
+            switch (msg.what){
+                case 1:
+                    if (msg.obj.equals("true")){
+                        switch (type) {
+                            case 0:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"全部","business");
+                                break;
+                            case 1:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=business_get_orders&business="+user_name,"未完成","business");
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                break;
+                        }
+                    } else if (msg.obj.equals("false")) {
+                        switch (type) {
+                            case 0:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"全部","client");
+                                break;
+                            case 1:
+                                addData("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=client_get_orders&client="+user_name,"未完成","client");
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        Toast.makeText(MyApplication.getContext(),"出错啦！QAQ",Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    };
 }

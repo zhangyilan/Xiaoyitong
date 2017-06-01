@@ -97,7 +97,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="7f7e1029e02296022f9572f184d70fe3" />
+            android:value="a5589151c82c60d14e6ab7cd9b99a1d1" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
         <activity android:name=".ui.GuideActivity">
@@ -203,8 +203,12 @@
         <activity android:name=".ui.UserUpgradehandle" />
         <activity android:name=".ui.FeedBackActivity"></activity>
         <activity android:name=".ui.sonfragmeng.SchoolHistory_Activity"/>
-        <activity android:name=".ui.sonfragmeng.Comouter_two_Login_Activity"/>
-        <activity android:name=".ui.sonfragmeng.ComputerTwoScoreMainActivity"/>
+        <activity android:name="maplabeing.DriveActivity"/>
+        <activity android:name="maplabeing.DriveRouteDetailActivity"/>
+        <activity android:name="maplabeing.MaplibeingActivity"/>
+        <activity android:name="maplabeing.PanoramaActivity"/>
+        <activity android:name="maplabeing.ParkDetialsActivity"/>
+        <activity android:name="maplabeing.ParkActivity"/>
     </application>
 
 </manifest>

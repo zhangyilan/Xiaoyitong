@@ -504,7 +504,7 @@
         ]
     },
     {
-        "outputFile": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-lv\\values-lv.xml",
+        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-lv\\values-lv.xml",
         "map": [
             {
                 "to": {
@@ -515,7 +515,7 @@
                     "endOffset": 170
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -534,7 +534,7 @@
                     "endOffset": 278
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -553,7 +553,7 @@
                     "endOffset": 387
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -572,7 +572,7 @@
                     "endOffset": 473
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -591,7 +591,7 @@
                     "endOffset": 577
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -610,7 +610,7 @@
                     "endOffset": 699
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -629,7 +629,7 @@
                     "endOffset": 808
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -648,7 +648,7 @@
                     "endOffset": 920
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -667,7 +667,7 @@
                     "endOffset": 1019
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -686,7 +686,7 @@
                     "endOffset": 1130
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -705,7 +705,7 @@
                     "endOffset": 1239
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -724,7 +724,7 @@
                     "endOffset": 1344
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -743,7 +743,7 @@
                     "endOffset": 1463
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-lv\\values-lv.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-lv\\values-lv.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,

@@ -169,47 +169,47 @@ public class LocationaActivity extends SwipeBackActivity {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.setDoInput(true);
-                    httpURLConnection.setReadTimeout(8000);
-                    httpURLConnection.setRequestProperty("Content-type", "application/x-java-serialized-object");
-                    InputStream isp = httpURLConnection.getInputStream();
-                    Bitmap bitmap = BitmapFactory.decodeStream(isp);
-                    listaddress.get(i).setImg(bitmap);
-                    Log.d("图片名字", image_name);
-                    saveBitmap(bitmap, image_name);
-                    isp.close();
-                    Message msg = new Message();
-                    msg.what = GET_MESSAGE;
-                    handler.sendMessage(msg);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+httpURLConnection.setReadTimeout(8000);
+        httpURLConnection.setRequestProperty("Content-type", "application/x-java-serialized-object");
+        InputStream isp = httpURLConnection.getInputStream();
+        Bitmap bitmap = BitmapFactory.decodeStream(isp);
+        listaddress.get(i).setImg(bitmap);
+        Log.d("图片名字", image_name);
+        // saveBitmap(bitmap, image_name);
+        isp.close();
+        Message msg = new Message();
+        msg.what = GET_MESSAGE;
+        handler.sendMessage(msg);
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+        }
         }).start();
-    }
+        }
 
-    /**
-     * 保存方法
-     */
-    public void saveBitmap(Bitmap bm, String image_name) {
+/**
+ * 保存方法
+ */
+public void saveBitmap(Bitmap bm, String image_name) {
         FileOutputStream out = null;
         File file = new File(Environment.getExternalStorageDirectory() + "/image/");
         File fileimage = new File(Environment.getExternalStorageDirectory() + "/image/", image_name);
         if (!file.exists()) { //如果该文件夹不存在，则进行创建
-            file.mkdirs();//创建文件夹
+        file.mkdirs();//创建文件夹
         }
         try {
-            Log.d("ah", Environment.getExternalStorageDirectory() + "/image/");
-            out = new FileOutputStream(fileimage);
-            bm.compress(Bitmap.CompressFormat.JPEG, 20, out);
+        Log.d("ah", Environment.getExternalStorageDirectory() + "/image/");
+        out = new FileOutputStream(fileimage);
+        bm.compress(Bitmap.CompressFormat.JPEG, 20, out);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
         try {
-            out.flush();
-            out.close();
+        out.flush();
+        out.close();
         } catch (IOException e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
 
-    }
-}
+        }
+        }

@@ -194,17 +194,17 @@
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="所有订单"  />
+                android:text="全部"  />
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="待付款" />
+                android:text="未完成" />
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="待收货" />
+                android:text="已完成" />
 
 
 

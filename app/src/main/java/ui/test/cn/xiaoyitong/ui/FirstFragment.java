@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import maplabeing.MaplibeingActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -44,7 +45,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import ui.test.cn.xiaoyitong.LyoutHandle.ExpressListHandle;
 import ui.test.cn.xiaoyitong.Navi.LocationActivity;
-import ui.test.cn.xiaoyitong.Navi.LocationbActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.GridviewAdapter;
 import ui.test.cn.xiaoyitong.adviewpagermanger.ADBean;
@@ -182,7 +182,7 @@ public class FirstFragment extends Fragment {
                 }
                 if (position == 4) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=6");
-                    Intent intent = new Intent(getActivity(), LocationbActivity.class);
+                    Intent intent = new Intent(getActivity(), MaplibeingActivity.class);
                     startActivity(intent);
 
                 }

@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMGroupManager;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,7 +35,10 @@ import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.ExpressList;
 import ui.test.cn.xiaoyitong.adapter.ExpressListAdapter;
+import ui.test.cn.xiaoyitong.controller.HXSDKHelper;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
+import ui.test.cn.xiaoyitong.ui.BeasActivity;
+import ui.test.cn.xiaoyitong.ui.FirstActivity;
 import ui.test.cn.xiaoyitong.ui.LoginActivity;
 import ui.test.cn.xiaoyitong.ui.UserUpgradehandle;
 import ui.test.cn.xiaoyitong.utils.HttpUtil;
@@ -49,6 +55,7 @@ public class ExpressListHandle extends SwipeBackActivity {
     private Button release;
     private SwipeRefreshLayout downrefresh;
     private String userId;
+    private String orderExpressId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +82,12 @@ public class ExpressListHandle extends SwipeBackActivity {
                 if (user_name.equals("没有登陆")){
                     Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
-                }else {
+                }
+//                if (!HXSDKHelper.getInstance().isLogined()) {
+//                    Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
+//                }
+                else {
                     String url = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=get_formal&user=" + user_name + "";
                     HttpUtil httpUtil = new HttpUtil();
                     if (httpUtil.isNetworkAvailable(ExpressListHandle.this)) {
@@ -120,6 +132,7 @@ public class ExpressListHandle extends SwipeBackActivity {
             @Override
             public void onRecycleViewClick(View view, final String expressId,final String nickNumber) {
                 userId = nickNumber;
+                orderExpressId =expressId;
                 new AlertDialog.Builder(ExpressListHandle.this).setTitle("是否接单！").setMessage("为保护用户隐私，接单后将无法放弃！")
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
@@ -130,7 +143,12 @@ public class ExpressListHandle extends SwipeBackActivity {
                                 if (user_name.equals("没有登陆")){
                                     Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
-                                }else {
+                                }
+//                                if (!HXSDKHelper.getInstance().isLogined()) {
+//                                    Toast.makeText(ExpressListHandle.this,"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
+//                                    startActivity(new Intent(ExpressListHandle.this, LoginActivity.class));
+//                                }
+                                else {
                                     String url = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=get_formal&user=" + user_name + "";
                                     HttpUtil httpUtil = new HttpUtil();
                                     if (httpUtil.isNetworkAvailable(ExpressListHandle.this)) {
@@ -148,8 +166,6 @@ public class ExpressListHandle extends SwipeBackActivity {
                                         });
                                     }
                                 }
-
-
                             }
                         }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
@@ -247,7 +263,24 @@ public class ExpressListHandle extends SwipeBackActivity {
                     break;
                 case 1:
                     if (msg.obj.equals("true")){
-                        startActivity(new Intent(ExpressListHandle.this, ExpressDetailedHandle.class));
+                        final String method = "GET";
+                        SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
+                        String user_name=share.getString("user_name","没有登陆");
+                        String address = "http://123.206.92.38:80/SimpleSchool/userservlet?opt=is_business&user="+user_name;
+                        HttpUtilX.sendHttpRequest(address, method, new HttpCallbackListener() {
+                            @Override
+                            public void onFinish(String response) {
+                                Message message = new Message();
+                                message.obj=response;
+                                message.what=3;
+                                handler.sendMessage(message);
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+                        });
                     }else {
                         new AlertDialog.Builder(ExpressListHandle.this).setTitle("您不是正式用户！").setMessage("是否升级为正式用户！")
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -277,13 +310,18 @@ public class ExpressListHandle extends SwipeBackActivity {
                         submitOrder("http://123.206.92.38:80/SimpleSchool/ordersservlet?opt=insert_order&business="+user_name+"&price=5&client="+userId+"&publish_time="+data+"&type=1");
                         submitOrder("http://123.206.92.38/SimpleSchool/expressservlet?opt=update_Express&id=" + msg.obj.toString());
                         Intent intent = new Intent(ExpressListHandle.this, ReceiveExpressHandle.class);
-                        intent.putExtra("expressId", msg.obj.toString());
+                        intent.putExtra("expressId", orderExpressId);//我草你妈
                         startActivity(intent);
                     } else {
                         Toast.makeText(ExpressListHandle.this,"您不是商户，无法接单！",Toast.LENGTH_SHORT).show();
                     }
-
                     break;
+                case 3://发布快递的商户验证
+                    if (msg.obj.equals("true")){
+                        Toast.makeText(ExpressListHandle.this,"您是商户，无法发布订单！",Toast.LENGTH_SHORT).show();
+                    } else {
+                        startActivity(new Intent(ExpressListHandle.this, ExpressDetailedHandle.class));
+                    }
                 default:
                     break;
             }

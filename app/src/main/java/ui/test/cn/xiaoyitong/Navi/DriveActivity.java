@@ -46,7 +46,7 @@ public class DriveActivity extends BaseActivity {
        String X = intent.getStringExtra("x");
         String Y = intent.getStringExtra("y");
         eList.add(new NaviLatLng(Double.valueOf(X),Double.valueOf(Y)));
-        mAMapNavi.setEmulatorNaviSpeed(40);
+        mAMapNavi.setEmulatorNaviSpeed(20);
 
         initLocation();
     }

@@ -39,7 +39,7 @@ import ui.test.cn.xiaoyitong.adapter.ViewPagerAdapter;
  */
 
 public class PersonalActiity extends AppCompatActivity {
-    private String tabTitles[] = new String[]{"所有订单", "待支付", "待收货"};
+    private String tabTitles[] = new String[]{"全部", "未完成", "已完成"};
     private LinearLayout head_layout;
     private TabLayout toolbar_tab;
     private ViewPager main_vp_container;

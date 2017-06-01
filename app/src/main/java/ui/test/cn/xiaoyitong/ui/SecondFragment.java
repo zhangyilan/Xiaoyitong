@@ -65,6 +65,8 @@ public class SecondFragment extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+
+
         btn_pop = (Button) view.findViewById(R.id.button_pop);
         btn_pop.setVisibility(View.GONE);
 

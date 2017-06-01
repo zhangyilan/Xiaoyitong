@@ -56,6 +56,8 @@
                 android:id="@+id/recyclerview_order_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:lines="1"
+                android:ellipsize="end"
                 android:text="05/12 13:30"
                 android:textSize="18dp"
                 android:layout_toRightOf="@+id/recyclerview_order_time_title"/>
@@ -69,7 +71,7 @@
                 android:id="@+id/recyclerview_order_status_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="状态:"/>
+                android:text="客户:"/>
 
             <TextView
                 android:id="@+id/recyclerview_order_status"

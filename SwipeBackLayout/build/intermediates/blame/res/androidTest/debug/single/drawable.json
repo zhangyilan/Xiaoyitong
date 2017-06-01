@@ -20,24 +20,16 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
-    },
-    {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
@@ -48,32 +40,48 @@
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
+    },
+    {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
-        "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_edit_text_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_textfield_search_material.xml"
+        "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ratingbar_full_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
@@ -82,14 +90,6 @@
     {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -112,24 +112,20 @@
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_dialog_material_background_dark.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
@@ -168,16 +164,20 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -200,6 +200,10 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
@@ -212,16 +216,24 @@
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_btn_radio_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
@@ -232,16 +244,16 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_edit_text_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_light.xml",
@@ -268,8 +280,8 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_dialog_material_background_dark.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
@@ -280,12 +292,12 @@
         "source": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ratingbar_full_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_ratingbar_full_material.xml"
+        "merged": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",
@@ -302,18 +314,6 @@
     {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",

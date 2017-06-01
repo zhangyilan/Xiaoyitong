@@ -756,7 +756,7 @@
         ]
     },
     {
-        "outputFile": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tl\\values-tl.xml",
+        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tl\\values-tl.xml",
         "map": [
             {
                 "to": {
@@ -767,7 +767,7 @@
                     "endOffset": 169
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -786,7 +786,7 @@
                     "endOffset": 277
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -805,7 +805,7 @@
                     "endOffset": 394
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -824,7 +824,7 @@
                     "endOffset": 482
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -843,7 +843,7 @@
                     "endOffset": 588
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -862,7 +862,7 @@
                     "endOffset": 709
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -881,7 +881,7 @@
                     "endOffset": 818
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -900,7 +900,7 @@
                     "endOffset": 929
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -919,7 +919,7 @@
                     "endOffset": 1030
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -938,7 +938,7 @@
                     "endOffset": 1140
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -957,7 +957,7 @@
                     "endOffset": 1257
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -976,7 +976,7 @@
                     "endOffset": 1365
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -995,7 +995,7 @@
                     "endOffset": 1488
                 },
                 "from": {
-                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-tl\\values-tl.xml",
+                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-tl\\values-tl.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,

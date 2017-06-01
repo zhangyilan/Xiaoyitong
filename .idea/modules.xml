@@ -7,8 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/goodview/goodview.iml" filepath="$PROJECT_DIR$/goodview/goodview.iml" />
       <module fileurl="file://$PROJECT_DIR$/xiaoyitong.iml" filepath="$PROJECT_DIR$/xiaoyitong.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xiaoyitong.iml" filepath="$PROJECT_DIR$/xiaoyitong.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xiaoyitong1.iml" filepath="$PROJECT_DIR$/xiaoyitong1.iml" />
     </modules>
   </component>
 </project>
