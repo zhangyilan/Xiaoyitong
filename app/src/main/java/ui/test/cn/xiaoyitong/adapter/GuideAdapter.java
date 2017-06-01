@@ -61,7 +61,7 @@ public class GuideAdapter extends PagerAdapter {
         //startBtn.setTag(path);
         //设置开始按钮的点击事件
         startBtn.setOnClickListener(mClickListener);
-        if(position==4){
+        if(position==3){
             startBtn.setVisibility(View.VISIBLE);
         } else {
             startBtn.setVisibility(View.INVISIBLE);

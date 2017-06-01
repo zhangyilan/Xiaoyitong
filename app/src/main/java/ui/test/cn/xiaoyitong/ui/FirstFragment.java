@@ -52,7 +52,6 @@ import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.MenuGrandFind;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.SchoolHistoryMainActivity;
@@ -202,8 +201,8 @@ public class FirstFragment extends Fragment {
                 }
                 if (position == 8) {
                    // HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-                    Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
-                    startActivity(intent);
+                  // Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
+                   //startActivity(intent);
                 }
 
 
