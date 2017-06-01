@@ -1,53 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 54,
-                    "endOffset": 105
-                },
-                "from": {
-                    "file": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\values-w500dp\\values-w500dp.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 294,
-                        "endColumn": 54,
-                        "endOffset": 344
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "F:\\moive\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 54,
-                    "endOffset": 105
-                },
-                "from": {
-                    "file": "C:\\Users\\asus\\.android\\build-cache\\53723cd8a0061d211c4863cc17b883d15f4102e8\\output\\res\\values-w500dp\\values-w500dp.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 294,
-                        "endColumn": 54,
-                        "endOffset": 344
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "D:\\android\\xiaoyitong1\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
         "map": [
             {
@@ -60,54 +12,6 @@
                 },
                 "from": {
                     "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-w500dp\\values-w500dp.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 294,
-                        "endColumn": 54,
-                        "endOffset": 344
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 54,
-                    "endOffset": 105
-                },
-                "from": {
-                    "file": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\values-w500dp\\values-w500dp.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 294,
-                        "endColumn": 54,
-                        "endOffset": 344
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "H:\\ASandroid\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w500dp-v13\\values-w500dp-v13.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 54,
-                    "endOffset": 105
-                },
-                "from": {
-                    "file": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\values-w500dp\\values-w500dp.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
