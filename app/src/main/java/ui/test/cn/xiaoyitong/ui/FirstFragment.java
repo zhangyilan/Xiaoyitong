@@ -52,6 +52,7 @@ import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.MenuGrandFind;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.SchoolHistoryMainActivity;
@@ -199,6 +200,12 @@ public class FirstFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), ShetuanActivity.class);
                     startActivity(intent);
                 }
+                if (position == 8) {
+                   // HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
+                    Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
+                    startActivity(intent);
+                }
+
 
             }
         });
@@ -360,7 +367,6 @@ public class FirstFragment extends Fragment {
                 default:
                     Toast.makeText(getContext(), "没有访问到数据", Toast.LENGTH_LONG).show();
                     break;
-
             }
 
         }
@@ -457,7 +463,7 @@ public class FirstFragment extends Fragment {
         public void onDismiss() {
 
             WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
-//
+
             lp.alpha = 1f;
             getActivity().getWindow().setAttributes(lp);
         }

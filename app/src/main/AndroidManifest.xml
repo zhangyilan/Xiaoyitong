@@ -203,6 +203,8 @@
         <activity android:name=".ui.UserUpgradehandle" />
         <activity android:name=".ui.FeedBackActivity"></activity>
         <activity android:name=".ui.sonfragmeng.SchoolHistory_Activity"/>
+        <activity android:name=".ui.sonfragmeng.Comouter_two_Login_Activity"/>
+        <activity android:name=".ui.sonfragmeng.ComputerTwoScoreMainActivity"/>
     </application>
 
 </manifest>

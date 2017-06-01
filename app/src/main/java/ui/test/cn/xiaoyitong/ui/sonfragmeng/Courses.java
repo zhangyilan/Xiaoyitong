@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import ui.test.cn.xiaoyitong.R;
@@ -27,18 +28,24 @@ public class Courses extends SwipeBackActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    contents = new String[5][7];
-                    contents = (String[][]) msg.obj;
-                    for (int i=0;i<5;i++){
-                        for (int j=0;j<7;j++){
-                            if (contents[i][j]==null){
-                                contents[i][j]="";
+
+                    if (msg.obj.toString().length()>3) {
+                        contents = new String[5][7];
+                        contents = (String[][]) msg.obj;
+                      //  Log.d("ce","课表信息"+contents[0][]);
+                        for (int i = 0; i < 5; i++) {
+                            for (int j = 0; j < 7; j++) {
+                                if (contents[i][j] == null) {
+                                    contents[i][j] = "";
+                                }
                             }
                         }
+                        secondAdapter.setContent(contents, 5, 7);
+                        detailCource.setAdapter(secondAdapter);
+                    }else {
+                        finish();
+                        Toast.makeText(Courses.this,"目前暂无您的课表",Toast.LENGTH_SHORT).show();
                     }
-
-                    secondAdapter.setContent(contents, 5, 7);
-                    detailCource.setAdapter(secondAdapter);
             }
         }
     };

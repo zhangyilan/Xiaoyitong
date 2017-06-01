@@ -1,6 +1,7 @@
 package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,11 +19,13 @@ import com.bigkoo.pickerview.OptionsPickerView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallBackListener;
 import ui.test.cn.xiaoyitong.httpHelper.http;
+import ui.test.cn.xiaoyitong.utils.HttpUtil;
 
 /**
  * Created by asus on 2017/4/22.
@@ -30,7 +33,7 @@ import ui.test.cn.xiaoyitong.httpHelper.http;
 
 public class Courses_login extends SwipeBackActivity {
     String idd, termm;
-    String bool = "";
+
     boolean aBoolea;
     Handler handler = new Handler() {
         @Override
@@ -38,29 +41,33 @@ public class Courses_login extends SwipeBackActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-                    bool = (String) msg.obj;
 
-                    Log.d("aab", "验证b" + bool);
-                    Log.d("aab","验证hap"+bool);
-                    if (bool.equals("true")) {
+                    Log.d("aab", "验证b" + msg.obj.toString().length());
+
+                    if (msg.obj.toString().length()>3) {
+                        SharedPreferences share = getSharedPreferences("user",MODE_PRIVATE);
+                        String user_name = share.getString("user_name", "");
                         Intent intent = new Intent(Courses_login.this, Courses.class);
-                        intent.putExtra("id", id.getText().toString());
+
+                        intent.putExtra("id", user_name);
                         intent.putExtra("year", term.getText().toString().substring(0, 9));
                         intent.putExtra("term", String.valueOf(term.getText().toString().charAt(11)));
                         startActivity(intent);
+
                     } else {
-                        Toast.makeText(Courses_login.this, "密码不正确 请重新输入", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Courses_login.this,"目前暂无您的课表",Toast.LENGTH_SHORT).show();
                     }
             }
 
         }
     };
+
     private Button btn_get, btn_back;
-    private EditText id, password, term;
+    private EditText  term;
     private LinearLayout term_layout;
     private ArrayList<String> year = new ArrayList<>();
     private ArrayList<String> termdis = new ArrayList<>();
-    private ArrayList<String> tt = new ArrayList<>();
+    private ArrayList<String> year2 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +79,19 @@ public class Courses_login extends SwipeBackActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
         setContentView(R.layout.menu_kebiaofind);
-        year.add("2015-2016");
-        year.add("2016-2017");
+
+        for (int i=1970;i<=2037;i++)
+        {
+            year.add(String.valueOf(i));
+        }
+        for (int i=1970;i<=2037;i++)
+        {
+            year2.add(String.valueOf(i));
+        }
 
         termdis.add("1");
         termdis.add("2");
-        id = (EditText) findViewById(R.id.getid);
-        password = (EditText) findViewById(R.id.getpassword);
+
        // term_layout= (LinearLayout) findViewById(R.id.get_student_termlayout);
         term = (EditText) findViewById(R.id.get_student_term);
         term.setInputType(InputType.TYPE_NULL);
@@ -88,22 +101,26 @@ public class Courses_login extends SwipeBackActivity {
                 setTerm();
             }
         });
+
         btn_get = (Button) findViewById(R.id.btn_getid);
         btn_get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!id.getText().toString().equals("") && !password.getText().toString().equals("")) {
-                    if (id.getText().toString().substring(0, 4).equals("2016") && term.getText().toString().substring(0, 4).equals("2015")) {
+                final HttpUtil httpUtil = new HttpUtil();
+                if(httpUtil.isNetworkAvailable(Courses_login.this)) {
+                    SharedPreferences share = getSharedPreferences("user", MODE_PRIVATE);
+                    String user_name = share.getString("user_name", "");
+                    Log.d("aab", "验证b" + user_name);
+                    if (user_name.substring(0, 4).equals("2016") && term.getText().toString().substring(0, 4).equals("2015")) {
                         Toast.makeText(Courses_login.this, "你在2015-2016你年没有课表", Toast.LENGTH_SHORT).show();
                     } else {
-                        String url = "http://123.206.92.38/SimpleSchool/userservlet?opt=is_self&student_id=" + id.getText().toString() + "&identity_card=" + password.getText().toString();
+                        String url = "http://123.206.92.38:80/SimpleSchool/schooltimetableservlet?opt=get_table&school_year=" + term.getText().toString().substring(0, 9) + "&school_term=" + String.valueOf(term.getText().toString().charAt(11)) + "&student_id=" + user_name;
 
-                        http.identitytest(url, new HttpCallBackListener() {
+                        http.sendRequest(url, new HttpCallBackListener() {
                             @Override
                             public void onFinish(Object respones) {
                                 Message message = new Message();
-                                Log.d("aab", "验证z" + respones.toString());
-                                message.obj = respones.toString();
+                                message.obj = respones;
                                 message.what = 1;
                                 handler.sendMessage(message);
                             }
@@ -112,15 +129,14 @@ public class Courses_login extends SwipeBackActivity {
                             public void onError(Exception e) {
 
                             }
+
                         });
 
                     }
-
-                } else if (id.getText().toString().equals("") || password.getText().toString().equals("")) {
-                    Toast.makeText(Courses_login.this, "用户名或密码不能为空  请重新输入", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Courses_login.this, "密码不正确  请重新输入", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Courses_login.this,"请检查网络连接",Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
@@ -134,19 +150,23 @@ public class Courses_login extends SwipeBackActivity {
     }
 
     public void setTerm() {
-
+        Calendar startDate = Calendar.getInstance();
+        startDate.set(2013,1,1);
+        Calendar endDate = Calendar.getInstance();
+        endDate.set(2037,1,1);
         OptionsPickerView pvOptions = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
-                String tx = year.get(options1) + termdis.get(option2);
-                term.setText(year.get(options1) + " 第" + termdis.get(option2) + "学期");
-                idd = year.get(options1).toString();
-                termm = termdis.get(option2).toString();
+
+                term.setText(year.get(options1)+"-"+year2.get(option2) + " 第" + termdis.get(options3) + "学期");
+
             }
         }).setTitleSize(15).isDialog(true)//是否显示为对话框样式
-                .setLabels("  年", "学期     ", null).build();
-        pvOptions.setNPicker(year, termdis, null);
+                .setSelectOptions(47,47, 0)  //设置默认选中项
+                .setLabels("-", "年", "  学期")
+                .build();
+        pvOptions.setNPicker(year, year2, termdis);
         pvOptions.show();
 
     }
