@@ -55,4 +55,5 @@ dependencies {
     compile project(':goodview')
     compile files('libs/AMap_Search_V5.0.0_20170309.jar')
     compile files('libs/TencentStreetSDK_v.1.2.0_16500.jar')
+    compile project(':library')
 }

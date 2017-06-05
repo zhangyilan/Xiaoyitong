@@ -1,50 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_school_history_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#fff">
+    android:orientation="vertical">
+    <!--#A5D8F5-->
+    <!--#13A4D3-->
 
-    <LinearLayout
+    <com.dsw.calendar.views.GridCalendarView
+        android:id="@+id/gridMonthView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/rili1"
-        >
+        android:layout_height="wrap_content" />
 
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/term"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@null"
-        android:gravity="center_vertical|center_horizontal"
-        android:singleLine="true"
-        android:text="2016-2017学年第二学期"
-        android:textColorHint="#AAAAAA"
-        android:textSize="15dip" />
-
-    <EditText
-        android:id="@+id/month"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@null"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="八月"
-        android:textColorHint="#AAAAAA" />
-
-    <Button
-        android:id="@+id/ok"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/btn"
-        android:text="确定"
-        android:textColor="#ffffff"
-        android:textSize="15dp" />
 </LinearLayout>

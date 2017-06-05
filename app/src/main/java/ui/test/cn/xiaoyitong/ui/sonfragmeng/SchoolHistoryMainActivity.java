@@ -1,5 +1,6 @@
 package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,133 +9,119 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
+import com.dsw.calendar.component.MonthView;
+import com.dsw.calendar.entity.CalendarInfo;
+import com.dsw.calendar.views.GridCalendarView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ui.test.cn.xiaoyitong.R;
 
-public class SchoolHistoryMainActivity extends AppCompatActivity {
-    TimePickerView pvTime;
-    TextView tt;
-    EditText termedit,monthedit;
-    Button b;
-    private ArrayList<String> term = new ArrayList<>();
-    private ArrayList<String> month = new ArrayList<>();
-    private ArrayList<String> month2 = new ArrayList<>();
+public class SchoolHistoryMainActivity extends Activity {
+    private GridCalendarView gridCalendarView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_history_main);
-        b= (Button) findViewById(R.id.ok);
-        termedit= (EditText) findViewById(R.id.term);
-        termedit.setInputType(InputType.TYPE_NULL);
-        monthedit= (EditText) findViewById(R.id.month);
-        monthedit.setInputType(InputType.TYPE_NULL);
-        term.add("2016-2017学年第二学期");
-        term.add("2017-2018学年第一学期");
 
-        month.add("二月");
-        month.add("三月");
-        month.add("四月");
-        month.add("五月");
-        month.add("六月");
-        month.add("七月");
+        List<CalendarInfo> list = new ArrayList<CalendarInfo>();
+        list.add(new CalendarInfo(2017,2,27,"开学报到"));
+        list.add(new CalendarInfo(2017,2,28,"开学报到"));
 
+        list.add(new CalendarInfo(2017,3,1,"开学报到"));
+        list.add(new CalendarInfo(2017,3,2,"开学报到"));
+        list.add(new CalendarInfo(2017,3,3,"开学报到"));
+        list.add(new CalendarInfo(2017,3,4,"补考"));
+        list.add(new CalendarInfo(2017,3,5,"补考"));
+        list.add(new CalendarInfo(2017,3,6,"正式行课"));
 
-        month2.add("八月");
-        month2.add("九月");
-        month2.add("十月");
-        month2.add("十一月");
-        month2.add("十二月");
-        month2.add("一月");
-        termedit.setOnClickListener(new View.OnClickListener() {
+        list.add(new CalendarInfo(2017,4,2,"清明节",1));
+        list.add(new CalendarInfo(2017,4,3,"清明节",1));
+        list.add(new CalendarInfo(2017,4,4,"清明节",1));
+
+        list.add(new CalendarInfo(2017,4,29,"劳动节",1));
+        list.add(new CalendarInfo(2017,4,30,"劳动节",1));
+
+        list.add(new CalendarInfo(2017,5,1,"劳动节",1));
+        list.add(new CalendarInfo(2017,5,28,"端午节",1));
+        list.add(new CalendarInfo(2017,5,29,"端午节",1));
+        list.add(new CalendarInfo(2017,5,30,"端午节",1));
+
+        list.add(new CalendarInfo(2017,6,26,"期末考试"));
+        list.add(new CalendarInfo(2017,6,27,"期末考试"));
+        list.add(new CalendarInfo(2017,6,28,"期末考试"));
+        list.add(new CalendarInfo(2017,6,29,"期末考试"));
+        list.add(new CalendarInfo(2017,6,30,"期末考试"));
+
+        list.add(new CalendarInfo(2017,7,3,"期末考试"));
+        list.add(new CalendarInfo(2017,7,4,"期末考试"));
+        list.add(new CalendarInfo(2017,7,5,"期末考试"));
+        list.add(new CalendarInfo(2017,7,6,"期末考试"));
+        list.add(new CalendarInfo(2017,7,7,"期末考试"));
+        list.add(new CalendarInfo(2017,7,10,"社会实践"));
+        list.add(new CalendarInfo(2017,7,11,"社会实践"));
+        list.add(new CalendarInfo(2017,7,12,"社会实践"));
+        list.add(new CalendarInfo(2017,7,13,"社会实践"));
+        list.add(new CalendarInfo(2017,7,14,"社会实践"));
+
+        list.add(new CalendarInfo(2017,9,4,"开学报到"));
+        list.add(new CalendarInfo(2017,9,5,"开学报到"));
+        list.add(new CalendarInfo(2017,9,6,"开学报到"));
+        list.add(new CalendarInfo(2017,9,7,"教师节表彰"));
+        list.add(new CalendarInfo(2017,9,8,"开学报到"));
+        list.add(new CalendarInfo(2017,9,9,"补考"));
+        list.add(new CalendarInfo(2017,9,10,"补考"));
+        list.add(new CalendarInfo(2017,9,4,"正式行课"));
+
+        list.add(new CalendarInfo(2017,10,1,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,2,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,3,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,4,"中秋节",1));
+        list.add(new CalendarInfo(2017,10,5,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,6,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,7,"国庆节",1));
+        list.add(new CalendarInfo(2017,10,8,"国庆节",1));
+
+        list.add(new CalendarInfo(2017,11,6,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,7,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,8,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,9,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,10,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,11,"消防安全周"));
+        list.add(new CalendarInfo(2017,11,12,"消防安全周"));
+
+        list.add(new CalendarInfo(2017,12,7, "12.9表彰"));
+        list.add(new CalendarInfo(2017,12,28,"跨年晚会"));
+
+        list.add(new CalendarInfo(2018,1,1,"元旦节"));
+        list.add(new CalendarInfo(2018,1,2,"期末考试"));
+        list.add(new CalendarInfo(2018,1,3,"期末考试"));
+        list.add(new CalendarInfo(2018,1,4,"期末考试"));
+        list.add(new CalendarInfo(2018,1,5,"期末考试"));
+        list.add(new CalendarInfo(2018,1,8,"期末考试"));
+        list.add(new CalendarInfo(2018,1,9,"期末考试"));
+        list.add(new CalendarInfo(2018,1,10,"期末考试"));
+        list.add(new CalendarInfo(2018,1,11,"期末考试"));
+        list.add(new CalendarInfo(2018,1,12,"期末考试"));
+        list.add(new CalendarInfo(2018,1,15,"社会实践"));
+        list.add(new CalendarInfo(2018,1,16,"社会实践"));
+        list.add(new CalendarInfo(2018,1,17,"社会实践"));
+        list.add(new CalendarInfo(2018,1,18,"社会实践"));
+        list.add(new CalendarInfo(2018,1,19,"社会实践"));
+
+        gridCalendarView = (GridCalendarView) findViewById(R.id.gridMonthView);
+        gridCalendarView.setCalendarInfos(list);
+        gridCalendarView.setDateClick(new MonthView.IDateClick(){
+
             @Override
-            public void onClick(View v) {
-
-                init();
+            public void onClickOnDate(int year, int month, int day) {
+                Toast.makeText(SchoolHistoryMainActivity.this,"点击了" +  year + "-" + month + "-" + day,Toast.LENGTH_SHORT).show();
             }
         });
-        monthedit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (termedit.getText().toString()!=null){
-                    if (termedit.getText().toString().equals("2016-2017学年第二学期")){
-
-                        month();
-                    }
-                    if (termedit.getText().toString().equals("2017-2018学年第一学期")){
-
-                        month2();
-
-                    }
-                }
-            }
-        });
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String t=monthedit.getText().toString();
-
-                Intent intent=new Intent(SchoolHistoryMainActivity.this,SchoolHistory_Activity.class);
-                intent.putExtra("month",t);
-                startActivity(intent);
-            }
-        });
-
-
-
     }
-
-
-    public void init( ) {
-        OptionsPickerView pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = term.get(options1);
-                termedit.setText(tx);
-                if (tx.equals("2017-2018学年第一学期")){
-                    monthedit.setText("二月");
-                }
-                if (tx.equals("2016-2017学年第二学期")){
-                    monthedit.setText("八月");
-                }
-
-            }
-        }).build();
-        pvOptions.setPicker(term);
-        pvOptions.show();
-
-    }
-    public void month( ) {
-        OptionsPickerView pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = month.get(options1);
-                monthedit.setText(tx);
-            }
-        }).build();
-        pvOptions.setPicker(month);
-        pvOptions.show();
-
-    }
-    public void month2( ) {
-        OptionsPickerView pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
-                //返回的分别是三个级别的选中位置
-                String tx = month2.get(options1);
-                monthedit.setText(tx);
-
-            }
-        }).build();
-        pvOptions.setPicker(month2);
-        pvOptions.show();
-
-    }
-
-    }
+}
