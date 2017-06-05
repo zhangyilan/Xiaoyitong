@@ -27,6 +27,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -52,6 +54,7 @@ import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.MenuGrandFind;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.SchoolHistoryMainActivity;
@@ -69,6 +72,9 @@ public class FirstFragment extends Fragment {
     private int screenwidth;
     private GridView gridview;
     private LinearLayout newsLinearLayout;
+    private TextView biaoti;
+    private ImageView back;
+
     /**
      * 轮播图对象列表
      */
@@ -200,9 +206,9 @@ public class FirstFragment extends Fragment {
                     startActivity(intent);
                 }
                 if (position == 8) {
-                   // HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-                  // Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
-                   //startActivity(intent);
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
+                   Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
+                   startActivity(intent);
                 }
 
 
@@ -251,6 +257,8 @@ public class FirstFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void intview() {
+        biaoti= (TextView) view.findViewById(R.id.tv_title);
+        biaoti.setText("校易通");
 
         ad_viewpager = (ViewPager) view.findViewById(R.id.ad_viewpage);
         ll_dian = (LinearLayout) view.findViewById(R.id.ll_dian);

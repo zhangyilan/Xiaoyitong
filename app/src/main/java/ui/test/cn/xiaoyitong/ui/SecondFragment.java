@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +40,8 @@ public class SecondFragment extends Fragment {
     private FloatingActionButton mFab;
     private MoodAdapter adapter;
     Button btn_pop;
-
+    private TextView biaoti;
+    private ImageView back;
 
     @Nullable
     @Override
@@ -51,6 +53,11 @@ public class SecondFragment extends Fragment {
     }
 
     private void initview(View view) {
+
+        biaoti= (TextView) view.findViewById(R.id.tv_title);
+        biaoti.setText("论坛");
+
+
         initMood();
         adapter = new MoodAdapter(getActivity(), R.layout.item_mood, mood);
         listView = (PullToZoomListView) view.findViewById(R.id.listview);

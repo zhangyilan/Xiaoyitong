@@ -14,7 +14,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,46 +34,51 @@ import ui.test.cn.xiaoyitong.utils.DataCleanManager;
 import ui.test.cn.xiaoyitong.utils.Myutils;
 import ui.test.cn.xiaoyitong.utils.VersionUpdateUtils;
 
-public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
-    private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.9f;
-    private static final float PERCENTAGE_TO_HIDE_TITLE_DETAILS = 0.3f;
-    private static final int ALPHA_ANIMATIONS_DURATION = 200;
-    private boolean mIsTheTitleVisible = false;
-    private boolean mIsTheTitleContainerVisible = true;
+public class FourthFragment extends Fragment implements View.OnClickListener {
+
     private LinearLayout mTitleContainer;
     private TextView mTitle, chache_size;
     private AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
     View view;
-    private TextView username;
+    private TextView username, denglu, zuce;
     private String uname;
+    LinearLayout dengluzuce;
+    private TextView biaoti;
+    private ImageView back;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.tab04, container, false);
+        view = inflater.inflate(R.layout.tab041, container, false);
         bindActivity();
-        mAppBarLayout.addOnOffsetChangedListener(this);
-        mToolbar.inflateMenu(R.menu.menu_main);
-        startAlphaAnimation(mTitle, 0, View.INVISIBLE);
+
         return view;
 
     }
 
     private void bindActivity() {
+
+        biaoti= (TextView) view.findViewById(R.id.tv_title);
+        biaoti.setText("个人中心");
+
+        mTitle = (TextView) view.findViewById(R.id.main_textview_title);
+
         uname = getActivity().getIntent().getStringExtra("name");
         username = (TextView) view.findViewById(R.id.username);
-        mTitle = (TextView) view.findViewById(R.id.main_textview_title);
-        if(!TextUtils.isEmpty(uname)){
+
+        dengluzuce = (LinearLayout) view.findViewById(R.id.dengluzuce);
+        denglu = (TextView) view.findViewById(R.id.login);
+        zuce = (TextView) view.findViewById(R.id.register);
+
+        if (!TextUtils.isEmpty(uname)) {
+            dengluzuce.setVisibility(View.GONE);
             username.setText(uname);
         } else {
-            username.setText("登录");
+            dengluzuce.setVisibility(View.VISIBLE);
+            username.setVisibility(View.GONE);
         }
-        if(!TextUtils.isEmpty(uname)){
-            mTitle.setText(uname);
-        } else {
-            mTitle.setText("登录");
-        }
+
         mToolbar = (Toolbar) view.findViewById(R.id.main_toolbar);
 
         mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);
@@ -85,6 +91,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         LinearLayout list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
         LinearLayout list6 = (LinearLayout) view.findViewById(R.id.lin_list6);
         LinearLayout list7 = (LinearLayout) view.findViewById(R.id.lin_list7);
+
         @SuppressLint("SdCardPath") File file = new File("/data/data/ui.test.cn.xiaoyitong/cache");
         try {
             chache_size.setText(DataCleanManager.getCacheSize(file));
@@ -99,61 +106,11 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
         list5.setOnClickListener(this);
         list6.setOnClickListener(this);
         list7.setOnClickListener(this);
-
+        denglu.setOnClickListener(this);
+        zuce.setOnClickListener(this);
 
     }
 
-
-    @Override
-    public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
-        int maxScroll = appBarLayout.getTotalScrollRange();
-        float percentage = (float) Math.abs(offset) / (float) maxScroll;
-
-        handleAlphaOnTitle(percentage);
-        handleToolbarTitleVisibility(percentage);
-    }
-
-    private void handleToolbarTitleVisibility(float percentage) {
-        if (percentage >= PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR) {
-
-            if (!mIsTheTitleVisible) {
-                startAlphaAnimation(mTitle, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
-                mIsTheTitleVisible = true;
-            }
-
-        } else {
-
-            if (mIsTheTitleVisible) {
-                startAlphaAnimation(mTitle, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
-                mIsTheTitleVisible = false;
-            }
-        }
-    }
-
-    private void handleAlphaOnTitle(float percentage) {
-        if (percentage >= PERCENTAGE_TO_HIDE_TITLE_DETAILS) {
-            if (mIsTheTitleContainerVisible) {
-                startAlphaAnimation(mTitleContainer, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
-                mIsTheTitleContainerVisible = false;
-            }
-
-        } else {
-
-            if (!mIsTheTitleContainerVisible) {
-                startAlphaAnimation(mTitleContainer, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
-                mIsTheTitleContainerVisible = true;
-            }
-        }
-    }
-
-    public static void startAlphaAnimation(View v, long duration, int visibility) {
-        AlphaAnimation alphaAnimation = (visibility == View.VISIBLE)
-                ? new AlphaAnimation(0f, 1f)
-                : new AlphaAnimation(1f, 0f);
-        alphaAnimation.setDuration(duration);
-        alphaAnimation.setFillAfter(true);
-        v.startAnimation(alphaAnimation);
-    }
 
     @Override
     public void onClick(View v) {
@@ -206,6 +163,12 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                 }
 
                 break;
+            case R.id.login:
+                startActivity(new Intent(getActivity(),LoginActivity.class));
+                break;
+            case R.id.register:
+                startActivity(new Intent(getActivity(),RegisterActivity.class));
+                break;
         }
     }
 
@@ -223,7 +186,7 @@ public class FourthFragment extends Fragment implements AppBarLayout.OnOffsetCha
                     public void run() {
                         pd.dismiss();
                         DataCleanManager.cleanInternalCache(getActivity());
-                        SharedPreferences.Editor editor = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE).edit();
+                        SharedPreferences.Editor editor = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE).edit();
                         editor.clear();
                         editor.commit();
                         // 重新显示登陆页面

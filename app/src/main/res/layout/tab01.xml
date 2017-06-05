@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_margin="5dp"
+                android:background="#fff"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -49,6 +50,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/imageView2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/news" />
@@ -65,22 +67,22 @@
 
                     <TextView
                         android:id="@+id/news_txt1"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
                         android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/news_txt2"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
                         android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
@@ -89,9 +91,9 @@
                         android:id="@+id/news_txt3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
-                        android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
@@ -100,9 +102,9 @@
                         android:id="@+id/news_txt4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
-                        android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
@@ -111,9 +113,9 @@
                         android:id="@+id/news_txt5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
-                        android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:text=""
                         android:textSize="15sp" />
@@ -131,8 +133,6 @@
                 android:numColumns="4"
                 android:stretchMode="columnWidth"
                 android:verticalSpacing="3dp" />
-
-
 
         </LinearLayout>
     </ScrollView>

@@ -111,7 +111,6 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".ui.DetailActivity" />
         <activity android:name=".ui.BeasActivity" ></activity>
-        <activity android:name=".ui.FirstActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.MoodActivity" />
         <activity android:name=".ui.PublishActivity"/>4
@@ -179,6 +178,9 @@
         <activity android:name=".ui.sonfragmeng.ShetuanActivity" />
         <activity android:name=".ui.sonfragmeng.newsMainActivity" />
         <activity android:name=".ui.sonfragmeng.Content_Activity" />
+        <activity android:name=".ui.sonfragmeng.Comouter_two_Login_Activity"/>
+        <activity android:name=".ui.sonfragmeng.ComputerTwoScoreMainActivity"/>
+
         <!-- 开机自启动服务 -->
         <receiver android:name="com.easemob.chat.StartServiceReceiver">
             <intent-filter android:priority="1000">

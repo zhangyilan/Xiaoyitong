@@ -212,7 +212,7 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
                     setSelect(2);
                 } else {
                     Toast.makeText(BeasActivity.this, "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(BeasActivity.this, FirstActivity.class));
+                    startActivity(new Intent(BeasActivity.this, LoginActivity.class));
                 }
                 break;
             case R.id.id_tab_setting:

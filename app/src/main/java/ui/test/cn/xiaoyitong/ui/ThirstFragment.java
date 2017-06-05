@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,7 +81,8 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
     private Button btn_address_list;
     private Button button_pop;
     private View view;
-
+    private TextView biaoti;
+    private ImageView back;
 
     @Nullable
     @Override
@@ -97,6 +100,10 @@ public class ThirstFragment extends Fragment implements EMEventListener, View.On
                 startActivity(new Intent(getActivity(), AddContactActivity.class));
             }
         });
+
+        biaoti = (TextView) view.findViewById(R.id.tv_title);
+        biaoti.setText("朋友");
+
         return view;
     }
 
