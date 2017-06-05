@@ -78,6 +78,7 @@ public class NewsAdapter extends ArrayAdapter<news> {
         TextView listTime;
 
     }
+
     public  interface    ListViewClickListener{
         void  onRecycleViewClick(View view, int id);
     }
