@@ -24,8 +24,7 @@
                 android:layout_height="@dimen/image_width"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:src="@mipmap/ic_launcher"
-                />
+                android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:id="@+id/per_name"
@@ -339,7 +338,6 @@
             </LinearLayout>
         </LinearLayout>
     </ui.test.cn.xiaoyitong.customControls.MainScrollView>
-
 
 
 </LinearLayout>

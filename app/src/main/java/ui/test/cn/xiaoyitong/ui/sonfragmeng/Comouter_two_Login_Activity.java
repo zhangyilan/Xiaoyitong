@@ -174,7 +174,7 @@ public class Comouter_two_Login_Activity extends AppCompatActivity {
 
         //   String url = "http://123.207.126.132:8080/computer_two_test/ComputerAppServlet?opt=getdata&name=" + URLEncoder.encode(computer_name.getText().toString()) + "&idCard=" + computer_Idcard.getText().toString() + "&examName=" + URLEncoder.encode(computer_subject.getText().toString()) + "&id=" + id;
         Log.d("ce", "http://192.168.1.104:8080/computer_two_test/ComputerAppServlet?opt=getdata&name=" + computer_name.getText().toString() + "&idCard=" + computer_Idcard.getText().toString() + "&examName=" + computer_subject.getText().toString() + "&id=" + id);
-        String url = "http://123.207.126.132:8080/computer_two_test/ComputerAppServlet?opt=getdata&name=" + URLEncoder.encode(computer_name.getText().toString()) + "&idCard=" + computer_Idcard.getText().toString() + "&examName=" + URLEncoder.encode(computer_subject.getText().toString()) + "&id=" + id;
+        String url = "http://123.206.92.38/computer_two_test/ComputerAppServlet?opt=getdata&name=" + URLEncoder.encode(computer_name.getText().toString()) + "&idCard=" + computer_Idcard.getText().toString() + "&examName=" + URLEncoder.encode(computer_subject.getText().toString()) + "&id=" + id;
 
         Log.d("ce", "执行 " + url);
         Computer_Two_Http_util.computerTwoScorce(url, new HttpCallBackListener() {
@@ -199,7 +199,7 @@ public class Comouter_two_Login_Activity extends AppCompatActivity {
     }
 
     public void getlevel() throws IOException, JSONException {//一级二级
-        String url = "http://123.207.126.132:8080/computer_two_test/ComputerAppServlet?opt=getExamtext";
+        String url = "http://123.206.92.38/computer_two_test/ComputerAppServlet?opt=getExamtext";
         Computer_Two_Http_util.computerTwoHttp(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {
@@ -219,7 +219,7 @@ public class Comouter_two_Login_Activity extends AppCompatActivity {
     }
 
     public void getExamCount() throws IOException, JSONException {//第几次考试
-        String url = "http://123.207.126.132:8080/computer_two_test/ComputerAppServlet?opt=getExamCount";
+        String url = "http://123.206.92.38/computer_two_test/ComputerAppServlet?opt=getExamCount";
         Computer_Two_Http_util.computerTwoHttpExamCount(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {

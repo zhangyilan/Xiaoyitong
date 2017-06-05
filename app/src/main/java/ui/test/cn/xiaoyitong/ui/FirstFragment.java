@@ -118,13 +118,9 @@ public class FirstFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=4");
-                    Intent intent = new Intent(getActivity(), ExpressListHandle.class);
-                    startActivity(intent);
-                }
-
-                if (position == 1) {
-
-                    //成绩查询跳转
+//                    Intent intent = new Intent(getActivity(), ExpressListHandle.class);
+//                    startActivity(intent);
+//成绩查询跳转
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
 
@@ -150,8 +146,10 @@ public class FirstFragment extends Fragment {
                             });
                         }
                     }
+
                 }
-                if (position == 2) {
+
+                if (position == 1) {
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
 
@@ -178,6 +176,14 @@ public class FirstFragment extends Fragment {
                             });
                         }
                     }
+
+                }
+                if (position == 2) {
+
+                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
+                    Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
+                    startActivity(intent);
+
                 }
 
                 if (position == 3) {
@@ -191,24 +197,22 @@ public class FirstFragment extends Fragment {
                     startActivity(intent);
 
                 }
+                //新生指南
                 if (position == 5) {
                     Intent intent = new Intent(getActivity(), BaodaoActivity.class);
                     startActivity(intent);
                 }
+                //校历
                 if (position == 6) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=7");
                     Intent intent = new Intent(getActivity(), SchoolHistoryMainActivity.class);
                     startActivity(intent);
                 }
+               //素质
                 if (position == 7) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
                     Intent intent = new Intent(getActivity(), ShetuanActivity.class);
                     startActivity(intent);
-                }
-                if (position == 8) {
-                    HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-                   Intent intent = new Intent(getActivity(), Comouter_two_Login_Activity.class);
-                   startActivity(intent);
                 }
 
 

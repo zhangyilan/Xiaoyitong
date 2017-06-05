@@ -62,8 +62,6 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
         biaoti= (TextView) view.findViewById(R.id.tv_title);
         biaoti.setText("个人中心");
 
-        mTitle = (TextView) view.findViewById(R.id.main_textview_title);
-
         uname = getActivity().getIntent().getStringExtra("name");
         username = (TextView) view.findViewById(R.id.username);
 
@@ -79,10 +77,6 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
             username.setVisibility(View.GONE);
         }
 
-        mToolbar = (Toolbar) view.findViewById(R.id.main_toolbar);
-
-        mTitleContainer = (LinearLayout) view.findViewById(R.id.main_linearlayout_title);
-        mAppBarLayout = (AppBarLayout) view.findViewById(R.id.main_appbar);
         chache_size = (TextView) view.findViewById(R.id.chache_size);
         LinearLayout list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
         LinearLayout list2 = (LinearLayout) view.findViewById(R.id.lin_list2);

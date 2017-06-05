@@ -31,7 +31,7 @@ public class ComputerTwoScoreMainActivity extends Activity {
         setContentView(R.layout.computer_two_selectscore_main_layout);
         biaoti= (TextView) findViewById(R.id.biaoti);
         biaoti.setText("二级查询");
-        back= (ImageButton) findViewById(R.id.biaoti);
+        back= (ImageButton) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
