@@ -218,6 +218,11 @@
         <activity android:name="maplabeing.PanoramaActivity"/>
         <activity android:name="maplabeing.ParkDetialsActivity"/>
         <activity android:name="maplabeing.ParkActivity"/>
+        <activity
+            android:name=".LyoutHandle.ProfessionalismHandle"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LyoutHandle.ProfessionalismDetailedHandle"/>
     </application>
 
 </manifest>

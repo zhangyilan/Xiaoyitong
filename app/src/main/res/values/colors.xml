@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00BADC</color>
     <color name="colorAccent">#00BADC</color>
     <color name="colorBar">#00BADC</color>
-
+    <color name="line">#E0E0E0</color>
     <color name="dark_gray">#656D78</color>
 
     <color name="yellow">#f6a806</color>
