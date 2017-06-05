@@ -53,6 +53,7 @@ import ui.test.cn.xiaoyitong.adviewpagermanger.ADBean;
 import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.AdminListActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
@@ -211,10 +212,9 @@ public class FirstFragment extends Fragment {
                //素质
                 if (position == 7) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-                    Intent intent = new Intent(getActivity(), ShetuanActivity.class);
+                    Intent intent = new Intent(getActivity(), AdminListActivity.class);
                     startActivity(intent);
                 }
-
 
             }
         });
