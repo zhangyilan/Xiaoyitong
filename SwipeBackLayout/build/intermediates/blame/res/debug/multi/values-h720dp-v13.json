@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 66,
+                    "endOffset": 117
+                },
+                "from": {
+                    "file": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\values-h720dp\\values-h720dp.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 294,
+                        "endColumn": 66,
+                        "endOffset": 356
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
         "map": [
             {

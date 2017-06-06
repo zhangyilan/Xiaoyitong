@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
 import java.util.List;
 
 import ui.test.cn.xiaoyitong.R;
@@ -59,7 +58,7 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
             @Override
             public void onClick(View v) {
                 Log.d("id","当前"+careerpublish.getId());
-                listViewClickListener.onRecycleViewClick(view,careerpublish.getId(),careerpublish.getStatus());
+                listViewClickListener.onRecycleViewClick(view,careerpublish.getId(),careerpublish.getStatus(),careerpublish.getUsercount());
             }
         });
         viewHolder.listthem.setText(careerpublish.getTheme());
@@ -85,7 +84,7 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
 
     }
     public  interface    ListViewClickListener{
-        void  onRecycleViewClick(View view, int id, String status);
+        void  onRecycleViewClick(View view, int id, String status, String usercount);
     }
     //当执行这个方法的时候调用接口
     public void  myListViewClickListener(ListViewClickListener listener){

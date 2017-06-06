@@ -2,11 +2,16 @@ package ui.test.cn.xiaoyitong.entity;
 
 import android.graphics.Bitmap;
 
+
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by lenovo on 2017/06/03.
  */
 
-public class Careerpublish {
+public class Careerpublish implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int Id;
     private String publish_branch;
     private String quality_frade;
@@ -21,6 +26,24 @@ public class Careerpublish {
     private String activity_suggest;
     private String status;
     private Bitmap imgBitmap;
+    private  String usercount;
+    private List<Users> userses;
+
+    public String getUsercount() {
+        return usercount;
+    }
+
+    public void setUsercount(String usercount) {
+        this.usercount = usercount;
+    }
+
+    public List<Users> getUserses() {
+        return userses;
+    }
+
+    public void setUserses(List<Users> userses) {
+        this.userses = userses;
+    }
 
     public Careerpublish() {
 

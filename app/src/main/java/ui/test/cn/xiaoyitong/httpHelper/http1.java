@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Looper;
 import android.util.Log;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +34,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import ui.test.cn.xiaoyitong.entity.Careerpublish;
+import ui.test.cn.xiaoyitong.entity.Users;
 
 /**
  * Created by lenovo on 2017/05/28.
@@ -311,7 +313,9 @@ public class http1 {
                     String sorce = null;
                     String publish_time = null;
                     String state = null;
+                    String usercount=null;
                     Bitmap activity_img = null;
+
                     Log.d("ce", "解中" + rs.toString());
                     JSONArray jsonArray = new JSONArray(rs.toString());
                     Log.d("ce", "长度" + jsonArray.length());
@@ -325,6 +329,8 @@ public class http1 {
                         publish_time = jsonobject.getString("publish_time");
                         sorce = jsonobject.getString("quality_frade");
                         state = jsonobject.getString("state");
+                        usercount=jsonobject.getString("user_count");
+
                         String imgurl = jsonobject.getString("activity_img");
                       //  activity_img = parseImg(imgurl);
 
@@ -336,6 +342,7 @@ public class http1 {
                         careerpublish.setQuality_frade(sorce);
                       //  careerpublish.setImgBitmap(activity_img);
                         careerpublish.setStatus(state);
+                        careerpublish.setUsercount(usercount);
                         list.add(careerpublish);
                     }
                     if (listener != null) {
@@ -401,7 +408,24 @@ public class http1 {
                     background = jsonObject.getString("activity_background");
                     content = jsonObject.getString("include");
                     imgurl = jsonObject.getString("activity_img");
+                    JSONArray users = jsonObject.getJSONArray("user_name");
+                    List<Users> userseslist = new ArrayList<Users>();
+                    if (users.length()>0) {
+                        Log.d("ce", "list大小" + users.length());
 
+                        Log.d("ce", "list大小" + userseslist.size());
+                        for (int i = 0; i < users.length(); i++) {
+                            JSONObject jsonObject1 = users.getJSONObject(i);
+
+                            String userId = jsonObject1.getString("student_id");
+                            String username = jsonObject1.getString("name");
+                            Users users1 = new Users();
+                            users1.setName(username);
+                            users1.setUsernum(userId);
+                            userseslist.add(users1);
+                            Log.d("ce", "用户名" + username);
+                        }
+                    }
 
                     bitmap=parseImg(imgurl);
 
@@ -416,12 +440,151 @@ public class http1 {
                     careerpublish.setActivity_background(background);
                     careerpublish.setInclude(content);
                     careerpublish.setImgBitmap(bitmap);
-
+                    careerpublish.setUserses(userseslist);
 
                     if (listener != null) {
                         listener.onFinish(careerpublish);
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                }
+            }
+        }).start();
+    }
+    public static void getuserlist(final String address, final HttpCallBackListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                OkHttpClient okHttpClient = new OkHttpClient();
+                Request request = new Request.Builder().url(address).build();
+                Response responses = null;
+                String rs = null;
+                Log.d("aa", "测试中" + address);
+                try {
+                    responses = okHttpClient.newCall(request).execute();
+                    rs = responses.body().string();
+                    Log.d("aa", "测试中" + rs.toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                }
+                try {
+                    JSONArray jsonArray = new JSONArray(rs.toString());
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+
+                    JSONArray users = jsonObject.getJSONArray("user_name");
+                    List<Users> userseslist = new ArrayList<Users>();
+                    if (users.length()>0) {
+                        Log.d("ce", "list大小" + users.length());
+
+                        for (int i = 0; i < users.length(); i++) {
+                            JSONObject jsonObject1 = users.getJSONObject(i);
+
+                            String userId = jsonObject1.getString("student_id");
+                            String username = jsonObject1.getString("name");
+                            Users users1 = new Users();
+                            users1.setName(username);
+                            users1.setUsernum(userId);
+                            userseslist.add(users1);
+                            Log.d("ce", "用户名" + username);
+                        }
+                    }
+
+
+
+                    Careerpublish careerpublish=new Careerpublish();
+
+                    careerpublish.setUserses(userseslist);
+
+                    if (listener != null) {
+                        listener.onFinish(careerpublish);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                }
+            }
+        }).start();
+    }
+
+    public static void getserch(final String adress, final HttpCallBackListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    List<Careerpublish> list = new ArrayList<>();
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Request request = new Request.Builder().url(adress).build();
+                    Response responses = null;
+                    String rs = null;
+                    Log.d("aa", "测试中" + adress);
+
+                    responses = okHttpClient.newCall(request).execute();
+                    rs = responses.body().string();
+                    Log.d("aa", "测试中" + rs.toString());
+
+
+                    int id;
+                    String them = null;
+                    String publish_branch = null;
+                    String sorce = null;
+                    String publish_time = null;
+                    String state = null;
+                    String usercount=null;
+                    String department=null;
+                    Bitmap activity_img = null;
+
+                    Log.d("ce", "解中" + rs.toString());
+                    JSONArray jsonArray = new JSONArray(rs.toString());
+                    Log.d("ce", "长度" + jsonArray.length());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        Log.d("ce", "解中");
+                        JSONObject jsonobject = jsonArray.getJSONObject(i);
+                        Log.d("ce", "解中"+jsonobject);
+                        id = Integer.parseInt(jsonobject.getString("school_activity_id"));
+                        them = jsonobject.getString("theme");
+                        department = jsonobject.getString("department_name");
+                        publish_branch = jsonobject.getString("major");
+                        usercount = jsonobject.getString("student_id");
+                        publish_time = jsonobject.getString("student_id");
+                        sorce = jsonobject.getString("quality_frade");
+                        state = jsonobject.getString("student_name");
+
+                      //  String imgurl = jsonobject.getString("activity_img");
+                        //  activity_img = parseImg(imgurl);
+
+                        Careerpublish careerpublish = new Careerpublish();
+                        careerpublish.setId(id);
+                        careerpublish.setTheme(them);
+                        careerpublish.setPublish_branch(department+"-"+publish_branch);
+                        careerpublish.setPublish_time(publish_time);
+                        careerpublish.setQuality_frade(sorce);
+                        careerpublish.setUsercount(usercount);
+                        //  careerpublish.setImgBitmap(activity_img);
+                        careerpublish.setStatus(state);
+
+                        list.add(careerpublish);
+                    }
+                    if (listener != null) {
+                        listener.onFinish(list);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                } catch (JSONException e) {
                     e.printStackTrace();
                     Looper.prepare();
                     listener.onError(e);

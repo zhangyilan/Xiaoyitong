@@ -187,6 +187,8 @@
         <activity android:name=".ui.sonfragmeng.AdminContentActivity"/>
         <activity android:name=".ui.sonfragmeng.Career_amdin_userslist_Activity"/>
         <activity android:name=".ui.sonfragmeng.AdminListActivity"/>
+        <activity android:name=".ui.sonfragmeng.SerchContentActivity"/>
+        <activity android:name=".ui.sonfragmeng.SerchListActivity"/>
 
         <!-- 开机自启动服务 -->
         <receiver android:name="com.easemob.chat.StartServiceReceiver">

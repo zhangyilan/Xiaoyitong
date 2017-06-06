@@ -11,22 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
 import java.util.List;
 
 import ui.test.cn.xiaoyitong.R;
-import ui.test.cn.xiaoyitong.entity.Careerpublish;
+import ui.test.cn.xiaoyitong.entity.Users;
 
 
 /**
  * Created by lenovo on 2017/04/13.
  */
 
-public class UserAmdinListAdapter extends ArrayAdapter<Careerpublish> {
+public class UserAmdinListAdapter extends ArrayAdapter<Users> {
     private   int   resourseId;
     ListViewClickListener  listViewClickListener;
 
-    public UserAmdinListAdapter(Context context, int resource, List<Careerpublish> objects) {
+    public UserAmdinListAdapter(Context context, int resource, List<Users> objects) {
         super(context, resource, objects);
         this.resourseId = resource;
     }
@@ -34,7 +33,7 @@ public class UserAmdinListAdapter extends ArrayAdapter<Careerpublish> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Careerpublish careerpublish=getItem(position);
+        final Users users=getItem(position);
 
         final View view;
         ViewHolder viewHolder;
@@ -55,15 +54,15 @@ public class UserAmdinListAdapter extends ArrayAdapter<Careerpublish> {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("id","当前"+careerpublish.getId());
-                listViewClickListener.onRecycleViewClick(view,careerpublish.getId(),careerpublish.getTheme());
+                Log.d("id","当前"+users.getName());
+                listViewClickListener.onRecycleViewClick(view,users.getName());
             }
         });
-        viewHolder.listthem.setText(careerpublish.getTheme());
-        viewHolder.author.setText(careerpublish.getPublish_branch());
+        viewHolder.listthem.setText(users.getName() );
+        viewHolder.author.setText(users.getUsernum());
 
-        if(careerpublish.getImgBitmap()!=null){
-           viewHolder.pubulishImg.setImageBitmap(careerpublish.getImgBitmap());
+        if(users.getBitmap()!=null){
+           viewHolder.pubulishImg.setImageBitmap(users.getBitmap());
         }else {
             viewHolder.pubulishImg.setImageResource(R.drawable.icon);
         }
@@ -78,7 +77,7 @@ public class UserAmdinListAdapter extends ArrayAdapter<Careerpublish> {
 
     }
     public  interface    ListViewClickListener{
-        void  onRecycleViewClick(View view, int id, String name);
+        void  onRecycleViewClick(View view, String name);
     }
     //当执行这个方法的时候调用接口
     public void  myListViewClickListener(ListViewClickListener listener){
