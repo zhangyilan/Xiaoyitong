@@ -45,7 +45,10 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
+import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.LyoutHandle.ExpressListHandle;
+import ui.test.cn.xiaoyitong.LyoutHandle.ProfessionalismHandle;
 import ui.test.cn.xiaoyitong.Navi.LocationActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.GridviewAdapter;
@@ -53,6 +56,7 @@ import ui.test.cn.xiaoyitong.adviewpagermanger.ADBean;
 import ui.test.cn.xiaoyitong.adviewpagermanger.TuTu;
 import ui.test.cn.xiaoyitong.httpHelper.HttpCallback;
 import ui.test.cn.xiaoyitong.httpHelper.JsonHelper;
+import ui.test.cn.xiaoyitong.ui.sonfragmeng.AdminListActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.BaodaoActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
@@ -211,10 +215,10 @@ public class FirstFragment extends Fragment {
                //素质
                 if (position == 7) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-                    Intent intent = new Intent(getActivity(), ShetuanActivity.class);
-                    startActivity(intent);
-                }
 
+                    startHttpConnection();
+
+                }
 
             }
         });
@@ -479,6 +483,34 @@ public class FirstFragment extends Fragment {
             getActivity().getWindow().setAttributes(lp);
         }
 
+    }
+    private void startHttpConnection (){
+        SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+        String user_name=share.getString("user_name","没有登陆");
+        if (user_name.equals("没有登陆")){
+            Toast.makeText(getActivity(),"您还未登陆,请登陆",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getActivity(), LoginActivity.class));
+        } else {
+            String url = "http://123.206.92.38/SimpleSchool/userservlet?opt=is_student&user=" + user_name;
+            String method = "GET";
+            HttpUtilX.sendHttpRequest(url, method, new HttpCallbackListener() {
+                @Override
+                public void onFinish(String response) {
+                    if (response.equals("true")){
+                        Intent intent = new Intent(getActivity(), ProfessionalismHandle.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getActivity(), AdminListActivity.class);
+                        startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+
+                }
+            });
+        }
     }
 
 

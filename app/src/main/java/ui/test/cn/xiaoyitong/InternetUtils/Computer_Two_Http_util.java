@@ -122,7 +122,11 @@ public class Computer_Two_Http_util {
                 } finally {
                     if (listener != null) {
                         Log.d("aa", "測測測" + computer_two_exam.toString());
-                        listener.onFinish(computer_two_exam);
+                        try {
+                            listener.onFinish(computer_two_exam);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 

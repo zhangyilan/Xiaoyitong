@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+             android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="10dip">
+             <TextView
+                android:id="@+id/list_them"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="算的"
+                android:textColor="#222222"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/list_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:text="asd"
+                android:textColor="#adadad"
+                android:maxEms="13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="12dp"
+                android:singleLine="true"/>
+            <TextView
+                android:id="@+id/career_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:text="asd"
+                android:textColor="#adadad"
+                android:maxLines="1"
+                android:textSize="12dp"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/career_publish_quality_frade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginLeft="5dp"
+                     android:text="0.9"
+                    android:textColor="#adadad"
+                    android:textSize="12dp" />
+
+
+
+                <TextView
+                    android:id="@+id/career_publish_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:text="状态"
+                    android:textColor="#adadad"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 显示图片 -->
+        <ImageView
+            android:id="@+id/publish_imag"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon"
+              />
+    </LinearLayout>
+</LinearLayout>

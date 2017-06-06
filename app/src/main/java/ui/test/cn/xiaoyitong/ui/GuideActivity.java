@@ -51,7 +51,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         mList=new ArrayList<>();
         //mList.add(new GuideBean(R.drawable.fy_first));
         mList.add(new GuideBean(R.drawable.fy_first1));
-        mList.add(new GuideBean(R.drawable.fy_first2));
+        //mList.add(new GuideBean(R.drawable.fy_first2));
         mList.add(new GuideBean(R.drawable.fy_first3));
         mList.add(new GuideBean(R.drawable.fy_first));
         setupTipsImage();

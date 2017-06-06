@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="horizontal">
+
+
+        <!-- 显示图片 -->
+        <ImageView
+            android:id="@+id/publish_users_imag"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon"
+              />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="10dip">
+            <TextView
+                android:id="@+id/publish_users_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="算的"
+                android:textColor="#222222"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/publish_users_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:text="asd"
+                android:textColor="#adadad"
+                android:maxEms="13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="12dp"
+                android:singleLine="true"/>
+
+            </LinearLayout>
+
+</LinearLayout>
