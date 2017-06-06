@@ -98,7 +98,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="a5589151c82c60d14e6ab7cd9b99a1d1" />
+            android:value="fa64e797711af02e8ef7f69ff329ec18" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
         <activity android:name=".ui.GuideActivity">
@@ -110,6 +110,11 @@
         </activity>
 
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ui.Tabfour"></activity>
+        <activity android:name=".ui.Tabone"></activity>
+        <activity android:name=".ui.Tabthree"></activity>
+        <activity android:name=".ui.Tabtwo"></activity>
+        <activity android:name=".ui.DriveActivity"></activity>
         <activity android:name=".ui.DetailActivity" />
         <activity android:name=".ui.BeasActivity" ></activity>
         <activity android:name=".ui.LoginActivity" />

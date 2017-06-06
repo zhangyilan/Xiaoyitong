@@ -1,161 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/topbar" />
+    <include
+        android:id="@+id/top"
+        layout="@layout/topbar"/>
 
-    <ui.test.cn.xiaoyitong.customControls.MainScrollView
-        android:id="@+id/swipe_ly"
+    <ScrollView
+        android:layout_below="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="vertical">
+            android:background="@drawable/bj">
+
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="150dp"
+                android:src="@drawable/bd"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/svtcc"
+                android:layout_marginTop="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
 
             <TextView
+                android:id="@+id/rxxz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="入学须知"
-                android:textSize="20dp" />
-
+                android:text="一、入学须知"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="170dp"
+                android:layout_marginLeft="140dp"/>
             <TextView
+                android:id="@+id/xx1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="一、入学报到时间：详见《录取通知书》" />
+                android:text="详情链接 >> GO"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/rxxz"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/bxg"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="280dp" />
 
             <TextView
+                android:id="@+id/bxg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="二、报到时凭《录取通知书》和《身份证》等有效证件报到。" />
-
+                android:text="二、博学馆"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="290dp"
+                android:layout_marginLeft="20dp"/>
             <TextView
+                android:id="@+id/b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="三、新生如不能按时报到，须向我院提出书面申请，经同意后方可延期报到;否则，视为自行放弃入学资格。" />
-
+                android:text="1、新生资格审核"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@+id/bxg"/>
             <TextView
+                android:id="@+id/c"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="四、中共党员须由当地县、市一级组织部门开具的党组织关系介绍信(党员介绍信函头请写：中共四川省直属机关工委)，团员凭团员证接转组织关系，相关接转手续报到时交相关系。" />
-
+                android:text="2、找到所在系，进行报到"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@+id/b"/>
             <TextView
+                android:id="@+id/xx2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="五、凡被我院录取的新生，城镇户口原则上不迁户。农村户口是否迁户，由学生自愿确定。迁户必须在入学时办理，过时不再办理迁户手续。报到时迁户证明交相关系。" />
+                android:text="详情链接 >> GO"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/c"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ss"
+                android:layout_marginTop="430dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"/>
 
             <TextView
+                android:id="@+id/zs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="　六、按各省(市)招办规定，凡需自带纸质档案入校的，请持《录取通知书》到当地招办(或中学)提取档案，报到时交相关系。" />
-
+                android:text="三、住宿管理中心"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="440dp"
+                android:layout_marginLeft="140dp"/>
             <TextView
+                android:id="@+id/bb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="七、请新生复印好《录取通知书》，以备办理其它手续。" />
+                android:text="1、到达住宿管理中心"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="160dp"
+                android:layout_below="@+id/zs"/>
+            <TextView
+                android:id="@+id/cc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2、找到对应园区"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="160dp"
+                android:layout_below="@+id/bb"/>
+            <TextView
+                android:id="@+id/xx3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详情链接 >> GO"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/cc"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/st"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="580dp"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/st"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="到达学校后报到流程"
-                android:textSize="20dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1.到博学馆前寻找自己所在院系迎新人员" />
-
-                <Button
-                    android:id="@+id/boxueguan"
-                    android:layout_width="50dp"
-                    android:layout_height="32dp"
-                    android:padding="0dp"
-                    android:text="导航" />
-            </LinearLayout>
-
+                android:text="四、一食堂"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="580dp"
+                android:layout_marginLeft="20dp"/>
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/dd"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="2.到达新生接待处" />
-
+                android:text="最后办理校园一卡通，完成充值"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@+id/st"/>
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/xx4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="详情链接 >> GO"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
-                android:text="3.进行新生资格审核" />
+                android:layout_below="@+id/dd"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="4.出示身份证、录取通知书、准考证、档案" />
+            <ImageView
+                android:layout_width="400dp"
+                android:layout_height="63dp"
+                android:src="@drawable/aaa"
+                android:layout_marginTop="230dp"/>
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="50dp"
+                android:src="@drawable/bb"
+                android:layout_marginTop="390dp"
+                android:layout_marginLeft="50dp"/>
+            <ImageView
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:src="@drawable/aaa"
+                android:layout_marginTop="533dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="5.领取宿舍房间号、报到证（包括院系、学号）" />
+        </RelativeLayout>
+    </ScrollView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="6.到达住宿管理中心办理住宿手续" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="7.出示报到证，填写个人资料" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="8.领取宿舍号、床号、以及宿舍钥匙" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="9.到达住宿管理中心办理住宿手续" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="10.缴纳学费 财务处 已通过银行卡汇款的领取收据即可" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="11.办理校园一卡通" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="12.办理党团关系 团委 交党团组织介绍信" />
-
-
-        </LinearLayout>
-    </ui.test.cn.xiaoyitong.customControls.MainScrollView>
-</LinearLayout>
+</RelativeLayout>

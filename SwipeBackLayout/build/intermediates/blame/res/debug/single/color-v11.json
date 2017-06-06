@@ -12,7 +12,15 @@
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]
