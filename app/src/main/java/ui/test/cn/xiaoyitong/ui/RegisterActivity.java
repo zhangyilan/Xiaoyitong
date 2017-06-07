@@ -53,12 +53,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         }
         StatusBarUtil.StatusBarLightMode(this);
-        setContentView(R.layout.activity_register);
 
         de_frm_backgroud = (FrameLayout) findViewById(R.id.de_frm_backgroud);
         root = (LinearLayout) findViewById(R.id.root);

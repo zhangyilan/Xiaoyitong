@@ -40,12 +40,12 @@
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-xxhdpi\\abc_ic_go_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
         "merged": "H:\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
         "source": "C:\\Users\\renba\\.android\\build-cache\\97b4d23cc013bd3893ce459c331782af2bd6efa0\\output\\res\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-xxhdpi\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-xxhdpi\\abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
-        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
         "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_spinner_mtrl_am_alpha.9.png",
         "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable-xxhdpi\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\YanChunlin\\Desktop\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\YanChunlin\\.android\\build-cache\\c0adf735ad7b8c9c2d6ae80dedd2600565a4ed2d\\output\\res\\drawable-xxhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi\\abc_list_selector_disabled_holo_light.9.png",
