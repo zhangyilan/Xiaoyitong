@@ -78,9 +78,9 @@
         <ImageView
             android:id="@+id/list_imag"
             android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/news_item" />
+            android:src="@drawable/svtcc" />
     </LinearLayout>
 </LinearLayout>

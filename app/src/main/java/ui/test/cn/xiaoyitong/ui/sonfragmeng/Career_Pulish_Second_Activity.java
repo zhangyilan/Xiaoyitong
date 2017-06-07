@@ -167,7 +167,7 @@ public class Career_Pulish_Second_Activity extends Activity {
 
                     @Override
                     public void onError(Exception e) {
-                        Toast.makeText(Career_Pulish_Second_Activity.this,"网络异常,发布失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Career_Pulish_Second_Activity.this,"网络异常,请检查信息或网络",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

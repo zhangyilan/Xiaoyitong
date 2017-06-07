@@ -49,7 +49,7 @@ public class ProfessionalismAdapter extends ArrayAdapter<Professionalism> {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
-        Picasso.with(getContext()).load(R.drawable.icon).into(viewHolder.image);
+        Picasso.with(getContext()).load(R.drawable.svtcc).into(viewHolder.image);
         //viewHolder.image.setImageResource(R.mipmap.ic_launcher);
         viewHolder.subject.setText(professionalism.getSubject());
         viewHolder.department.setText(professionalism.getDepartment());
