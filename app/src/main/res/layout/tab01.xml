@@ -7,10 +7,9 @@
 
     <include layout="@layout/top" />
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbarThumbVertical="@drawable/scrollstylea">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -135,5 +134,7 @@
                 android:verticalSpacing="3dp" />
 
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 </LinearLayout>

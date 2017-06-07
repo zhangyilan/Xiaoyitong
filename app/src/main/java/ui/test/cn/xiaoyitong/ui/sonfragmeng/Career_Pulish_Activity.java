@@ -29,6 +29,7 @@ import ui.test.cn.xiaoyitong.httpHelper.http;
 import ui.test.cn.xiaoyitong.httpHelper.http1;
 
 /**
+ * 管理员发布界面
  * Created by lenovo on 2017/05/27.
  */
 

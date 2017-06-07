@@ -5,6 +5,7 @@ package ui.test.cn.xiaoyitong.entity;
  */
 
 public class Mood {
+
     private String name;
     private String time;
     private int img;

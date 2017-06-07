@@ -27,7 +27,6 @@ import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -47,7 +46,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
-import ui.test.cn.xiaoyitong.LyoutHandle.ExpressListHandle;
 import ui.test.cn.xiaoyitong.LyoutHandle.ProfessionalismHandle;
 import ui.test.cn.xiaoyitong.Navi.LocationActivity;
 import ui.test.cn.xiaoyitong.R;
@@ -62,7 +60,6 @@ import ui.test.cn.xiaoyitong.ui.sonfragmeng.Comouter_two_Login_Activity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.Courses_login;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.MenuGrandFind;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.SchoolHistoryMainActivity;
-import ui.test.cn.xiaoyitong.ui.sonfragmeng.ShetuanActivity;
 import ui.test.cn.xiaoyitong.ui.sonfragmeng.newsMainActivity;
 import ui.test.cn.xiaoyitong.utils.HttpUtil;
 
@@ -85,10 +82,10 @@ public class FirstFragment extends Fragment {
     private List<ADBean> listADbeans;
     private ViewFlipper mFlipper;//新闻头条
     private String[] ad_imgurls = {
-            "http://www.zhangyilan.me/img/adimg/img1.jpg",
-            "http://www.zhangyilan.me/img/adimg/img2.jpg",
-            "http://www.zhangyilan.me/img/adimg/img3.png",
-            "http://www.zhangyilan.me/img/adimg/img4.jpg",
+            "http://www.zhangyilan.me/img/adimg/img1.jpeg",
+            "http://www.zhangyilan.me/img/adimg/img2.jpeg",
+            "http://www.zhangyilan.me/img/adimg/img3.jpeg",
+            "http://www.zhangyilan.me/img/adimg/img4.jpeg",
             "http://www.zhangyilan.me/img/adimg/img5.jpg"};
     //新闻轮播
     private String newsurl = "http://123.206.92.38:80/SimpleSchool/AppServlet?opt=gettitle";
@@ -215,9 +212,7 @@ public class FirstFragment extends Fragment {
                //素质
                 if (position == 7) {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=8");
-
                     startHttpConnection();
-
                 }
 
             }

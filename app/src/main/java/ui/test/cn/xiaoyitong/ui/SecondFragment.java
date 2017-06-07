@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -33,7 +34,7 @@ public class SecondFragment extends Fragment {
 
     private View view;
 
-    PullToZoomListView listView;
+    ListView listView;
     private String[] adapterData;
     private TextView txt_send;
     private List<Mood> mood = new ArrayList<Mood>();
@@ -60,10 +61,11 @@ public class SecondFragment extends Fragment {
 
         initMood();
         adapter = new MoodAdapter(getActivity(), R.layout.item_mood, mood);
-        listView = (PullToZoomListView) view.findViewById(R.id.listview);
+//        listView = (PullToZoomListView) view.findViewById(R.id.listview);
+        listView = (ListView) view.findViewById(R.id.listview);
         listView.setAdapter(adapter);
-        listView.getHeaderView().setImageResource(R.drawable.splash01);
-        listView.getHeaderView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+//        listView.getHeaderView().setImageResource(R.drawable.splash01);
+//        listView.getHeaderView().setScaleType(ImageView.ScaleType.CENTER_CROP);
         mFab = (FloatingActionButton) view.findViewById(R.id.tl_fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -103,7 +103,7 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
                 } else {
                     transaction.show(mTab02);
                 }
-                mImgluntuan.setImageResource(R.drawable.guide_luntan_press);
+                mImgluntuan.setImageResource(R.drawable.guide_02_press);
                 txt_luntuan.setTextColor(getResources().getColorStateList(R.color.txtfri));
                 txt_home.setTextColor(getResources().getColorStateList(R.color.txtnomal));
                 txt_fri.setTextColor(getResources().getColorStateList(R.color.txtnomal));
@@ -116,7 +116,7 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
                 } else {
                     transaction.show(mTab03);
                 }
-                mImgfri.setImageResource(R.drawable.tab_friend_press);
+                mImgfri.setImageResource(R.drawable.guide_03_press);
                 txt_fri.setTextColor(getResources().getColorStateList(R.color.txtfri));
                 txt_home.setTextColor(getResources().getColorStateList(R.color.txtnomal));
                 txt_luntuan.setTextColor(getResources().getColorStateList(R.color.txtnomal));
@@ -130,7 +130,7 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
                 } else {
                     transaction.show(mTab04);
                 }
-                mImgshetuan.setImageResource(R.drawable.guide_shetuan_press);
+                mImgshetuan.setImageResource(R.drawable.guide_04_press);
                 txt_shetuan.setTextColor(getResources().getColorStateList(R.color.txtfri));
                 txt_home.setTextColor(getResources().getColorStateList(R.color.txtnomal));
                 txt_luntuan.setTextColor(getResources().getColorStateList(R.color.txtnomal));
@@ -263,9 +263,9 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
      */
     private void resetImgs() {
         mImghome.setImageResource(R.drawable.guide_home_nm);
-        mImgluntuan.setImageResource(R.drawable.guide_luntan_nm);
-        mImgfri.setImageResource(R.drawable.tab_friend_nm);
-        mImgshetuan.setImageResource(R.drawable.guide_shetuan_nm);
+        mImgluntuan.setImageResource(R.drawable.guide_02_nm);
+        mImgfri.setImageResource(R.drawable.guide_03_nm);
+        mImgshetuan.setImageResource(R.drawable.guide_04_nm);
     }
 
     /**
@@ -292,6 +292,5 @@ public class BeasActivity extends FragmentActivity implements View.OnClickListen
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
 }
