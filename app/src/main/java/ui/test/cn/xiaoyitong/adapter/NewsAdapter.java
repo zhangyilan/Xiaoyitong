@@ -65,7 +65,7 @@ public class NewsAdapter extends ArrayAdapter<news> {
         if(news.getImgBitmap()!=null){
            viewHolder.newsImg.setImageBitmap(news.getImgBitmap());
         }else {
-            viewHolder.newsImg.setImageResource(R.drawable.svtcc);
+            viewHolder.newsImg.setImageResource(R.drawable.svtccicon);
         }
         return view;
     }

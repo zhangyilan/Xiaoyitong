@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\YanChunlin\Desktop\xiaoyitong\PushSDK\assets"/><source path="C:\Users\YanChunlin\Desktop\xiaoyitong\PushSDK\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\YanChunlin\Desktop\xiaoyitong\PushSDK\build-types\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\android\workspace\xiaoyitong2\PushSDK\assets"/><source path="D:\android\workspace\xiaoyitong2\PushSDK\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\android\workspace\xiaoyitong2\PushSDK\build-types\debug\assets"/></dataSet></merger>
