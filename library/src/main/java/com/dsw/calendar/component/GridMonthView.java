@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
@@ -28,7 +29,8 @@ public class GridMonthView extends MonthView {
         Path path;
         float startX = 0;
         float endX = rightX;
-        paint.setStyle(Paint.Style.STROKE);
+        //paint.setStyle(Paint.Style.STROKE);//描边
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);//填充内部和描边
         paint.setColor(theme.colorLine());
         for(int row = 6; row <= rowCount ;row++){
             float startY = row * rowSize;
@@ -120,14 +122,14 @@ public class GridMonthView extends MonthView {
         paint.setTextSize(theme.sizeDay());
         float startX = columnSize * column + (columnSize - paint.measureText(day+""))/2;
         float startY = rowSize * row + rowSize/2 - (paint.ascent() + paint.descent())/2;
-        paint.setStyle(Paint.Style.STROKE);
+        //paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
         String des = iscalendarInfo(year,month,day);
         if(day== selDay){//日期为选中的日期
             if(!TextUtils.isEmpty(des)){//desc不为空的时候
                 int dateY = (int) (startY - 30);
                 paint.setColor(theme.colorSelectDay());
                 canvas.drawText(day+"", startX, dateY, paint);
-
                 paint.setTextSize(theme.sizeDesc());
                 int priceX = (int) (columnSize * column + (columnSize - paint.measureText(des))/2);
                 int priceY = (int) (startY + 30);

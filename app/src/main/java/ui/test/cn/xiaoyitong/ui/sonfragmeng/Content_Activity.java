@@ -38,7 +38,7 @@ public class Content_Activity extends SwipeBackActivity {
             author.setText(news.getAuthor());
             sourse.setText(news.getSource());
             read.setText(String.valueOf(news.getRead()));
-            content.setText(news.getContent());
+            content.setText("        "+news.getContent());
 
             if (news.getSet() != null && !(news.getSet()).isEmpty()) {
                 Iterator j = news.getSet().iterator();

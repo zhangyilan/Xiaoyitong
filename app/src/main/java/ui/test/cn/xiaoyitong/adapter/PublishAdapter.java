@@ -69,7 +69,7 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
         if(careerpublish.getImgBitmap()!=null){
            viewHolder.pubulishImg.setImageBitmap(careerpublish.getImgBitmap());
         }else {
-            viewHolder.pubulishImg.setImageResource(R.drawable.icon);
+            viewHolder.pubulishImg.setImageResource(R.drawable.svtccicon);
         }
         return view;
     }

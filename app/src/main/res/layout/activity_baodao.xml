@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/svtcc"
+                android:src="@drawable/svtccicon"
                 android:layout_marginTop="120dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
