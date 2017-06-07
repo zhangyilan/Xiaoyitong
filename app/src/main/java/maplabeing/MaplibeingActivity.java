@@ -6,18 +6,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.Interpolator;
+import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +33,6 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
-import com.amap.api.maps.Projection;
 import com.amap.api.maps.UiSettings;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.CameraPosition;
@@ -47,6 +49,7 @@ import com.amap.api.services.route.DriveRouteResult;
 import com.amap.api.services.route.RideRouteResult;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkRouteResult;
+import com.bigkoo.pickerview.OptionsPickerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -69,7 +72,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 import ui.test.cn.xiaoyitong.R;
 
-public class MaplibeingActivity extends AppCompatActivity implements View.OnClickListener, AMap.OnMapClickListener,
+public class MaplibeingActivity extends AppCompatActivity
+        implements
+        View.OnClickListener, AMap.OnMapClickListener,
+        TextWatcher,
         AMap.OnMarkerClickListener, AMap.OnInfoWindowClickListener, AMap.InfoWindowAdapter, RouteSearch.OnRouteSearchListener {
     private AMap aMap;
     private Context mContext;
@@ -92,7 +98,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     private MyLocationStyle myLocationStyle;
     private UiSettings mUiSettings;
     private int Traffic = 0;
-    private LinearLayout weixing, dingwei, lukuang, nearby, linearLayout111, search;
+    private LinearLayout weixing, dingwei, lukuang, nearby, linearLayout111;
     private int SATELLITE = 0;
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = new AMapLocationClientOption();
@@ -102,17 +108,23 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     private DrivingRouteOverlay drivingRouteOverlay;
     private MarkerOptions markerOptions;
     private int id;
-    private int BIANLIANG=0;
-    private int BIANLIANG1=0;
+    private int BIANLIANG = 0;
     List<Parks> parkslist = new ArrayList<>();
-
+    List<Parks> Searchlist = new ArrayList<>();
+    List<String> address = new ArrayList<>();
+    //搜索
+    private AutoCompleteTextView searchText;// 输入搜索关键字
+    private String keyWord = "";// 要输入的poi搜索关键字
+    private ProgressDialog progDialog1 = null;// 搜索时进度条
+    ArrayAdapter<String> aAdapter;
+    List<String> options1Items = new ArrayList<>();
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        StatusBarLightMode.FlymeSetStatusBarLightMode(getWindow(), true);
+        StatusBarLightMode.FlymeSetStatusBarLightMode(this.getWindow(), true);
         setContentView(R.layout.maplibeingactivity_main);
         init();
         mMapView.onCreate(savedInstanceState);
@@ -131,6 +143,74 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
         } else {
             Toast.makeText(this, "当前无法连接网络，请打开网络！", Toast.LENGTH_LONG).show();
         }
+        setUpMap();
+    }
+
+    /**
+     * 设置页面监听
+     */
+    private void setUpMap() {
+
+        aMap.setOnMarkerClickListener(this);// 添加点击marker监听事件
+        aMap.setInfoWindowAdapter(this);// 添加显示infowindow监听事件
+    }
+
+    /**
+     * 点击搜索按钮
+     */
+    public void searchButton() {
+        keyWord = AMapUtil.checkEditText(searchText);
+        if ("".equals(keyWord)) {
+            ToastUtil.show(this, "请输入搜索关键字");
+            return;
+        } else {
+            popshowProgressDialog();
+        }
+    }
+
+    /**
+     * 显示进度框
+     */
+    private void popshowProgressDialog() {
+        if (progDialog1 == null)
+            progDialog1 = new ProgressDialog(this);
+        progDialog1.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDialog1.setIndeterminate(false);
+        progDialog1.setCancelable(true);
+        progDialog1.setMessage("正在搜索:\n" + keyWord);
+        progDialog1.show();
+        Log.d("aaaaa", Searchlist.size() + "");
+        okhttpSearchone(searchText.getText().toString());
+        addMarkersToMap2();
+        progDialog1.cancel();
+
+    }
+
+    private void addMarkersToMap2() {
+        if (Searchlist.size() == 0) {
+
+        } else {
+            MarkerOptions
+                    markerOptions = new MarkerOptions()
+                    .title(String.valueOf(Searchlist.get(0).getId()))
+                    .position(new LatLng(Searchlist.get(0).getParklatitude(), Searchlist.get(0).getParklongitude()))
+                    .icon(BitmapDescriptorFactory.fromBitmap(getMyBitmap(String.valueOf(parkslist.get(0).getParkusenumber()))));
+            aMap.addMarker(markerOptions);
+
+
+            aMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(
+                    new LatLng(Searchlist.get(0).getParklatitude(), Searchlist.get(0).getParklongitude()), 18, 0, 0)));
+        }
+    }
+
+    /**
+     * 隐藏进度框
+     */
+    private void popdissmissProgressDialog() {
+        if (progDialog1 != null) {
+            progDialog1.dismiss();
+        }
+
     }
 
     private void setfromandtoMarker() {
@@ -141,7 +221,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 .position(AMapUtil.convertToLatLng(new LatLonPoint(parkslist.get(id - 1).getParklatitude(), parkslist.get(id - 1).getParklongitude())))
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.end));
         mEndLatlng.setLatitude(parkslist.get(id - 1).getParklatitude());
-        mEndLatlng.setLatitude(parkslist.get(id - 1).getParklongitude());
+        mEndLatlng.setLongitude(parkslist.get(id - 1).getParklongitude());
         aMap.addMarker(markerOptions);
 
     }
@@ -173,28 +253,40 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void init() {
+        searchText = (AutoCompleteTextView) findViewById(R.id.keyWord);
+
+        searchText.addTextChangedListener(this);// 添加文本输入框监听事件
+        searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+
+                    searchButton();
+                    return true;
+                }
+                return false;
+            }
+        });
         mContext = this.getApplicationContext();
-        mRouteSearch = new RouteSearch(this);
+        mRouteSearch = new RouteSearch( this);
         mRouteSearch.setRouteSearchListener(this);
-        number = (TextView) findViewById(R.id.number);
+        number = (TextView)findViewById(R.id.number);
         park_name = (TextView) findViewById(R.id.park_name);
         lukuang = (LinearLayout) findViewById(R.id.lukuang);
         weixing = (LinearLayout) findViewById(R.id.weixing);
         mMapView = (MapView) findViewById(R.id.map);
         distance = (TextView) findViewById(R.id.distance);
         nearby = (LinearLayout) findViewById(R.id.nearby);
-        dingwei = (LinearLayout) findViewById(R.id.dingwei);
-        details = (LinearLayout) findViewById(R.id.details);
+        dingwei = (LinearLayout)findViewById(R.id.dingwei);
+        details = (LinearLayout)findViewById(R.id.details);
         LinearLayout zoom_in = (LinearLayout) findViewById(R.id.zoom_in);
-        LinearLayout zoom_out = (LinearLayout) findViewById(R.id.zoom_out);
+        LinearLayout zoom_out = (LinearLayout)findViewById(R.id.zoom_out);
         LinearLayout guard = (LinearLayout) findViewById(R.id.guard);
         rote = (LinearLayout) findViewById(R.id.rote);
         LinearLayout panorama = (LinearLayout) findViewById(R.id.panorama);
         infolinearLayout = (LinearLayout) findViewById(R.id.infolinearLayout);
         linearLayout111 = (LinearLayout) findViewById(R.id.linearLayout111);
-        search = (LinearLayout) findViewById(R.id.search);
         infolinearLayout.setVisibility(View.GONE);
-
         nearby.setOnClickListener(this);
         details.setOnClickListener(this);
         panorama.setOnClickListener(this);
@@ -236,26 +328,26 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         mMapView.onDestroy();
         locationClient.onDestroy();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mMapView.onResume();
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         mMapView.onPause();
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
         mMapView.onSaveInstanceState(outState);
@@ -269,7 +361,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
      */
     private void initLocation() {
         //初始化client
-        locationClient = new AMapLocationClient(this.getApplicationContext());
+        locationClient = new AMapLocationClient( this.getApplicationContext());
         //设置定位参数
         locationClient.setLocationOption(getDefaultOption());
         // 设置定位监听
@@ -334,8 +426,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onInfoWindowClick(Marker arg0) {
-
+    public void onInfoWindowClick(Marker marker) {
 
     }
 
@@ -344,7 +435,6 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     public void onMapClick(LatLng arg0) {
         if (GONE_VISIBLE == 0) {
             linearLayout111.setVisibility(View.GONE);
-            search.setVisibility(View.GONE);
             infolinearLayout.setVisibility(View.GONE);
             GONE_VISIBLE = 1;
         } else {
@@ -352,10 +442,10 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 infolinearLayout.setVisibility(View.VISIBLE);
             }
             linearLayout111.setVisibility(View.VISIBLE);
-            search.setVisibility(View.VISIBLE);
             GONE_VISIBLE = 0;
         }
     }
+
     /**
      * 开始搜索路径规划方案
      */
@@ -384,7 +474,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onDriveRouteSearched(DriveRouteResult result, int errorCode) {
-        dissmissProgressDialog();
+        dissmissProgressDialog1();
         aMap.clear();
         MapSetting();
         addMarkersToMap1();
@@ -434,7 +524,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 ToastUtil.show(mContext, "对不起，没有搜索到相关数据！");
             }
         } else {
-            ToastUtil.showerror(this.getApplicationContext(), errorCode);
+            ToastUtil.showerror( this.getApplicationContext(), errorCode);
         }
 
 
@@ -450,7 +540,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
      */
     private void showProgressDialog() {
         if (progDialog == null)
-            progDialog = new ProgressDialog(this);
+            progDialog = new ProgressDialog( this);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setIndeterminate(false);
         progDialog.setCancelable(false);
@@ -461,7 +551,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     /**
      * 隐藏进度框
      */
-    private void dissmissProgressDialog() {
+    private void dissmissProgressDialog1() {
         if (progDialog != null) {
             progDialog.dismiss();
         }
@@ -469,10 +559,10 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
 
     private void showProgressDialog1() {
         if (locatiionprogDialog == null)
-            locatiionprogDialog = new ProgressDialog(this);
+            locatiionprogDialog = new ProgressDialog( this);
         locatiionprogDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         locatiionprogDialog.setIndeterminate(false);
-        locatiionprogDialog.setCancelable(false);
+        locatiionprogDialog.setCancelable(true);
         locatiionprogDialog.setMessage("正在定位...");
         locatiionprogDialog.show();
     }
@@ -499,7 +589,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 }
                 break;
             case R.id.details:
-                Intent intent3 = new Intent(MaplibeingActivity.this, ParkDetialsActivity.class);
+                Intent intent3 = new Intent( this, ParkDetialsActivity.class);
                 intent3.putExtra("name", parkslist.get(id - 1).getParkname() + "");
                 intent3.putExtra("totalnumber", parkslist.get(id - 1).getParktotalnumber() + "");
                 intent3.putExtra("address", parkslist.get(id - 1).getParkaddress() + "");
@@ -507,16 +597,39 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 startActivity(intent3);
                 break;
             case R.id.guard:
-                Intent intent = new Intent(MaplibeingActivity.this, DriveActivity.class);
-                intent.putExtra("id", id + "");
-                intent.putExtra("startX", mStartLatlng.getLatitude() + "");
-                intent.putExtra("startY", mStartLatlng.getLongitude() + "");
-                intent.putExtra("endX", parkslist.get(id - 1).getParklatitude() + "");
-                intent.putExtra("endY", parkslist.get(id - 1).getParklongitude() + "");
-                startActivity(intent);
+                OptionsPickerView pvOptions = new OptionsPickerView.Builder( this, new OptionsPickerView.OnOptionsSelectListener() {
+                    @Override
+                    public void onOptionsSelect(int options1, int option2, int options3, View v) {
+                        //返回的分别是三个级别的选中位置
+
+                        String index = options1Items.get(options1).toString();
+                        Toast.makeText( MaplibeingActivity.this, index, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent( MaplibeingActivity.this, DriveActivity.class);
+                        intent.putExtra("id", id + "");
+                        intent.putExtra("index", index.substring(1,2) + "");
+                        intent.putExtra("startX", mStartLatlng.getLatitude() + "");
+                        intent.putExtra("startY", mStartLatlng.getLongitude() + "");
+                        intent.putExtra("endX", parkslist.get(id - 1).getParklatitude() + "");
+                        intent.putExtra("endY", parkslist.get(id - 1).getParklongitude() + "");
+                        startActivity(intent);
+                    }
+                }).setTitleText("停车位选择")
+                        .setSubCalSize(14)//确定和取消文字大小
+                        .setTitleSize(18)//标题文字大小
+                        .setTitleColor(Color.parseColor("#f6a806"))//标题文字颜色
+                        .setSubmitColor(Color.parseColor("#f6a806"))//确定按钮文字颜色
+                        .setCancelColor(Color.parseColor("#f6a806"))//取消按钮文字颜色
+                        .setDividerColor(Color.parseColor("#f6a806"))
+                        .setTextColorCenter(Color.parseColor("#f6a806"))
+                        .setContentTextSize(14)
+                        .isDialog(true)
+                        .build();
+                pvOptions.setPicker(options1Items);
+                pvOptions.show();
+
                 break;
             case R.id.panorama:
-                Intent intent1 = new Intent(MaplibeingActivity.this, PanoramaActivity.class);
+                Intent intent1 = new Intent(this, PanoramaActivity.class);
                 intent1.putExtra("endX", parkslist.get(id - 1).getParklatitude() + "");
                 intent1.putExtra("endY", parkslist.get(id - 1).getParklongitude() + "");
                 startActivity(intent1);
@@ -529,7 +642,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                     okhttp();
 
                 } else {
-                    Toast.makeText(this, "当前无法连接网络，请打开网络！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MaplibeingActivity.this, "当前无法连接网络，请打开网络！", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.dingwei:
@@ -546,6 +659,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 changeCamera(CameraUpdateFactory.zoomOut(), null);
                 break;
 
+
         }
     }
 
@@ -558,7 +672,7 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void okhttp() {
-        String url = "http://123.206.92.38/park/parks";
+        String url = "https://renbaojia.com/parks";
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
@@ -609,6 +723,14 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
                 addMarkersToMap1();
                 //地图标注
             }
+            if (msg.what == 111111) {
+                aAdapter = new ArrayAdapter<>(MaplibeingActivity.this,R.layout.route_inputs, address);
+                searchText.setAdapter(aAdapter);
+                aAdapter.notifyDataSetChanged();
+            }
+            if (msg.what == 12134) {
+
+            }
         }
     };
 
@@ -616,13 +738,14 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
     public boolean onMarkerClick(Marker marker) {
         if (Utils.isNetworkAvailable(this)) {
             if (aMap != null) {
+                options1Items.clear();
                 String title = marker.getTitle();
                 id = Integer.parseInt(title);
                 infomarker(marker);
-                jumpPoint(marker);
+                parkInfo();
             }
             infolinearLayout.setVisibility(View.VISIBLE);
-            BIANLIANG=1;
+            BIANLIANG = 1;
         } else {
             Toast.makeText(this, "当前无法连接网络，请打开网络！", Toast.LENGTH_LONG).show();
         }
@@ -640,46 +763,168 @@ public class MaplibeingActivity extends AppCompatActivity implements View.OnClic
         }
 
         setfromandtoMarker();
-        searchRouteResult(ROUTE_TYPE_DRIVE, RouteSearch.DrivingDefault);
+        searchRouteResult(ROUTE_TYPE_DRIVE, RouteSearch.BUS_COMFORTABLE);
 
     }
-
-    /**
-     * marker点击时跳动一下
-     */
-    public void jumpPoint(final Marker marker) {
-        final Handler handler = new Handler();
-        final long start = SystemClock.uptimeMillis();
-        Projection proj = aMap.getProjection();
-        final LatLng markerLatlng = marker.getPosition();
-        Point markerPoint = proj.toScreenLocation(markerLatlng);
-        markerPoint.offset(0, -100);
-        final LatLng startLatLng = proj.fromScreenLocation(markerPoint);
-        final long duration = 1500;
-
-
-        final Interpolator interpolator = new BounceInterpolator();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                long elapsed = SystemClock.uptimeMillis() - start;
-                float t = interpolator.getInterpolation((float) elapsed
-                        / duration);
-                double lng = t * markerLatlng.longitude + (1 - t)
-                        * startLatLng.longitude;
-                double lat = t * markerLatlng.latitude + (1 - t)
-                        * startLatLng.latitude;
-                marker.setPosition(new LatLng(lat, lng));
-                if (t < 1.0) {
-                    handler.postDelayed(this, 16);
-                }
-            }
-        });
-    }
-
     @Override
     public void onRideRouteSearched(RideRouteResult arg0, int arg1) {
 
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        for (int i = 0; i < address.size(); i++) {
+            Log.d("ASDFGY", address.get(i).toString());
+        }
+        address.clear();
+        Searchlist.clear();
+        String mingzhi = s + "";
+        okhttpSearch(mingzhi);
+    }
+
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+    private void okhttpSearchone(String s) {
+
+        String url = "https://renbaojia.com/searchParks?parkname=" + s;
+        Log.d("aaaaaa", url);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                analysisJson(response.body().string());
+            }
+
+            private void analysisJson(String string) {
+                try {
+                    JSONArray array = new JSONArray(string);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject mJSONObject = array.getJSONObject(i);
+                        Parks park = new Parks();
+                        park.setId(mJSONObject.getInt("id"));
+                        park.setParkname(mJSONObject.getString("parkname"));
+                        park.setParklatitude(mJSONObject.getDouble("parklatitude"));
+                        park.setParklongitude(mJSONObject.getDouble("parklongitude"));
+                        park.setParktotalnumber(mJSONObject.getString("parktotalnumber"));
+                        park.setParkusenumber(mJSONObject.getString("parkusenumber"));
+                        park.setParkimage(mJSONObject.getString("parkimage"));
+                        park.setParkaddress(mJSONObject.getString("parkaddress"));
+                        Searchlist.add(park);
+                    }
+                    Message m = new Message();
+                    m.what = 111111;
+                    handler.sendMessage(m);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
+
+    private void okhttpSearch(String s) {
+
+        String url = "https://renbaojia.com/searchParks?parkname=" + s;
+        Log.d("aaaaaa", url);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                analysisJson(response.body().string());
+            }
+
+            private void analysisJson(String string) {
+                try {
+                    JSONArray array = new JSONArray(string);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject mJSONObject = array.getJSONObject(i);
+                        Parks park = new Parks();
+                        park.setId(mJSONObject.getInt("id"));
+                        park.setParkname(mJSONObject.getString("parkname"));
+                        park.setParklatitude(mJSONObject.getDouble("parklatitude"));
+                        park.setParklongitude(mJSONObject.getDouble("parklongitude"));
+                        park.setParktotalnumber(mJSONObject.getString("parktotalnumber"));
+                        park.setParkusenumber(mJSONObject.getString("parkusenumber"));
+                        park.setParkimage(mJSONObject.getString("parkimage"));
+                        park.setParkaddress(mJSONObject.getString("parkaddress"));
+                        Searchlist.add(park);
+                        address.add(i, mJSONObject.getString("parkname"));
+                    }
+                    Message m = new Message();
+                    m.what = 111111;
+                    handler.sendMessage(m);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
+
+    private void parkInfo() {
+        String url = "https://renbaojia.com/parkInfo?name=" + id;
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                analysisJson(response.body().string());
+            }
+
+            private void analysisJson(String string) {
+                try {
+                    JSONArray array = new JSONArray(string);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject mJSONObject = array.getJSONObject(i);
+                        if (mJSONObject.getString("plateNumber").equals("")) {
+                            options1Items.add("第" + mJSONObject.getString("id") + "停车位");
+                        }
+
+
+                    }
+                    Message m = new Message();
+                    m.what = 12134;
+                    handler.sendMessage(m);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
 }

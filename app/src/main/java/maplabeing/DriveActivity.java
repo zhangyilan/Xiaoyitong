@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.WindowManager;
 
 import com.amap.api.navi.AMapNaviView;
@@ -26,7 +25,8 @@ public class DriveActivity extends BaseActivity {
     protected final List<NaviLatLng> sList = new ArrayList<>();
     protected final List<NaviLatLng> eList = new ArrayList<>();
     final int ACTIVITY_INTENT = 10824;
-    private String id;
+    private String id, index;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +38,8 @@ public class DriveActivity extends BaseActivity {
         tintManager.setStatusBarTintResource(R.color.blacka);
         setContentView(R.layout.activity_drive);
         Intent intent = getIntent();
-         id = intent.getStringExtra("id");
-        Log.d("sfdgfhggfd",id);
+        id = intent.getStringExtra("id");
+        index = intent.getStringExtra("index");
         String startX = intent.getStringExtra("startX");
         String startY = intent.getStringExtra("startY");
         String endX = intent.getStringExtra("endX");
@@ -50,7 +50,7 @@ public class DriveActivity extends BaseActivity {
         mAMapNaviView.onCreate(savedInstanceState);
         mAMapNaviView.setAMapNaviViewListener(this);
         //设置模拟导航的行车速度
-        mAMapNavi.setEmulatorNaviSpeed(20);
+        mAMapNavi.setEmulatorNaviSpeed(70);
     }
 
     @Override
@@ -117,8 +117,9 @@ public class DriveActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == ACTIVITY_INTENT) {
-                Intent intent=new Intent(  DriveActivity.this,ParkActivity.class);
-                intent.putExtra("id",id);
+                Intent intent = new Intent(DriveActivity.this, ParkActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("index", index);
                 startActivity(intent);
             }
         }
@@ -127,16 +128,16 @@ public class DriveActivity extends BaseActivity {
     @Override
     public void onEndEmulatorNavi() {
         //结束模拟导航
-        Timer timer=new Timer();
-        TimerTask timerTask=new TimerTask() {
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Message message=new Message();
-                message.what=ACTIVITY_INTENT;
+                Message message = new Message();
+                message.what = ACTIVITY_INTENT;
                 handler.sendMessage(message);
             }
         };
-        timer.schedule(timerTask,10000);
+        timer.schedule(timerTask, 10000);
     }
 
 
