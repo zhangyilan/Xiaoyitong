@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical">
 
     <ScrollView
@@ -12,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -30,8 +32,9 @@
                         android:id="@+id/professionalism_detailed_img"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
                         />
 
                     <TextView
