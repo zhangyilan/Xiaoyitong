@@ -16,7 +16,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.easemob.EMError;
@@ -46,15 +48,21 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
     private ImageView iv_hide;
     private ImageView iv_show;
     private ImageView mImg_Background;
+    private FrameLayout de_frm_backgroud;
+    private LinearLayout root;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         }
         StatusBarUtil.StatusBarLightMode(this);
-        setContentView(R.layout.activity_register);
+
+        de_frm_backgroud = (FrameLayout) findViewById(R.id.de_frm_backgroud);
+        root = (LinearLayout) findViewById(R.id.root);
+
         //获取电话号码
         phone= (EditText) findViewById(R.id.phone);
         //验证码
@@ -217,6 +225,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
 
     public void back(View view) {
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        btn_code.onDestroy();
+        super.onDestroy();
     }
 
     @Override

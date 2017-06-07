@@ -35,9 +35,10 @@ import ui.test.cn.xiaoyitong.R;
 
 public class ParkActivity extends AppCompatActivity {
     private final int GET_MESSAGE = 1052;
-    int width;
-    int height;
-    Handler handler = new Handler() {
+    private  int width;
+    private int height;
+    private String index;
+    private  Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == GET_MESSAGE) {
@@ -46,6 +47,7 @@ public class ParkActivity extends AppCompatActivity {
         }
     };
     List<Parkentity> listPark = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class ParkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_park);
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
+        index = intent.getStringExtra("index");
         okhttp(id);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -65,9 +68,10 @@ public class ParkActivity extends AppCompatActivity {
         height = dm.heightPixels;
         init1();
     }
+
     private void init() {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.root);
-        final CanvasView view = new CanvasView(this, width, height, listPark);
+        final CanvasView view = new CanvasView(this, width, height, listPark,index);
         view.setMinimumHeight(height);
         view.setMinimumWidth(width);
         //通知view组件重绘
@@ -75,6 +79,7 @@ public class ParkActivity extends AppCompatActivity {
         layout.addView(view);
 
     }
+
     private void init1() {
         ImageView back = (ImageView) findViewById(R.id.back);
         TextView biaoti = (TextView) findViewById(R.id.biaoti);
@@ -84,10 +89,11 @@ public class ParkActivity extends AppCompatActivity {
                 finish();
             }
         });
-        biaoti.setText("停车场信息");}
+        biaoti.setText("停车场信息");
+    }
+
     private void okhttp(String id) {
-        String url = "http://123.206.92.38/park/parkinfo?id=" + id;
-        Log.d("sfdgfhggfd",url);
+        String url = "https://renbaojia.com/parkInfo?name=" + id;
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
@@ -103,15 +109,18 @@ public class ParkActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 analysisJson(response.body().string());
             }
+
             private void analysisJson(String string) {
                 try {
+                    Log.d("aaaaaa", string);
                     JSONArray array = new JSONArray(string);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject mJSONObject = array.getJSONObject(i);
                         Parkentity park = new Parkentity();
-                        park.setPlateNumber(mJSONObject.getString("PlateNumber"));
+                        park.setPlateNumber(mJSONObject.getString("plateNumber"));
                         park.setIsNull(mJSONObject.getInt("isNull"));
-                        park.setParkTime(mJSONObject.getString("ParkTime"));
+                        park.setParkTime(mJSONObject.getString("parkTime"));
+                        park.setYuyue(mJSONObject.getString("yuyue"));
                         listPark.add(park);
                     }
                     Message m = new Message();

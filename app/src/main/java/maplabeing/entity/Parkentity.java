@@ -5,20 +5,22 @@ package maplabeing.entity;
  */
 
 public class Parkentity {
-    public  Parkentity() {
+    public Parkentity() {
 
-    }
-
-    public Parkentity(int isNull, String PlateNumber, String ParkTime) {
-        this.isNull = isNull;
-        this.PlateNumber = PlateNumber;
-        this.ParkTime = ParkTime;
     }
 
     private int isNull;
-
     private String PlateNumber;
     private String ParkTime;
+    private String yuyue;
+
+    public String getYuyue() {
+        return yuyue;
+    }
+
+    public void setYuyue(String yuyue) {
+        this.yuyue = yuyue;
+    }
 
     public int getIsNull() {
         return isNull;
