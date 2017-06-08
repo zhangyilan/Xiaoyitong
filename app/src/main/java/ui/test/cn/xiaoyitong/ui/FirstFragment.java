@@ -86,10 +86,10 @@ public class FirstFragment extends Fragment {
     private List<ADBean> listADbeans;
     private ViewFlipper mFlipper;//新闻头条
     private String[] ad_imgurls = {
-            "http://www.zhangyilan.me/img/adimg/img1.jpeg",
+            "http://www.zhangyilan.me/img/adimg/img1.jpg",
             "http://www.zhangyilan.me/img/adimg/img2.jpeg",
             "http://www.zhangyilan.me/img/adimg/img3.jpeg",
-            "http://www.zhangyilan.me/img/adimg/img4.jpeg",
+            "http://www.zhangyilan.me/img/adimg/img4.jpg",
             "http://www.zhangyilan.me/img/adimg/img5.jpg"};
     //新闻轮播
     private String newsurl = "http://123.206.92.38:80/SimpleSchool/AppServlet?opt=gettitle";
