@@ -302,9 +302,9 @@ public class FirstFragment extends Fragment {
         });
 
         materialRefreshLayout = (MaterialRefreshLayout) view.findViewById(R.id.refresh);
-        materialRefreshLayout.setLoadMore(true);
+//        materialRefreshLayout.setLoadMore(true);
         materialRefreshLayout.finishRefreshLoadMore();
-
+        materialRefreshLayout.setWaveColor(0xffffffff);
         materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
@@ -314,16 +314,9 @@ public class FirstFragment extends Fragment {
                         materialRefreshLayout.finishRefresh();
                         Toast.makeText(getActivity(), "数据加载成功", Toast.LENGTH_LONG).show();
                     }
-                }, 5000);
-
+                }, 3000);
             }
-
         });
-
-
-        materialRefreshLayout.autoRefresh();
-
-
 
     }
 
