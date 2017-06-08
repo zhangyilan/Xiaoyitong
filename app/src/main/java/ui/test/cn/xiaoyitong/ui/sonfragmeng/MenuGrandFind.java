@@ -79,7 +79,6 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-
         setContentView(R.layout.menu_grandfind);
 
         dialog = new CustomProgressDialog(MenuGrandFind.this, "正在加载中", R.anim.frame, R.style.MyDialogStyle);
@@ -148,8 +147,6 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                     httpUtil.getData(url1, new HttpCallback() {
                         @Override
                         public void onFinish(String res) {
-                            Log.d("aaaaaa", res);
-
                             json(res);
                             Message message = new Message();
                             message.what = 0;

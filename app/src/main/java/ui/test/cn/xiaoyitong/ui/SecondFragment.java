@@ -15,7 +15,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
@@ -43,6 +46,7 @@ public class SecondFragment extends Fragment {
     Button btn_pop;
     private TextView biaoti;
     private ImageView back;
+    private MaterialRefreshLayout materialRefreshLayout;
 
     @Nullable
     @Override
@@ -88,6 +92,24 @@ public class SecondFragment extends Fragment {
                 startActivity(new Intent(getActivity(), AddContactActivity.class));
             }
         });
+
+
+        materialRefreshLayout = (MaterialRefreshLayout) view.findViewById(R.id.refresh);
+//        materialRefreshLayout.setLoadMore(true);
+        materialRefreshLayout.finishRefreshLoadMore();
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
+                materialRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        materialRefreshLayout.finishRefresh();
+                        Toast.makeText(getActivity(), "数据加载成功", Toast.LENGTH_SHORT).show();
+                    }
+                }, 2000);
+            }
+        });
+
     }
 
     private void initMood() {

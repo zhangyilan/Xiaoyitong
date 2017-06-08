@@ -125,7 +125,7 @@ public class FirstFragment extends Fragment {
                     HttpUtil.PostData("http://123.206.92.38:80/SimpleSchool/countClickServlet?opt=update_click&id=4");
 //                    Intent intent = new Intent(getActivity(), ExpressListHandle.class);
 //                    startActivity(intent);
-//成绩查询跳转
+                    //成绩查询跳转
                     SharedPreferences share = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE);
                     String user_name = share.getString("user_name", "没有登陆");
 
@@ -172,7 +172,6 @@ public class FirstFragment extends Fragment {
                                     message.what = 2;
                                     message.obj = respose;
                                     handler.sendMessage(message);
-
                                 }
 
                                 @Override
@@ -181,7 +180,6 @@ public class FirstFragment extends Fragment {
                             });
                         }
                     }
-
                 }
                 if (position == 2) {
 
@@ -304,7 +302,6 @@ public class FirstFragment extends Fragment {
         materialRefreshLayout = (MaterialRefreshLayout) view.findViewById(R.id.refresh);
 //        materialRefreshLayout.setLoadMore(true);
         materialRefreshLayout.finishRefreshLoadMore();
-        materialRefreshLayout.setWaveColor(0xffffffff);
         materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
@@ -312,9 +309,9 @@ public class FirstFragment extends Fragment {
                     @Override
                     public void run() {
                         materialRefreshLayout.finishRefresh();
-                        Toast.makeText(getActivity(), "数据加载成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "数据加载成功", Toast.LENGTH_SHORT).show();
                     }
-                }, 3000);
+                }, 4000);
             }
         });
 

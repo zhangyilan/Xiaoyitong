@@ -37,7 +37,7 @@
         android:layout_weight="1"
         android:background="#fff"
         android:orientation="vertical">
-
+x
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
