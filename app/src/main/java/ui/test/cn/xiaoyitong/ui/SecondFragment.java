@@ -91,17 +91,17 @@ public class SecondFragment extends Fragment {
     }
 
     private void initMood() {
-        Mood m1 = new Mood("20150116", "1小时前", R.drawable.wallpaper0, "外星人？秘鲁发现两具巨头干尸！");
+        Mood m1 = new Mood("20150116", "15分钟前", R.drawable.img11, "天气好热啊，好想室友给我买一个冰激凌啊！");
         mood.add(m1);
-        Mood m2 = new Mood("20150594", "9小时前", R.drawable.wallpaper0, "太空旅馆住5天700万台币");
+        Mood m2 = new Mood("20150594", "1小时前", R.drawable.img12, "你们看过最好看的电影是什么啊，求推荐！");
         mood.add(m2);
-        Mood m3 = new Mood("20150664", "5小时前", R.drawable.wallpaper0, "发现新物种30年科学家至今无法归类");
+        Mood m3 = new Mood("20150664", "5小时前", R.drawable.img13, "今年暑假有没有想去云南的童鞋啊，求组队。。。");
         mood.add(m3);
-        Mood m4 = new Mood("20150393", "昨天", R.drawable.wallpaper0, "外星人阻止了苏联核电站爆炸？");
+        Mood m4 = new Mood("20150393", "昨天", R.drawable.img16, "暑假想去找一个兼职啊！！！不想在家发霉！");
         mood.add(m4);
-        Mood m5 = new Mood("20150589", "前天", R.drawable.wallpaper0, "十大在亚洲及澳洲最好玩的主题公园");
+        Mood m5 = new Mood("20150589", "前天", R.drawable.img14, "我感觉我的专业课要挂了！");
         mood.add(m5);
-        Mood m6 = new Mood("20151252", "刚刚", R.drawable.wallpaper0, "看了这些你就知道人类在宇宙中是多么渺小");
+        Mood m6 = new Mood("20151252", "刚刚", R.drawable.img15, "我室友今天给我买了一碗凉糕，觉得世界太美好啦！");
         mood.add(m6);
     }
 

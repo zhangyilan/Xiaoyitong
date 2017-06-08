@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="24dp"
     android:orientation="vertical">
 
-    <ScrollView
+    <ui.test.cn.xiaoyitong.customControls.MainScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,6 +24,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:text="学校："
                     android:textColorHint="#AAAAAA" />
 
@@ -30,8 +32,11 @@
                     android:id="@+id/career_publish_school"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="45dp"
+                    android:background="@null"
+
+                    android:hint="                  请选择▼"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -46,6 +51,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="系部："
                     android:textColorHint="#AAAAAA" />
 
@@ -53,8 +59,10 @@
                     android:id="@+id/career_publish_Department"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginLeft="45dp"
+                    android:background="@null"
+                    android:layout_marginTop="8dp"
+                    android:hint="                  请选择▼"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -69,15 +77,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="部门："
                     android:textColorHint="#AAAAAA" />
 
                 <EditText
+                    android:layout_marginTop="8dp"
                     android:id="@+id/career_publish_ministry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginLeft="45dp"
+                    android:background="@null"
+                    android:hint="                  请选择▼"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -94,14 +105,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="开始时间："
+                    android:layout_marginTop="8dp"
                     android:textColorHint="#AAAAAA" />
 
                 <EditText
                     android:id="@+id/career_publish_starttime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@null"
+                    android:hint="                  请选择▼"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -117,14 +131,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="结束时间："
+                    android:layout_marginTop="8dp"
                     android:textColorHint="#AAAAAA" />
 
                 <EditText
                     android:id="@+id/career_publish_stoptime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginTop="8dp"
+                    android:background="@null"
+                    android:hint="                  请选择 ▼"
+                    android:layout_marginLeft="16dp"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -142,14 +159,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="分值："
+                    android:layout_marginTop="8dp"
                     android:textColorHint="#AAAAAA" />
 
                 <EditText
                     android:id="@+id/career_publish_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginTop="8dp"
+                    android:background="@null"
+                    android:hint="                  请选择▼"
+                    android:layout_marginLeft="45dp"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -164,6 +184,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="标准类型："
                     android:textColorHint="#AAAAAA" />
 
@@ -171,8 +192,10 @@
                     android:id="@+id/career_publish_standclass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:background="@null"
+                    android:layout_marginTop="8dp"
+                    android:hint="                  请选择▼"
+                    android:layout_marginLeft="16dp"
                     android:textColor="#AAAAAA"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
@@ -189,15 +212,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="标准项目："
+                    android:layout_marginTop="8dp"
                     android:textColorHint="#AAAAAA" />
 
                 <EditText
                     android:id="@+id/career_publish_standproject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_gray_selector"
-                    android:hint="请选择      ▼"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:hint="                  请选择▼"
                     android:textColor="#AAAAAA"
+                    android:layout_marginTop="8dp"
                     android:textColorHint="#AAAAAA" />
             </LinearLayout>
             <LinearLayout
@@ -217,8 +243,9 @@
                     android:id="@+id/career_publish_adress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:hint="请输入地点"
+
+                    android:hint="                 请输入地点"
+                    android:layout_marginLeft="45dp"
                     android:textColor="#AAAAAA"
                     android:maxLines="2"
                     android:textColorHint="#AAAAAA" />
@@ -234,7 +261,12 @@
                 android:text="下一步"
                 android:textColor="#ffffff"
                 android:textSize="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
         </LinearLayout>
 
-    </ScrollView>
+    </ui.test.cn.xiaoyitong.customControls.MainScrollView>>
 </LinearLayout>

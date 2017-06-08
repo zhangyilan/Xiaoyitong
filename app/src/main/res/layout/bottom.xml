@@ -18,7 +18,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:clickable="false"
-
+            android:layout_marginTop="7dp"
             android:src="@drawable/guide_home_press" />
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="首页"
             android:textSize="12dp"
-
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="2dp"
             />
     </LinearLayout>
@@ -35,7 +35,7 @@
     <LinearLayout
         android:id="@+id/id_tab_friend"
         android:layout_width="0dp"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -44,6 +44,7 @@
             android:id="@+id/id_tab_friend_img"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginTop="7dp"
             android:clickable="false"
             android:src="@drawable/guide_02_nm" />
 
@@ -51,7 +52,8 @@
             android:id="@+id/txt_luntuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="资讯"
+            android:text="论坛"
+            android:layout_marginTop="4dp"
             android:textSize="12dp"
             android:layout_marginBottom="2dp"
             />
@@ -71,6 +73,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:clickable="false"
+            android:layout_marginTop="7dp"
             android:src="@drawable/guide_03_nm" />
 
         <TextView
@@ -78,6 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="朋友"
+            android:layout_marginTop="4dp"
             android:textSize="12dp"
             android:layout_marginBottom="2dp"
             />
@@ -94,6 +98,7 @@
         <ImageView
             android:id="@+id/id_tab_setting_img"
             android:layout_width="25dp"
+            android:layout_marginTop="7dp"
             android:layout_height="25dp"
             android:clickable="false"
             android:src="@drawable/guide_04_nm" />
@@ -103,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的"
+            android:layout_marginTop="4dp"
             android:textSize="12dp"
             android:layout_marginBottom="2dp"/>
     </LinearLayout>

@@ -34,6 +34,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +78,7 @@ public class FirstFragment extends Fragment {
     private LinearLayout newsLinearLayout;
     private TextView biaoti;
     private ImageView back;
+    private MaterialRefreshLayout materialRefreshLayout;
 
     /**
      * 轮播图对象列表
@@ -296,6 +300,30 @@ public class FirstFragment extends Fragment {
 
             }
         });
+
+        materialRefreshLayout = (MaterialRefreshLayout) view.findViewById(R.id.refresh);
+        materialRefreshLayout.setLoadMore(true);
+        materialRefreshLayout.finishRefreshLoadMore();
+
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
+                materialRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        materialRefreshLayout.finishRefresh();
+                        Toast.makeText(getActivity(), "数据加载成功", Toast.LENGTH_LONG).show();
+                    }
+                }, 5000);
+
+            }
+
+        });
+
+
+        materialRefreshLayout.autoRefresh();
+
+
 
     }
 

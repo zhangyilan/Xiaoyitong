@@ -56,8 +56,7 @@ public class TuTu {
 		imageUtil = new ImageUtil(mContext);
 		//changeViewpagerSpace();
 		initADViewpager();
-		
-		
+
 	}
 	
 	/**
@@ -117,9 +116,7 @@ public class TuTu {
 			@Override
 			public void onPageSelected(int position) {
 				
-	            
-				
-				
+
 				int newPosition = position % listADbeans.size();
 				// 取出广告文字
 				String msg = listADbeans.get(position % listADbeans.size()).getAdName();
@@ -208,7 +205,6 @@ public class TuTu {
 				});
 			}
 		}
-		
 	}
 	/**
 	 * 开启轮播图
