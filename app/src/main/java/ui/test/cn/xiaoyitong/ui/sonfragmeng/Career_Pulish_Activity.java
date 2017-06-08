@@ -171,6 +171,7 @@ public class Career_Pulish_Activity extends Activity {
                 //年月日时分秒 的显示与否，不设置则默认全部显示
                 .setType(TimePickerView.Type.YEAR_MONTH_DAY_HOUR_MIN)
                 .isCenterLabel(false)
+
                 .setContentSize(21)
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
