@@ -1,4 +1,4 @@
-package maplabeing;
+package maplabeing.util;
 
 import android.content.Intent;
 import android.os.Build;
@@ -60,7 +60,7 @@ public class ParkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_park);
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
-        index = intent.getStringExtra("index");
+         index = intent.getStringExtra("index");
         okhttp(id);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -94,7 +94,6 @@ public class ParkActivity extends AppCompatActivity {
 
     private void okhttp(String id) {
         String url = "https://renbaojia.com/parkInfo?name=" + id;
-        Log.d("url",url);
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
@@ -121,7 +120,7 @@ public class ParkActivity extends AppCompatActivity {
                         park.setPlateNumber(mJSONObject.getString("plateNumber"));
                         park.setIsNull(mJSONObject.getInt("isNull"));
                         park.setParkTime(mJSONObject.getString("parkTime"));
-                        park.setYuyue(mJSONObject.getString("yuyue"));
+                        park.setYuyue(mJSONObject.getString("yuyuename"));
                         listPark.add(park);
                     }
                     Message m = new Message();
