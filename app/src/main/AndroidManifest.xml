@@ -64,7 +64,9 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".LyoutHandle.PayDemoActivity" />
+
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
@@ -101,6 +103,8 @@
             android:value="edd2356847e4990d6206e6ebe84c5bdf" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
+
+
         <activity android:name=".ui.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -188,7 +192,8 @@
         <activity android:name=".ui.sonfragmeng.ComputerTwoScoreMainActivity"/>
 
         <activity android:name=".ui.sonfragmeng.Career_Pulish_Second_Activity"/>
-        <activity android:name=".ui.sonfragmeng.Career_Pulish_Activity"/>
+        <activity android:name=".ui.sonfragmeng.Career_Pulish_Activity"
+            />
         <activity android:name=".ui.sonfragmeng.AdminContentActivity"/>
         <activity android:name=".ui.sonfragmeng.Career_amdin_userslist_Activity"/>
         <activity android:name=".ui.sonfragmeng.AdminListActivity"/>

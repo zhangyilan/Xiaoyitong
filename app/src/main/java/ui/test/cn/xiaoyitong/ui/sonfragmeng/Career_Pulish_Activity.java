@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
@@ -37,8 +39,9 @@ import ui.test.cn.xiaoyitong.httpHelper.http1;
 
 public class Career_Pulish_Activity extends Activity {
 
-    EditText school, department, ministry , starttime, stoptime, adress, score, standclass, standproject;
+    TextView school, department, ministry , starttime, stoptime, score, standclass, standproject;
 
+    LinearLayout departmentlayout, ministrylayout , starttimelayout, stoptimelayout, adresslayout, scorelayout, standclasslayout, standprojectlayout;
     Button next;
     ArrayList<String> options1Items = new ArrayList<>();
     ArrayList<String> scoreList = new ArrayList<>();
@@ -53,54 +56,51 @@ public class Career_Pulish_Activity extends Activity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);;
         }
         setContentView(R.layout.career_pulish_layout);
-        school = (EditText) findViewById(R.id.career_publish_school);
-        school.setInputType(InputType.TYPE_NULL);
-        school.setText("四川交通职业技术学院");
-
-        department = (EditText) findViewById(R.id.career_publish_Department);
-        department.setInputType(InputType.TYPE_NULL);
-        ministry = (EditText) findViewById(R.id.career_publish_ministry);
-        ministry.setInputType(InputType.TYPE_NULL);
-
-        starttime = (EditText) findViewById(R.id.career_publish_starttime);
-        starttime.setInputType(InputType.TYPE_NULL);
-        stoptime = (EditText) findViewById(R.id.career_publish_stoptime);
-        stoptime.setInputType(InputType.TYPE_NULL);
-        adress = (EditText) findViewById(R.id.career_publish_adress);
-        score = (EditText) findViewById(R.id.career_publish_score);
-        score.setInputType(InputType.TYPE_NULL);
-        standclass = (EditText) findViewById(R.id.career_publish_standclass);
-        standclass.setInputType(InputType.TYPE_NULL);
-        standproject = (EditText) findViewById(R.id.career_publish_standproject);
-        standproject.setInputType(InputType.TYPE_NULL);
-        next= (Button) findViewById(R.id.career_publish_next);
         getdata();
         getScoredata();
         getstanddata();
+        school = (TextView) findViewById(R.id.career_publish_school);
+        school.setText("四川交通职业技术学院");
+        department = (TextView) findViewById(R.id.career_publish_Department);
+        ministry = (TextView) findViewById(R.id.career_publish_ministry);
+
+        starttime = (TextView) findViewById(R.id.career_publish_starttime);
+        stoptime = (TextView) findViewById(R.id.career_publish_stoptime);
+
+        score = (TextView) findViewById(R.id.career_publish_score);
+        standclass = (TextView) findViewById(R.id.career_publish_standclass);
+        standproject = (TextView) findViewById(R.id.career_publish_standproject);
+        next= (Button) findViewById(R.id.career_publish_next);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!school.getText().toString().equals(null)&&!department.getText().toString().equals(null)&&!ministry.getText().toString().equals(null)&&!starttime.getText().toString().equals(null)&&!stoptime.getText().toString().equals(null)&&!score.getText().toString().equals(null)&&!standclass.getText().toString().equals(null)&&!standproject.getText().toString().equals("")){
                 Intent intent=new Intent(Career_Pulish_Activity.this,Career_Pulish_Second_Activity.class);
                 intent.putExtra("school",school.getText().toString());
                 intent.putExtra("department",department.getText().toString());
                 intent.putExtra("ministry",ministry.getText().toString());
                 intent.putExtra("starttime",starttime.getText().toString());
                 intent.putExtra("stoptime",stoptime.getText().toString());
-                intent.putExtra("adress",adress.getText().toString());
+
                 intent.putExtra("score",score.getText().toString());
                 intent.putExtra("standclass",standclass.getText().toString());
                 intent.putExtra("standproject",standproject.getText().toString());
 
-                Log.d("school",school.getText().toString());
-                Log.d("department",department.getText().toString());
-                Log.d("ministry",ministry.getText().toString());
+                Log.d("school","学校是"+school.getText().toString());
+                Log.d("department","系部是"+department.getText().toString());
+                Log.d("ministry","部门是"+ministry.getText().toString());
                 Log.d("starttime",starttime.getText().toString());
                 Log.d("stoptime",stoptime.getText().toString());
-                Log.d("adress",adress.getText().toString());
+
                 Log.d("score",score.getText().toString());
                 Log.d("standclass",standclass.getText().toString());
                 intent.putExtra("standproject",standproject.getText().toString());
                 startActivity(intent);
+                }else {
+                    Toast.makeText(Career_Pulish_Activity.this,"数据不能为空，请检查哦！",Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         department.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +164,7 @@ public class Career_Pulish_Activity extends Activity {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 Log.d("ce","id="+id);
                 String dateString = formatter.format(date);
-                EditText edit= (EditText) findViewById(id);
+                TextView edit= (TextView) findViewById(id);
                 edit.setText(dateString);
             }
         })
@@ -201,7 +201,6 @@ public class Career_Pulish_Activity extends Activity {
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
                 option=options1;
-                String tx = options1Items.get(options1) + options2Items.get(options1).get(option2);
                 department.setText(options1Items.get(options1));
                 ministry.setText(options2Items.get(options1).get(option2));
             }

@@ -49,7 +49,7 @@ public class Career_Pulish_Second_Activity extends Activity {
 
     public static final int TAKE_PHOTO = 1;
     public static final int PHOTO_ALBUM = 2;
-    EditText them, background, instruct, flow_path, content;
+    EditText them, background, instruct, flow_path, content,adress1;
     ImageView career_publish_image;
     Button commit;
     Uri image;
@@ -70,6 +70,7 @@ public class Career_Pulish_Second_Activity extends Activity {
         flow_path = (EditText) findViewById(R.id.career_publish_flow_path);
         instruct = (EditText) findViewById(R.id.career_publish_intrudece);
         content = (EditText) findViewById(R.id.career_publish_content);
+        adress1 = (EditText) findViewById(R.id.career_publish_adress);
         commit = (Button) findViewById(R.id.career_publish_commit);
         Intent intent = getIntent();
         String school = intent.getStringExtra("school");
@@ -78,7 +79,7 @@ public class Career_Pulish_Second_Activity extends Activity {
         Log.d("ce","系部"+department+","+ministry);
         final String starttime = intent.getStringExtra("starttime");
         final String stoptime = intent.getStringExtra("stoptime");
-        final String adress = intent.getStringExtra("adress");
+        final String adress = adress1.getText().toString();
         final String score = intent.getStringExtra("score");
         final String standclass = intent.getStringExtra("standclass");
         final String standproject = intent.getStringExtra("standproject");
@@ -107,23 +108,24 @@ public class Career_Pulish_Second_Activity extends Activity {
         commit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!them.getText().toString().equals("") && !adress1.getText().toString().equals("") && !content.getText().toString().equals("") && !flow_path.getText().toString().equals("") && !background.getText().toString().equals("") && !instruct.getText().toString().equals("")) {
 
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                File outputImage = new File(getExternalCacheDir(), "output_img.jpg");
-                Log.d("tag", outputImage.length() + "");
-                String dateString = formatter.format(new Date());
-                String a = "opt=insert_school_activity" +
-                        "&publish_branch=" + department + ministry +
-                        "&quality_frade=" + score +
-                        "&theme=" + them.getText().toString() +
-                        "&include=" + content.getText().toString() +
-                        "&publish_time=" + dateString +
-                        "&start_time=" + starttime +
-                        "&end_time=" + stoptime +
-                        "&activity_address=" + adress +
-                        "&activity_type=" + standclass +","+standproject+
-                        "&activity_background=" + background.getText().toString() +
-                        "&activity_suggest=" + instruct.getText().toString();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    File outputImage = new File(getExternalCacheDir(), "output_img.jpg");
+                    Log.d("tag", outputImage.length() + "");
+                    String dateString = formatter.format(new Date());
+                    String a = "opt=insert_school_activity" +
+                            "&publish_branch=" + department + ministry +
+                            "&quality_frade=" + score +
+                            "&theme=" + them.getText().toString() +
+                            "&include=" + content.getText().toString() + "\n" + flow_path.getText().toString() +
+                            "&publish_time=" + dateString +
+                            "&start_time=" + starttime +
+                            "&end_time=" + stoptime +
+                            "&activity_address=" + adress +
+                            "&activity_type=" + standclass + "," + standproject +
+                            "&activity_background=" + background.getText().toString() +
+                            "&activity_suggest=" + instruct.getText().toString();
 //
 //                Map<String, String> postData = new HashMap<String, String>();
 //                // postData.put("opt","insert_school_activity");
@@ -139,37 +141,41 @@ public class Career_Pulish_Second_Activity extends Activity {
 //                postData.put("activity_background", background.getText().toString());
 //                postData.put("activity_suggest", instruct.getText().toString());
 //
-                Careerpublish careerpublish=new Careerpublish();
-                careerpublish.setPublish_branch(department+","+ministry);
-                careerpublish.setQuality_frade(score);
-                careerpublish.setTheme(them.getText().toString());
-                careerpublish.setInclude(content.getText().toString());
-                careerpublish.setPublish_time(dateString);
-                careerpublish.setStart_time(starttime);
-                careerpublish.setEnd_time(stoptime);
-                careerpublish.setActivity_address(adress);
-                careerpublish.setActivity_type(standclass+","+standproject);
-                careerpublish.setActivity_background(background.getText().toString());
-                careerpublish.setActivity_suggest(instruct.getText().toString());
+                    Careerpublish careerpublish = new Careerpublish();
+                    careerpublish.setPublish_branch(department + "," + ministry);
+                    careerpublish.setQuality_frade(score);
+                    careerpublish.setTheme(them.getText().toString());
+                    careerpublish.setInclude(content.getText().toString());
+                    careerpublish.setPublish_time(dateString);
+                    careerpublish.setStart_time(starttime);
+                    careerpublish.setEnd_time(stoptime);
+                    careerpublish.setActivity_address(adress);
+                    careerpublish.setActivity_type(standclass + "," + standproject);
+                    careerpublish.setActivity_background(background.getText().toString());
+                    careerpublish.setActivity_suggest(instruct.getText().toString());
 
-                String url = "http://123.206.92.38:80/SimpleSchool/schoolActivityServlet?opt=insert_school_activity";
+                    String url = "http://123.206.92.38:80/SimpleSchool/schoolActivityServlet?opt=insert_school_activity";
 
 
-                Log.d("ce", "url" + url);
-                http1.postAsynFile(url, outputImage, careerpublish, new HttpCallBackListener() {
-                    @Override
-                    public void onFinish(Object respones) throws JSONException {
-                        Message message=new Message();
-                        message.what=1;
-                        message.obj=respones.toString();
-                        handler.sendMessage(message);
-                    }
+                    Log.d("ce", "url" + url);
+                    http1.postAsynFile(url, outputImage, careerpublish, new HttpCallBackListener() {
+                        @Override
+                        public void onFinish(Object respones) throws JSONException {
+                            Message message = new Message();
+                            message.what = 1;
+                            message.obj = respones.toString();
+                            handler.sendMessage(message);
+                        }
 
-                    @Override
-                    public void onError(Exception e) {
-                        Toast.makeText(Career_Pulish_Second_Activity.this,"网络异常,请检查信息或网络",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onError(Exception e) {
+                            Toast.makeText(Career_Pulish_Second_Activity.this, "网络异常,请检查信息或网络", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else {
+                    Toast.makeText(Career_Pulish_Second_Activity.this, "请补全数据哦！", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         career_publish_image.setOnClickListener(new View.OnClickListener() {

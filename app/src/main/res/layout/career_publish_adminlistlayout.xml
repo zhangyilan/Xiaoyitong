@@ -21,7 +21,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@drawable/tb_icon_actionbar_back" />
+            android:src="@drawable/tb_icon_actionbar_back"
+            />
         <EditText
             android:id="@+id/search_edit"
             android:layout_width="0dp"
