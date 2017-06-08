@@ -9,7 +9,20 @@
 
     <include layout="@layout/top" />
 
-    <android.support.design.widget.CoordinatorLayout
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:overlay="false"
+        app:progress_backgroud_color="#FFFAFAFA"
+        app:progress_colors="@array/material_colors"
+        app:progress_show_arrow="true"
+        app:progress_show_circle_backgroud="true"
+        app:wave_color="#d9ffff"
+        app:wave_height_type="normal"
+        app:wave_show="true">
+
+        <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,4 +45,5 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
+    </com.cjj.MaterialRefreshLayout>
 </LinearLayout>

@@ -116,12 +116,12 @@ public class DriveActivity extends BaseActivity {
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == ACTIVITY_INTENT) {
-                Intent intent = new Intent(DriveActivity.this, ParkActivity.class);
-                intent.putExtra("id", id);
-                intent.putExtra("index", index);
-                startActivity(intent);
-            }
+//            if (msg.what == ACTIVITY_INTENT) {
+//                Intent intent = new Intent(DriveActivity.this, ParkActivity.class);
+//                intent.putExtra("id", id);
+//                intent.putExtra("index", index);
+//                startActivity(intent);
+//            }
         }
     };
 
