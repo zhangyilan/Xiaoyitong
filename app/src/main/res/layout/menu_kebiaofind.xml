@@ -50,71 +50,9 @@ x
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft= "25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/editextshape"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:text="学号"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-
-            <EditText
-                android:id="@+id/getid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                android:background="@null"
-                android:hint="请输入学号" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/editextshape"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:text="身份证号"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-
-            <EditText
-                android:id="@+id/getpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                android:background="@null"
-                android:hint="请输入身份证号"
-                android:inputType="number" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/editextshape"
             android:orientation="horizontal">
 
