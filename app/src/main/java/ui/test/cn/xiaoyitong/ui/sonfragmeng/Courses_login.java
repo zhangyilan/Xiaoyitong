@@ -18,8 +18,10 @@ import android.widget.Toast;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import ui.test.cn.xiaoyitong.R;
@@ -107,13 +109,19 @@ public class Courses_login extends SwipeBackActivity {
             @Override
             public void onClick(View v) {
                 final HttpUtil httpUtil = new HttpUtil();
+
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String dateString = formatter.format(new Date());
+
+
                 if(httpUtil.isNetworkAvailable(Courses_login.this)) {
                     SharedPreferences share = getSharedPreferences("user", MODE_PRIVATE);
                     String user_name = share.getString("user_name", "");
                     Log.d("aab", "验证b" + user_name);
-                    if (user_name.substring(0, 4).equals("2016") && term.getText().toString().substring(0, 4).equals("2015")) {
-                        Toast.makeText(Courses_login.this, "你在2015-2016你年没有课表", Toast.LENGTH_SHORT).show();
-                    } else {
+                    String a= term.getText().toString().substring(0, 4);
+                    String b= term.getText().toString().substring(5, 9);
+                    if (Integer.valueOf(user_name.substring(0, 4))<=Integer.valueOf(a)&&Integer.valueOf(a)!=Integer.valueOf(b)&&Integer.valueOf(a)==(Integer.valueOf(b)-1)) {
+
                         String url = "http://123.206.92.38:80/SimpleSchool/schooltimetableservlet?opt=get_table&school_year=" + term.getText().toString().substring(0, 9) + "&school_term=" + String.valueOf(term.getText().toString().charAt(11)) + "&student_id=" + user_name;
 
                         http.sendRequest(url, new HttpCallBackListener() {
@@ -132,6 +140,8 @@ public class Courses_login extends SwipeBackActivity {
 
                         });
 
+                    }else {
+                        Toast.makeText(Courses_login.this, "请检查信息是否正确", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     Toast.makeText(Courses_login.this,"请检查网络连接",Toast.LENGTH_SHORT).show();

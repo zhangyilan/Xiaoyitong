@@ -134,36 +134,41 @@ public class MenuGrandFind extends SwipeBackActivity implements Serializable {
                 //查询请求
                 SharedPreferences share = getSharedPreferences("user", MODE_PRIVATE);
                 String user_name = share.getString("user_name", "没有登陆");
+                if (Integer.valueOf(user_name.substring(0, 4))<=Integer.valueOf(str1)&&Integer.valueOf(str1)!=Integer.valueOf(str2)&&Integer.valueOf(str1)==(Integer.valueOf(str2)-1)) {
 
-                final String url1 = "http://123.206.92.38:80/SimpleSchool/studentgradeservlet?opt=get_grade&school_year=" +
-                        str1 + "-" + str2 + "&school_term=" + str3 + "&student_id=" + user_name;
-                Log.d("ce", "url" + url1);
-                final HttpUtil httpUtil = new HttpUtil();
-                Log.d("ce", "连接" + url1);
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.show();
-                if (httpUtil.isNetworkAvailable(MenuGrandFind.this)) {
+                    final String url1 = "http://123.206.92.38:80/SimpleSchool/studentgradeservlet?opt=get_grade&school_year=" +
+                            str1 + "-" + str2 + "&school_term=" + str3 + "&student_id=" + user_name;
+                    Log.d("ce", "url" + url1);
+                    final HttpUtil httpUtil = new HttpUtil();
+                    Log.d("ce", "连接" + url1);
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.show();
+                    if (httpUtil.isNetworkAvailable(MenuGrandFind.this)) {
 
-                    httpUtil.getData(url1, new HttpCallback() {
-                        @Override
-                        public void onFinish(String res) {
-                            json(res);
-                            Message message = new Message();
-                            message.what = 0;
-                            message.obj = res;
-                            dialog.dismiss();
-                            handler.sendMessage(message);
+                        httpUtil.getData(url1, new HttpCallback() {
+                            @Override
+                            public void onFinish(String res) {
+                                json(res);
+                                Message message = new Message();
+                                message.what = 0;
+                                message.obj = res;
+                                dialog.dismiss();
+                                handler.sendMessage(message);
 
-                        }
+                            }
 
-                        @Override
-                        public void onerror(Exception e) {
+                            @Override
+                            public void onerror(Exception e) {
 
-                        }
-                    });
-                } else {
-                    Toast.makeText(MenuGrandFind.this, "请检查网络连接", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
+                            }
+                        });
+                    } else {
+                        Toast.makeText(MenuGrandFind.this, "请检查网络连接", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                }else {
+                    Toast.makeText(MenuGrandFind.this, "请检查填写是否正确", Toast.LENGTH_SHORT).show();
+
                 }
             }
 

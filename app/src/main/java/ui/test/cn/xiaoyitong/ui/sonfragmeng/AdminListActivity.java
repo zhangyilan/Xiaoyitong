@@ -1,11 +1,13 @@
 package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -29,41 +31,63 @@ import ui.test.cn.xiaoyitong.httpHelper.http1;
  */
 
 public class AdminListActivity extends Activity {
-    private List<Careerpublish> publishList=new ArrayList<>();
+    private List<Careerpublish> publishList = new ArrayList<>();
     private PublishAdapter publishAdapter;
-    private  ImageView serch,back;
-    private EditText serchid;
-    private Button publish;
-    Handler handler=new Handler(){
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
                     publishList.addAll((List<Careerpublish>) msg.obj);
-                    publishAdapter .notifyDataSetChanged();
+                    publishAdapter.notifyDataSetChanged();
                     publishAdapter.myListViewClickListener(new PublishAdapter.ListViewClickListener() {
                         @Override
-                        public void onRecycleViewClick(View view, int id,String status,String usercount) {
-                            Intent intent=new Intent(AdminListActivity.this,AdminContentActivity.class);
-                            intent.putExtra("id",id);
-                            intent.putExtra("status",status);
-                            intent.putExtra("usercount",usercount);
+                        public void onRecycleViewClick(View view, int id, String status, String usercount) {
+                            Intent intent = new Intent(AdminListActivity.this, AdminContentActivity.class);
+                            intent.putExtra("id", id);
+                            intent.putExtra("status", status);
+                            intent.putExtra("usercount", usercount);
                             startActivity(intent);
                         }
                     });
+                    publishAdapter.myRecycleViewlongClickListener(new PublishAdapter.mRecycleViewlongClickListener() {
+                        @Override
+                        public void onRecycleViewlongClick(final View view, final int position) {
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(AdminListActivity.this);//弹出选择框
+                            dialog.setTitle("提示");
+                            dialog.setMessage("你确定要删除这条消息吗");
+                            dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    int id = publishList.get(position).getId();
+                                    publishList.remove(position);
+                                    publishAdapter.notifyDataSetChanged();
+                                }
+                            });
+                            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            dialog.show();
+                        }
+                    });
+
                     break;
                 case 2:
                     publishList.clear();
                     publishList.addAll((List<Careerpublish>) msg.obj);
-                    publishAdapter .notifyDataSetChanged();
+                    publishAdapter.notifyDataSetChanged();
                     publishAdapter.myListViewClickListener(new PublishAdapter.ListViewClickListener() {
                         @Override
-                        public void onRecycleViewClick(View view, int id,String status,String usercount) {
-                            Intent intent=new Intent(AdminListActivity.this,AdminContentActivity.class);
-                            intent.putExtra("id",id);
-                            intent.putExtra("status",status);
-                            intent.putExtra("usercount",usercount);
+                        public void onRecycleViewClick(View view, int id, String status, String usercount) {
+                            Intent intent = new Intent(AdminListActivity.this, AdminContentActivity.class);
+                            intent.putExtra("id", id);
+                            intent.putExtra("status", status);
+                            intent.putExtra("usercount", usercount);
                             startActivity(intent);
                         }
                     });
@@ -71,17 +95,22 @@ public class AdminListActivity extends Activity {
             }
         }
     };
+    private ImageView serch, back;
+    private EditText serchid;
+    private Button publish;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);;
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            ;
         }
         setContentView(R.layout.career_publish_adminlistlayout);
         sendRequest();
-        serch= (ImageView) findViewById(R.id.search_button);
-        serchid= (EditText) findViewById(R.id.search_edit);
-        back= (ImageView) findViewById(R.id.fh_img);
+        serch = (ImageView) findViewById(R.id.search_button);
+        serchid = (EditText) findViewById(R.id.search_edit);
+        back = (ImageView) findViewById(R.id.fh_img);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,64 +118,67 @@ public class AdminListActivity extends Activity {
             }
         });
 
-            serch.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!serchid.getText().toString().equals("")) {
-                        Intent intent=new Intent(AdminListActivity.this,SerchListActivity.class);
-                        intent.putExtra("serch",serchid.getText().toString());
-                        startActivity(intent);
-                    }
+        serch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!serchid.getText().toString().equals("")) {
+                    Intent intent = new Intent(AdminListActivity.this, SerchListActivity.class);
+                    intent.putExtra("serch", serchid.getText().toString());
+                    startActivity(intent);
                 }
-            });
+            }
+        });
 
-        publishAdapter=new PublishAdapter(AdminListActivity.this, R.layout.careerpublish_admin_list_item,publishList);
-        final ListView listView= (ListView) findViewById(R.id.new_list);
+        publishAdapter = new PublishAdapter(AdminListActivity.this, R.layout.careerpublish_admin_list_item, publishList);
+        final ListView listView = (ListView) findViewById(R.id.new_list);
         listView.setAdapter(publishAdapter);
-        publish= (Button) findViewById(R.id.publish);
+        publish = (Button) findViewById(R.id.publish);
         publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AdminListActivity.this, Career_Pulish_Activity.class);
+                Intent intent = new Intent(AdminListActivity.this, Career_Pulish_Activity.class);
                 startActivity(intent);
             }
         });
 
+
     }
 
     private void getuserActivity(String s) {
-        String url="http://123.206.92.38/SimpleSchool/userJoinServlet?opt=get_student_activity&student_id="+s;
+        String url = "http://123.206.92.38/SimpleSchool/userJoinServlet?opt=get_student_activity&student_id=" + s;
 
         http1.getserch(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {
-                Message mes=new Message();
-                mes.what=2;
-                mes.obj=respones;
+                Message mes = new Message();
+                mes.what = 2;
+                mes.obj = respones;
                 handler.sendMessage(mes);
             }
+
             @Override
             public void onError(Exception e) {
-                Toast.makeText(AdminListActivity.this,"网络错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminListActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void sendRequest() {
-        String url="http://123.206.92.38/SimpleSchool/userJoinServlet?opt=get_school_activity_title";
+        String url = "http://123.206.92.38/SimpleSchool/userJoinServlet?opt=get_school_activity_title";
 
 
         http1.sendRequest(url, new HttpCallBackListener() {
             @Override
             public void onFinish(Object respones) {
-                Message mes=new Message();
-                mes.what=1;
-                mes.obj=respones;
+                Message mes = new Message();
+                mes.what = 1;
+                mes.obj = respones;
                 handler.sendMessage(mes);
             }
+
             @Override
             public void onError(Exception e) {
-                Toast.makeText(AdminListActivity.this,"网络错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminListActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
             }
         });
     }

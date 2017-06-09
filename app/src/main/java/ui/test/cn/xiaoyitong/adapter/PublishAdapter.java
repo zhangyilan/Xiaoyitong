@@ -23,7 +23,7 @@ import ui.test.cn.xiaoyitong.entity.Careerpublish;
 public class PublishAdapter extends ArrayAdapter<Careerpublish> {
     private   int   resourseId;
     ListViewClickListener  listViewClickListener;
-
+    mRecycleViewlongClickListener mRecycleViewlongClickListener;
     public PublishAdapter(Context context, int resource, List<Careerpublish> objects) {
         super(context, resource, objects);
         this.resourseId = resource;
@@ -31,7 +31,7 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
         final Careerpublish careerpublish=getItem(position);
 
         final View view;
@@ -58,6 +58,13 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
             public void onClick(View v) {
                 Log.d("id","当前"+careerpublish.getId());
                 listViewClickListener.onRecycleViewClick(view,careerpublish.getId(),careerpublish.getStatus(),careerpublish.getUsercount());
+            }
+        });
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mRecycleViewlongClickListener.onRecycleViewlongClick(view,position);
+                return true;
             }
         });
         viewHolder.listthem.setText(careerpublish.getTheme());
@@ -88,6 +95,12 @@ public class PublishAdapter extends ArrayAdapter<Careerpublish> {
     //当执行这个方法的时候调用接口
     public void  myListViewClickListener(ListViewClickListener listener){
         listViewClickListener=listener;
+    }
+    public  interface    mRecycleViewlongClickListener{//定义接口重写为接口添加了一个isbn参数
+        void  onRecycleViewlongClick(View view, int position);
+    }
+    public void  myRecycleViewlongClickListener(mRecycleViewlongClickListener listener){//当执行这个方法的时候调用接口
+        mRecycleViewlongClickListener=listener;
     }
 
 }
