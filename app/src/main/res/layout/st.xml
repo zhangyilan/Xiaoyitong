@@ -167,7 +167,9 @@
                     android:layout_height="wrap_content"
                     android:text="暂无介绍"
                     android:textColor="#888888"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
             </LinearLayout>
 
         </LinearLayout>
