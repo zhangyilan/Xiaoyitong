@@ -3,6 +3,7 @@ package ui.test.cn.xiaoyitong.ui.sonfragmeng;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -25,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,12 +60,13 @@ public class Career_Pulish_Activity extends Activity {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            ;
+
         }
         setContentView(R.layout.career_pulish_layout);
         getdata();
         getScoredata();
         getstanddata();
+
         school = (TextView) findViewById(R.id.career_publish_school);
         school.setText("四川交通职业技术学院");
         department = (TextView) findViewById(R.id.career_publish_Department);
@@ -76,7 +79,7 @@ public class Career_Pulish_Activity extends Activity {
         standclass = (TextView) findViewById(R.id.career_publish_standclass);
         standproject = (TextView) findViewById(R.id.career_publish_standproject);
         next = (Button) findViewById(R.id.career_publish_next);
-
+        getSdata();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,8 +87,16 @@ public class Career_Pulish_Activity extends Activity {
                 String d2 = stoptime.getText().toString();
                 System.out.println(d1.compareTo(d2));
                 int d=d1.compareTo(d2);
-                if (!school.getText().toString().equals(null) && !department.getText().toString().equals(null) && !ministry.getText().toString().equals(null) && !starttime.getText().toString().equals(null) && !stoptime.getText().toString().equals(null) && !score.getText().toString().equals(null) && !standclass.getText().toString().equals(null) && !standproject.getText().toString().equals("")&&d<0) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH");
+
+                String dateString = formatter.format(new Date());
+                int now=dateString.compareTo(d1);
+
+
+
+                if (!school.getText().toString().equals(null) && !department.getText().toString().equals(null) && !ministry.getText().toString().equals(null) && !starttime.getText().toString().equals(null) && !stoptime.getText().toString().equals(null) && !score.getText().toString().equals(null) && !standclass.getText().toString().equals(null) && !standproject.getText().toString().equals("")&&d<0&&now<=0) {
                     Intent intent = new Intent(Career_Pulish_Activity.this, Career_Pulish_Second_Activity.class);
+
                     intent.putExtra("school", school.getText().toString());
                     intent.putExtra("department", department.getText().toString());
                     intent.putExtra("ministry", ministry.getText().toString());
@@ -95,6 +106,19 @@ public class Career_Pulish_Activity extends Activity {
                     intent.putExtra("score", score.getText().toString());
                     intent.putExtra("standclass", standclass.getText().toString());
                     intent.putExtra("standproject", standproject.getText().toString());
+
+
+                    SharedPreferences.Editor editor=getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.putString("school", school.getText().toString());
+                    editor.putString("department", department.getText().toString());
+                    editor.putString("ministry", ministry.getText().toString());
+                    editor.putString("starttime", starttime.getText().toString());
+                    editor.putString("stoptime", stoptime.getText().toString());
+                    editor.putString("score", score.getText().toString());
+                    editor.putString("standclass", standclass.getText().toString());
+                    editor.putString("standproject", standproject.getText().toString());
+                    editor.commit();//在sharedpreferences中写数据
+
 
                     Log.d("school", "学校是" + school.getText().toString());
                     Log.d("department", "系部是" + department.getText().toString());
@@ -107,7 +131,7 @@ public class Career_Pulish_Activity extends Activity {
                     intent.putExtra("standproject", standproject.getText().toString());
                     startActivity(intent);
                 } else {
-                    if (d>0||d==0){
+                    if (d>0||d==0||now>0){
                         Toast.makeText(Career_Pulish_Activity.this, "请检查时间是否符合要求哦！", Toast.LENGTH_SHORT).show();
 
                     }else {
@@ -161,6 +185,20 @@ public class Career_Pulish_Activity extends Activity {
 
     }
 
+    private void getSdata() {
+
+        //在sharedpreferences中读取数据
+        SharedPreferences a=getSharedPreferences("data",MODE_PRIVATE);
+        school.setText(a.getString("school","四川交通职业技术学院"));
+        department.setText(a.getString("department", ""));
+        ministry.setText(a.getString("ministry", ""));
+        starttime.setText(a.getString("starttime", ""));
+        stoptime.setText(a.getString("stoptime", ""));
+        score.setText(a.getString("score", ""));
+        standclass.setText(a.getString("standclass", ""));
+        standproject.setText(a.getString("standproject", ""));
+
+    }
 
 
     @Override
@@ -170,17 +208,30 @@ public class Career_Pulish_Activity extends Activity {
         {
             AlertDialog.Builder dialog = new AlertDialog.Builder(Career_Pulish_Activity.this);//弹出选择框
             dialog.setTitle("提示");
-            dialog.setMessage("你确定要删除这条消息吗");
-            dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            dialog.setMessage("确定退出吗");
+            dialog.setPositiveButton("保存至草稿箱", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
+                    SharedPreferences.Editor editor=getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.putString("school", school.getText().toString());
+                    editor.putString("department", department.getText().toString());
+                    editor.putString("ministry", ministry.getText().toString());
+                    editor.putString("starttime", starttime.getText().toString());
+                    editor.putString("stoptime", stoptime.getText().toString());
+                    editor.putString("score", score.getText().toString());
+                    editor.putString("standclass", standclass.getText().toString());
+                    editor.putString("standproject", standproject.getText().toString());
+                    editor.commit();//在sharedpreferences中写数据
+                    finish();
                 }
             });
-            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            dialog.setNegativeButton("放弃编辑", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
+                    SharedPreferences.Editor editor = getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.clear();
+                    editor.commit();
+                    finish();
                 }
             });
             dialog.show();

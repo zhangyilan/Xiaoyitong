@@ -4,7 +4,9 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentUris;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -19,8 +21,10 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +63,9 @@ public class Career_Pulish_Second_Activity extends Activity {
     private Button me_photo_local;
     private Button me_photo_no;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +79,10 @@ public class Career_Pulish_Second_Activity extends Activity {
         content = (EditText) findViewById(R.id.career_publish_content);
         adress1 = (EditText) findViewById(R.id.career_publish_adress);
         commit = (Button) findViewById(R.id.career_publish_commit);
+
+        getSdata();
+
+
         Intent intent = getIntent();
         String school = intent.getStringExtra("school");
         final String department = intent.getStringExtra("department");
@@ -92,6 +103,11 @@ public class Career_Pulish_Second_Activity extends Activity {
                         int res=Integer.parseInt(msg.obj.toString());
                         if (res==200){
                             Toast.makeText(Career_Pulish_Second_Activity.this,"发布成功",Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences.Editor editor = getSharedPreferences("data",MODE_PRIVATE).edit();
+                            editor.clear();
+                            editor.commit();
+
                             Intent intent=new Intent(Career_Pulish_Second_Activity.this,AdminListActivity.class);
 
                             startActivity(intent);
@@ -104,6 +120,12 @@ public class Career_Pulish_Second_Activity extends Activity {
 
             }
         };
+
+
+
+
+
+
 
         commit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +144,7 @@ public class Career_Pulish_Second_Activity extends Activity {
                             "&publish_time=" + dateString +
                             "&start_time=" + starttime +
                             "&end_time=" + stoptime +
-                            "&activity_address=" + adress +
+                            "&activity_address=" + adress1.getText().toString() +
                             "&activity_type=" + standclass + "," + standproject +
                             "&activity_background=" + background.getText().toString() +
                             "&activity_suggest=" + instruct.getText().toString();
@@ -145,7 +167,7 @@ public class Career_Pulish_Second_Activity extends Activity {
                     careerpublish.setPublish_branch(department + "," + ministry);
                     careerpublish.setQuality_frade(score);
                     careerpublish.setTheme(them.getText().toString());
-                    careerpublish.setInclude(content.getText().toString());
+                    careerpublish.setInclude(content.getText().toString()+ "\n" + flow_path.getText().toString());
                     careerpublish.setPublish_time(dateString);
                     careerpublish.setStart_time(starttime);
                     careerpublish.setEnd_time(stoptime);
@@ -187,7 +209,7 @@ public class Career_Pulish_Second_Activity extends Activity {
                 photoDialog.getWindow().setGravity(Gravity.FILL);
                 photoDialog.show();
                 viewPhoto(viewPhoto);
-                me_photo_take.setOnClickListener(new photoTake());
+               // me_photo_take.setOnClickListener(new photoTake());
                 me_photo_local.setOnClickListener(new photoLocal());
                 me_photo_no.setOnClickListener(new photoNo());
             }
@@ -195,8 +217,61 @@ public class Career_Pulish_Second_Activity extends Activity {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK )
+        {
+            AlertDialog.Builder dialog = new AlertDialog.Builder(Career_Pulish_Second_Activity.this);//弹出选择框
+            dialog.setTitle("提示");
+            dialog.setMessage("确定退出吗");
+            dialog.setPositiveButton("保存至草稿箱", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences.Editor editor=getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.putString("them", them.getText().toString());
+                    editor.putString("adress1", adress1.getText().toString());
+                    editor.putString("instruct", instruct.getText().toString());
+                    editor.putString("background", background.getText().toString());
+                    editor.putString("flow_path",  flow_path.getText().toString());
+                    editor.putString("content", content.getText().toString());
+                    editor.commit();
+                    finish();//在sharedpreferences中写数据
+                }
+            });
+            dialog.setNegativeButton("放弃编辑", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences.Editor editor = getSharedPreferences("data",MODE_PRIVATE).edit();
+                    editor.clear();
+                    editor.commit();
+                    finish();
+                }
+            });
+            dialog.show();
+
+        }
+
+        return false;
+    }
+
+
+    private void getSdata() {
+
+        //在sharedpreferences中读取数据
+        SharedPreferences a=getSharedPreferences("data",MODE_PRIVATE);
+        them.setText(a.getString("them", ""));
+        adress1.setText(a.getString("adress1", ""));
+        instruct.setText(a.getString("instruct", ""));
+        background.setText(a.getString("background", ""));
+        flow_path.setText(a.getString("flow_path", ""));
+        content.setText(a.getString("content", ""));
+
+
+    }
+
+
     private void viewPhoto(View viewExit) {
-        me_photo_take = (Button) viewExit.findViewById(R.id.photo_take);
+      // me_photo_take = (Button) viewExit.findViewById(R.id.photo_take);
         me_photo_local = (Button) viewExit.findViewById(R.id.photo_local);
         me_photo_no = (Button) viewExit.findViewById(R.id.photo_no);
     }
