@@ -107,6 +107,9 @@ public class ProfessionalismDetailedHandle extends Activity{
                     if (msg.obj.toString().equals("true")){
                         signStatus = "true";
                         toastWinow(activityView);
+                    } else {
+                        Snackbar.make(activityView, "签到失败！", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
                     }
             }
         }
