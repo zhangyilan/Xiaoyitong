@@ -84,7 +84,7 @@ public class ProfessionalismHandle extends Activity{
                 finish();
             }
         });
-        biaoti.setText("职业素养");
+        biaoti.setText("素质测评");
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long i) {

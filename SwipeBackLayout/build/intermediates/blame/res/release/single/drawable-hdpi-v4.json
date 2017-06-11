@@ -24,12 +24,12 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",

@@ -4,16 +4,16 @@
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\layout\\notification_template_big_media.xml"
     },
     {
-        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\notification_template_big_media.xml"
+        "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
@@ -24,12 +24,12 @@
         "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
-        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "D:\\Users\\FuckYou\\xiaoyitong\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
         "source": "C:\\Users\\John\\.android\\build-cache\\8efc61cec2571e607d352d307b5eedcd6737abc8\\output\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\6acc49ec1330d14c91d6325b2e20d055b7181495\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "D:\\android\\workspace\\xiaoyitong2\\SwipeBackLayout\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
