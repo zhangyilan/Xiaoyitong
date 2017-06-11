@@ -100,7 +100,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="22e4a7db636e9977fd1f33691ced6a8c" />
+            android:value="7f84bc58ec362b3cfd66cb33428012c9" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
 

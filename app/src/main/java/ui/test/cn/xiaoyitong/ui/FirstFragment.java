@@ -263,7 +263,7 @@ public class FirstFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void intview() {
         biaoti= (TextView) view.findViewById(R.id.tv_title);
-        biaoti.setText("校易通");
+        biaoti.setText("首页");
 
         ad_viewpager = (ViewPager) view.findViewById(R.id.ad_viewpage);
         ll_dian = (LinearLayout) view.findViewById(R.id.ll_dian);

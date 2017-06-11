@@ -60,18 +60,20 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
     private void bindActivity() {
 
         biaoti= (TextView) view.findViewById(R.id.tv_title);
-        biaoti.setText("个人中心");
+        biaoti.setText("我的");
 
         uname = getActivity().getIntent().getStringExtra("name");
         username = (TextView) view.findViewById(R.id.username);
+        SharedPreferences share = getActivity().getSharedPreferences("user",getActivity().MODE_PRIVATE);
+        String user_name=share.getString("user_name","");
 
         dengluzuce = (LinearLayout) view.findViewById(R.id.dengluzuce);
         denglu = (TextView) view.findViewById(R.id.login);
         zuce = (TextView) view.findViewById(R.id.register);
 
-        if (!TextUtils.isEmpty(uname)) {
+        if (!TextUtils.isEmpty(user_name)) {
             dengluzuce.setVisibility(View.GONE);
-            username.setText(uname);
+            username.setText(user_name);
         } else {
             dengluzuce.setVisibility(View.VISIBLE);
             username.setVisibility(View.GONE);

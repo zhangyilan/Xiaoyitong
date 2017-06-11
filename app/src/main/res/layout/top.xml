@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="25dp"
                 android:gravity="center"
-                android:text="校易通"
+                android:text="首页"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
