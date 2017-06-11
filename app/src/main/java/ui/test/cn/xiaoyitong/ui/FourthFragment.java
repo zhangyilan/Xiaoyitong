@@ -78,8 +78,8 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
         }
 
         chache_size = (TextView) view.findViewById(R.id.chache_size);
-        LinearLayout list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
-        LinearLayout list2 = (LinearLayout) view.findViewById(R.id.lin_list2);
+        //LinearLayout list1 = (LinearLayout) view.findViewById(R.id.lin_list1);
+        //LinearLayout list2 = (LinearLayout) view.findViewById(R.id.lin_list2);
         LinearLayout list3 = (LinearLayout) view.findViewById(R.id.lin_list3);
         LinearLayout list4 = (LinearLayout) view.findViewById(R.id.lin_list4);
         LinearLayout list5 = (LinearLayout) view.findViewById(R.id.lin_list5);
@@ -93,8 +93,8 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
         }
 
-        list1.setOnClickListener(this);
-        list2.setOnClickListener(this);
+        //list1.setOnClickListener(this);
+        //list2.setOnClickListener(this);
         list3.setOnClickListener(this);
         list4.setOnClickListener(this);
         list5.setOnClickListener(this);
@@ -109,12 +109,12 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.lin_list1:
-                startActivity(new Intent(getActivity(), PersonalActiity.class));
-                break;
-            case R.id.lin_list2:
+            //case R.id.lin_list1:
+                //startActivity(new Intent(getActivity(), PersonalActiity.class));
+                //break;
+            //case R.id.lin_list2:
 
-                break;
+                //break;
             case R.id.lin_list3:
                 Toast.makeText(getActivity(), "正在检查更新", Toast.LENGTH_SHORT).show();
                 //获取当前应用程序的版本号

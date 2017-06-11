@@ -18,7 +18,7 @@ public class GridviewAdapter extends BaseAdapter {
     private Context context;
     private int[] imgs = {R.drawable.grid1,R.drawable.grid2,R.drawable.grid3,R.drawable.grid4,R.drawable.grid6,R.drawable.grid5,R.drawable.grid7,R.drawable.grid8};
 
-    private String grid_name[] = {"成绩查询","课表查询","等级查询","校内导航","停车导航","新生指南","校历","素质测评"};
+    private String grid_name[] = {"成绩查询","课表查询","二级查询","校内导航","停车导航","新生指南","校历","素质测评"};
 
     public GridviewAdapter(Context context) {
         this.context = context;
