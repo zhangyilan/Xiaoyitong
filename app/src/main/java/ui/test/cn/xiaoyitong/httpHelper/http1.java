@@ -33,6 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import ui.test.cn.xiaoyitong.adapter.Professionalism;
 import ui.test.cn.xiaoyitong.entity.Careerpublish;
 import ui.test.cn.xiaoyitong.entity.Users;
 
@@ -631,6 +632,77 @@ public class http1 {
                 }
             }
 
+        }).start();
+    }
+
+    public static void sendRequestCustomer(final String adress, final HttpCallBackListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    List<Professionalism> list = new ArrayList<>();
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Request request = new Request.Builder().url(adress).build();
+                    Response responses = null;
+                    String rs = null;
+                    Log.d("aa", "测试中" + adress);
+
+                    responses = okHttpClient.newCall(request).execute();
+                    rs = responses.body().string();
+                    Log.d("aa", "测试中" + rs);
+
+
+                    String imgUrl = null;
+                    String title = null;
+                    String department = null;
+                    String endTime = null;
+                    String startTime = null;
+                    String score = null;
+                    String id = null;
+                    String status = null;
+
+                    Log.d("ce", "解中" + rs);
+                    JSONArray jsonArray = new JSONArray(rs);
+                    Log.d("ce", "长度" + jsonArray.length());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        Log.d("ce", "解中");
+                        JSONObject jsonobject = jsonArray.getJSONObject(i);
+                        Log.d("ce", "解中"+jsonobject);
+                        imgUrl = jsonobject.getString("activity_img");
+                        title=jsonobject.getString("theme");
+                        department = jsonobject.getString("publish_branch");
+                        endTime = jsonobject.getString("end_time");
+                        startTime = jsonobject.getString("start_time");
+                        score = jsonobject.getString("quality_frade");
+                        id = (jsonobject.getString("id"));
+                        status = jsonobject.getString("state");
+                        //  activity_img = parseImg(imgurl);
+                        Professionalism professionalism = new Professionalism();
+                        professionalism.setImageId(imgUrl);
+                        professionalism.setSubject(title);
+                        professionalism.setDepartment(department);
+                        professionalism.setFinish(startTime+"——"+endTime);
+                        professionalism.setScore(score);
+                        professionalism.setId(id);
+                        professionalism.setStatus(status);
+                        list.add(professionalism);
+                    }
+                    if (listener != null) {
+                        listener.onFinish(list);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Looper.prepare();
+                    listener.onError(e);
+                    Looper.loop();
+                }
+            }
         }).start();
     }
 

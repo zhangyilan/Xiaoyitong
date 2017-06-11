@@ -1,10 +1,12 @@
 package ui.test.cn.xiaoyitong.adapter;
 
+import java.io.Serializable;
+
 /**
  * Created by John on 2017/5/25.
  */
 
-public class Professionalism {
+public class Professionalism implements Serializable {
     private String imageId;
     private String subject;
     private String department;
@@ -13,7 +15,11 @@ public class Professionalism {
     private String id;
     private String status;
 
-    public Professionalism(String imageId,String subject,String department,String finish,String score,String id,String status){
+    public Professionalism(){
+
+    }
+
+    public Professionalism(String imageId, String subject, String department, String finish, String score, String id, String status){
         this.imageId = imageId;
         this.subject = subject;
         this.department = department;
@@ -73,5 +79,9 @@ public class Professionalism {
 
     public String getStatus() {
         return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
