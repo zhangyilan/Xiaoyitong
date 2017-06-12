@@ -154,6 +154,7 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE).edit();
                     editor.clear();
                     editor.commit();
+
                     logout();
                 } else {
                     Toast.makeText(getActivity(), "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
