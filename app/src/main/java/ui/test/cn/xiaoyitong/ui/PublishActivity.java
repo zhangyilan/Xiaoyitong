@@ -76,7 +76,7 @@ public class PublishActivity extends Activity {
                 photoDialog.getWindow().setGravity(Gravity.FILL);
                 photoDialog.show();
                 viewPhoto(viewPhoto);
-                me_photo_take.setOnClickListener(new photoTake());
+               // me_photo_take.setOnClickListener(new photoTake());
                 me_photo_local.setOnClickListener(new photoLocal());
                 me_photo_no.setOnClickListener(new photoNo());
             }

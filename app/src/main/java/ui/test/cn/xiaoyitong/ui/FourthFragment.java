@@ -151,7 +151,9 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
                 if (HXSDKHelper.getInstance().isLogined()) {
                     EMGroupManager.getInstance().loadAllGroups();
                     EMChatManager.getInstance().loadAllConversations();
-
+                    SharedPreferences.Editor editor = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE).edit();
+                    editor.clear();
+                    editor.commit();
                     logout();
                 } else {
                     Toast.makeText(getActivity(), "你还没有登陆！亲登陆后在操作！", Toast.LENGTH_SHORT).show();
@@ -182,9 +184,7 @@ public class FourthFragment extends Fragment implements View.OnClickListener {
                     public void run() {
                         pd.dismiss();
                         DataCleanManager.cleanInternalCache(getActivity());
-                        SharedPreferences.Editor editor = getActivity().getSharedPreferences("user", getActivity().MODE_PRIVATE).edit();
-                        editor.clear();
-                        editor.commit();
+
                         // 重新显示登陆页面
                         getActivity().finish();
                         startActivity(new Intent(getActivity(), LoginActivity.class));
