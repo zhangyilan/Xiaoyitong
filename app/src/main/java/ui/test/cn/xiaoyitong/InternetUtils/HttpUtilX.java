@@ -8,11 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import ui.test.cn.xiaoyitong.adapter.ExpressList;
-
 
 public class HttpUtilX {
-	static List<ExpressList> list=new ArrayList<ExpressList>();
 	public static String sendHttpRequest(final String address,final String method, final HttpCallbackListener listener){
 		new Thread(new Runnable(){
 
