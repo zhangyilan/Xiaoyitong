@@ -49,7 +49,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
-import ui.test.cn.xiaoyitong.LyoutHandle.ProfessionalismHandle;
 import ui.test.cn.xiaoyitong.Navi.LocationActivity;
 import ui.test.cn.xiaoyitong.R;
 import ui.test.cn.xiaoyitong.adapter.GridviewAdapter;

@@ -61,8 +61,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ui.test.cn.xiaoyitong.R;
-import ui.test.cn.xiaoyitong.adapter.ExpressionAdapter;
-import ui.test.cn.xiaoyitong.adapter.ExpressionPagerAdapter;
 import ui.test.cn.xiaoyitong.adapter.MessageAdapter;
 import ui.test.cn.xiaoyitong.controller.HXSDKHelper;
 import ui.test.cn.xiaoyitong.utils.DemoHXSDKHelper;

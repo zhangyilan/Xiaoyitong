@@ -65,8 +65,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".LyoutHandle.PayDemoActivity" />
-
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
@@ -179,12 +177,6 @@
         <activity android:name=".ui.sonfragmeng.PersonalActiity" />
         <activity android:name=".ui.sonfragmeng.MenuGrandFind" />
         <activity android:name=".ui.sonfragmeng.MenuGandFind_detail" />
-        <activity android:name=".LyoutHandle.ReceiveExpressHandle" />
-        <activity android:name=".LyoutHandle.ExpressDetailedHandle" />
-        <activity android:name=".LyoutHandle.ExpressListHandle" />
-        <activity android:name=".LyoutHandle.CloudDetailedHandle" />
-        <activity android:name=".LyoutHandle.CloudReleaseHandle" />
-        <activity android:name=".LyoutHandle.CloudRecyclerViewHandle" />
         <activity android:name=".ui.sonfragmeng.ShetuanActivity" />
         <activity android:name=".ui.sonfragmeng.newsMainActivity" />
         <activity android:name=".ui.sonfragmeng.Content_Activity" />
@@ -230,11 +222,6 @@
         <activity android:name="maplabeing.PanoramaActivity"/>
         <activity android:name="maplabeing.ParkDetialsActivity"/>
         <activity android:name="maplabeing.ParkActivity"/>
-        <activity
-            android:name=".LyoutHandle.ProfessionalismHandle"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".LyoutHandle.ProfessionalismDetailedHandle"/>
     </application>
 
 </manifest>
