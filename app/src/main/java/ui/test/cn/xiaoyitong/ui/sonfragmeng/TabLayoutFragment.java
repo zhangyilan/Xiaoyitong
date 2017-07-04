@@ -28,6 +28,8 @@ import ui.test.cn.xiaoyitong.GetContext.MyApplication;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpCallbackListener;
 import ui.test.cn.xiaoyitong.InternetUtils.HttpUtilX;
 import ui.test.cn.xiaoyitong.R;
+import ui.test.cn.xiaoyitong.adapter.OrderInformationAdapter;
+import ui.test.cn.xiaoyitong.adapter.OrderList;
 
 /**
  * A simple {@link Fragment} subclass.

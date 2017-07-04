@@ -33,6 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import ui.test.cn.xiaoyitong.adapter.Professionalism;
 import ui.test.cn.xiaoyitong.entity.Careerpublish;
 import ui.test.cn.xiaoyitong.entity.Users;
 
